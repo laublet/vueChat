@@ -10,7 +10,7 @@ messages.post('/' , (req, res) => {
 		if (err) { res.status(500).json({success: false, message: err.message})
 	} else {
 		let newMessage = new Message(req.body)
-		newMessage.recipient = req.body.recipient;
+		newMessage.senderId = req.decode.username;
 		newMessage.save(function (err, naming) {
 			if(err) {
 				res.status(400).json({sucees: false, message: err.message})
@@ -23,7 +23,7 @@ messages.post('/' , (req, res) => {
 });
 
 messages.get('/' , (req, res) => {
-	Message.find({recipient: req.decode.username},(err, usersMessages) => {
+	Message.find({receiverId: req.decode.username},(err, usersMessages) => {
 		if (err) res.status(500).json({success: false, message: err.message})
 			else res.status(200).json({success: true, message: 'Here are your message!', content: usersMessages});
 	})

@@ -15,7 +15,10 @@ let MessageSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  recipient: {
+  senderId: {
+    type: String
+  },
+  receiverId: {
     type: String
   },
   read: {
