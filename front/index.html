@@ -3,10 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>front</title>
+    <title>Vue Chat</title>
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <!-- S'AFFICHE ET FONCTIONNE SUR TOUTE L'APPLICATION : -->
+    <div id="lol">
+      <p v-if="seen">Message Can Be Seen!</p>
+      <p>
+        <button class="btn btn-lg btn-primary" v-on:click="seen = !seen">Hide</button>
+      </p>
+    </div>
   </body>
 </html>

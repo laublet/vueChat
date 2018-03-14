@@ -11,5 +11,13 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+})
+
+// CREATION D'UNE NOUVELLE VUE QUI S'AFFICHE DEPUIS L'INDEX.HTML :
+let lol = new Vue({
+  el: '#lol',
+  data: {
+    seen: true
+  }
 })

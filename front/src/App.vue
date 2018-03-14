@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!-- <img src="./assets/logo.png"> -->
+    <!-- 2 METHODS : -->
+    <router-link :to="{ name: 'HelloWorld' }">Home</router-link>
+    <router-link to="/login">Login</router-link>
+    <router-link to="/dashboard">Dashboard</router-link>
     <router-view/>
   </div>
 </template>
