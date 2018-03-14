@@ -1,16 +1,16 @@
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
-import bodyParser from "body-parser";
-import jwt from "jsonwebtoken";
-import morgan from "morgan";
-import dotEnv from "dotenv";
-dotEnv.config();
-import checkToken from "./modules/checkToken/index";
-import connection from "./modules/connection/index";
-import list from "./modules/list/index";
-import login from "./modules/login/index";
-import users from "./modules/users/index";
+import express from "express"
+import mongoose from "mongoose"
+import cors from "cors"
+import bodyParser from "body-parser"
+import jwt from "jsonwebtoken"
+import morgan from "morgan"
+import dotEnv from "dotenv"
+dotEnv.config()
+import connection from "./modules/connection/index"
+import checkToken from "./modules/checkToken/index"
+import auth from "./modules/auth/index"
+import users from "./modules/users/index"
+import messages from "./modules/messages/index"
 
 let app = express();
 
@@ -27,10 +27,10 @@ app.use(cors());
 // 	next();});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/users", users);
-app.use("/login", login);
+app.use("/auth", auth);
 app.use(checkToken);
-app.use("/list", list);
+app.use("/users", users);
+app.use("/messages", messages);
 
 let host = process.env.HOST;
 let port = process.env.PORT || 8080;

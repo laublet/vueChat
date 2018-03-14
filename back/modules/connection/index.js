@@ -1,7 +1,5 @@
-import express from "express";
-import mongoose from "mongoose";
-import login from "../login/index";
-import users from "../users/index";
+import express from "express"
+import mongoose from "mongoose"
 
 let app = express();
 

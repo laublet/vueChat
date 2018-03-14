@@ -5,7 +5,7 @@ import bodyParser from 'body-parser'
 
 let app = express();
 let checkToken = (req, res, next) => {
-console.log(req.headers);
+// console.log(req.headers);
   if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === process.env.AUTHBEARER) {
     jwt.verify(req.headers.authorization.split(' ')[1], process.env.SECRETKEY, function (err, decode) {
       if (err) res.status(500).json({success: false, message: err})

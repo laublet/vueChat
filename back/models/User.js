@@ -1,27 +1,30 @@
 import mongoose from 'mongoose'
+import mongooseTypeEmail from 'mongoose-type-email'
 import bcrypt from 'bcrypt'
 
 let UserSchema = new mongoose.Schema({
   username: {
-    type: String,
-    unique: true,
+    type: mongoose.SchemaTypes.Email,
     required: true
   },
-  email: {
+  password: {
     type: String,
-    unique: true,
-    trim: true,
-    required: true,
-    lowercase: true
+    required: true
   },
-  hash_password: { type: String, required: true },
-  message: {
-    type: String,
+  firstName: {
+    type: String
+  },
+  lastName: {
+    type: String
+  },
+  creationDate: {
+    type: Date,
+    default: Date.now
   },
 });
 
 UserSchema.methods.comparePasswords = function(password) {
-  return bcrypt.compareSync(password, this.hash_password);
+  return bcrypt.compareSync(password, this.password);
 }
 
 export default mongoose.model('User', UserSchema);

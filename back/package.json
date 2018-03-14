@@ -24,6 +24,7 @@
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.1",
     "jwt-simple": "^0.5.1",
-    "mongoose": "^5.0.7"
+    "mongoose": "^5.0.7",
+    "mongoose-type-email": "^1.0.5"
   }
 }
