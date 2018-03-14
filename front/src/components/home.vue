@@ -1,23 +1,26 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <button v-on:click = "post"><router-link to="/login">login</router-link></button>
+    <button v-on:click = "post"> <router-link to="/signup">signup</router-link></button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
+  name: "home",
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+      msg: "Welcome to our Awesome VueApp"
+    };
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {

@@ -1,27 +1,43 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import noLogged from '@/components/noLogged'
-import logged from '@/components/logged'
+import Vue from "vue";
+import Router from "vue-router";
+import home from "@/components/home";
+import signup from "@/components/signup";
+import login from "@/components/login";
+import userList from "@/components/userList";
+import messages from "@/components/messages";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: "/",
+      name: "home",
+      component: home
     },
     {
-      path: '/login',
-      name: 'noLogged',
-      component: noLogged
+      path: "/signup",
+      name: "signup",
+      component: signup
     },
     {
-      path: '/dashboard',
-      name: 'logged',
-      component: logged
+      path: "/login",
+      name: "login",
+      component: login
+    },
+    {
+      path: "/userList",
+      name: "userList",
+      component: userList
+    },
+    {
+      path: "/messages",
+      name: "messages",
+      component: messages
+    },
+    {
+      path: "*",
+      redirect: "/"
     }
   ]
-})
+});

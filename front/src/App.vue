@@ -1,23 +1,30 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <!-- 2 METHODS : -->
-    <router-link :to="{ name: 'HelloWorld' }">Home</router-link>
-    <router-link to="/login">Login</router-link>
-    <router-link to="/dashboard">Dashboard</router-link>
-    <router-view/>
+     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import home from "@/components/home";
+import login from "@/components/login";
+import signup from "@/components/signup";
+import userList from "@/components/userList";
+import messages from "@/components/messages";
+
 export default {
-  name: 'App'
-}
+  name: "App",
+  components: {
+    home,
+    signup,
+    login,
+    userList
+  }
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
