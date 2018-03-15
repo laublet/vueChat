@@ -6,13 +6,20 @@
 
 <script>
 import noLogged from "@/modules/auth/noLogged";
-import logged from "@/modules/logged/logged";
+import home from "@/sharedComponents/home";
+import messages from "@/sharedComponents/messages";
+import userList from "@/sharedComponents/userList";
+// import logged from "@/modules/logged/logged";
 
 export default {
   name: "App",
   components: {
     noLogged,
-    logged
+    home,
+    messages,
+    userList
+
+    // logged
   }
 };
 </script>

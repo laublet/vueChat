@@ -1,11 +1,11 @@
 <template>
   <div class="hello">
     <h1>{{ display }}</h1>
-    <input type="email" placeholder="Enter Email" key="email-input">
-    <br><br>
-    <input type="password" placeholder="Enter Password" key="password-input">
-    <br><br>
-     <button> <router-link to="/logged">Login</router-link></button>
+    <label for="username">Username </label>
+      <input v-model="user.username" id="username" name="username" type="email" placeholder="Username" required><br><br>
+      <label for="password">Password</label>
+      <input v-model="user.password" id="password" name="password" type="password" placeholder="password" required><br><br>
+     <button v-on:click="post">Login</button>
     <button class="btn btn-lg btn-primary" v-on:click="QHHHHHHHHH">Signup</button>
     <!-- <button class="btn btn-lg btn-primary" v-bind="test">Login</button> -->
   </div>
@@ -30,7 +30,7 @@ export default {
       // console.log(this.$emit("test"));
     },
     post: function() {
-      axios
+      this.$http
         .post("http://localhost:8000/auth/login", {
           username: this.user.username,
           password: this.user.password
@@ -40,7 +40,7 @@ export default {
           let token = data.body.content.token;
           localStorage.setItem("Clef", token);
           console.log(token);
-          if (token) this.$router.push("/messages");
+          if (token) this.$router.push("/home");
           else this.$router.go("/");
         });
     }

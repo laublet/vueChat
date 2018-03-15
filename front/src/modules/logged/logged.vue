@@ -1,16 +1,16 @@
 <template>
   <div>
     <h1>Logged</h1>
-  <home v-if="logged"/>
+<!--   <home v-if="logged"/>
   <userList v-else-if/>
-  <messages v-else-if/>
+  <messages v-else-if/> -->
   </div>
 </template>
 
 <script>
-import home from "./components/home";
-import userList from "./components/userList";
-import messages from "./components/messages";
+// import home from "./components/home";
+// import userList from "./components/userList";
+// import messages from "./components/messages";
 
 export default {
   name: "logged",
