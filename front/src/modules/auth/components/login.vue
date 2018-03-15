@@ -1,10 +1,13 @@
 <template>
   <div class="hello">
     <h1>{{ display }}</h1>
+<<<<<<< HEAD
     <!-- <input type="email" placeholder="Enter Email" key="email-input">
     <br><br>
     <input type="password" placeholder="Enter Password" key="password-input">
     <br><br> -->
+=======
+>>>>>>> 7790a166d375db368e4703d5ac0c4455f19a5ffc
     <label for="username">Username </label>
       <input v-model="user.username" id="username" name="username" type="email" placeholder="Username" required><br><br>
       <label for="password">Password</label>
@@ -44,7 +47,11 @@ export default {
           let token = data.body.content.token;
           localStorage.setItem("Clef", token);
           console.log(token);
+<<<<<<< HEAD
           if (token) this.$router.push("/logged");
+=======
+          if (token) this.$router.push("/home");
+>>>>>>> 7790a166d375db368e4703d5ac0c4455f19a5ffc
           else this.$router.go("/");
         });
     }
