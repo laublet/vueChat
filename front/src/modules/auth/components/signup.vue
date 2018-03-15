@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>{{ test }}</h1>
     <div>
       <label for="username">Username </label>
       <input v-model="user.username" id="username" name="username" type="email" placeholder="Username" required><br><br>
@@ -11,13 +11,21 @@
       <label for="lastName">lastName </label>
       <input v-model="user.lastName" id="lastName" name="lastName" type="text" placeholder="lastName">
     </div>
-    <button class="btn btn-lg btn-primary" v-on:click="login = !login">Login</button>
+        <button class="btn btn-lg btn-primary" v-on:click="testFunction">Signup</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "signup",
+  props: {
+    test: {
+      type: Boolean
+      // default: function(value) {
+      //   return (test = !test);
+      // }
+    }
+  },
   data() {
     return {
       msg: "Signup to OurAwesomeApp",
@@ -30,8 +38,11 @@ export default {
     };
   },
   methods: {
+    testFunction: function() {
+      this.$emit("test");
+    },
     post: function() {
-      this.$http
+      axios
         .post("http://localhost:8000/auth/signup", {
           username: this.user.username,
           password: this.user.password,

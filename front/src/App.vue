@@ -6,13 +6,13 @@
 
 <script>
 import noLogged from "@/modules/auth/noLogged";
-// import logged from "@/modules/logged/logged";
+import logged from "@/modules/logged/logged";
 
 export default {
   name: "App",
   components: {
-    noLogged
-    // logged
+    noLogged,
+    logged
   }
 };
 </script>

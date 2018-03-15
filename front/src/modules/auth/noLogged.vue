@@ -1,8 +1,9 @@
 <template>
   <div>
     <h1>noLogged</h1>
-  <login v-if="login"/>
-  <signup v-else/>
+    {{ loginStatus }}
+  <login  v-on:test="loginStatus = !loginStatus" v-if="loginStatus"/>
+  <signup v-on:test="loginStatus = !loginStatus" v-else/>
   </div>
 </template>
 
@@ -14,16 +15,21 @@ export default {
   data() {
     return {
       content: "Login",
-      login: true
+      loginStatus: true
     };
   },
   components: {
     signup,
     login
+  },
+  methods: {
+    functionDEmerde: function() {
+      console.log("loginStatus");
+      loginStatus = false;
+    }
   }
 };
 </script>
 
 <style scoped>
 </style>
-
