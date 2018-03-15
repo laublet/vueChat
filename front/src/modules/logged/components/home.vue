@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    <button class="btn btn-lg btn-primary" v-on:click="TWO">UserList</button>
+    <button class="btn btn-lg btn-primary" v-on:click="THREE">Messages</button>
     <h1>{{ msg }}</h1>
   </div>
 </template>
@@ -12,6 +14,16 @@ export default {
       //Ajouter le nom de l user au msg
       msg: "Welcome home "
     };
+  },
+  methods: {
+    TWO: function() {
+      this.$emit("userList");
+      // console.log(this.$emit("test"));
+    },
+    THREE: function() {
+      this.$emit("messages");
+      // console.log(this.$emit("test"));
+    }
   }
 };
 </script>

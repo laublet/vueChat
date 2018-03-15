@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    <button class="btn btn-lg btn-primary" v-on:click="ONE">Home</button>
+    <button class="btn btn-lg btn-primary" v-on:click="THREE">Messages</button>
     <p>{{ list }}</p>
     <button v-on:click = "getListUSer">Get the user list</button>
   </div>
@@ -14,6 +16,14 @@ export default {
     };
   },
   methods: {
+    ONE: function() {
+      this.$emit("home");
+      // console.log(this.$emit("test"));
+    },
+    THREE: function() {
+      this.$emit("messages");
+      // console.log(this.$emit("test"));
+    },
     getListUSer: function() {
       axios.get("http://localhost:8000/users", {}).then(function(res) {
         this.list = res.data.content;

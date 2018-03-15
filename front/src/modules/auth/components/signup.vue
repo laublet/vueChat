@@ -11,7 +11,8 @@
       <label for="lastName">lastName </label>
       <input v-model="user.lastName" id="lastName" name="lastName" type="text" placeholder="lastName">
     </div>
-        <button class="btn btn-lg btn-primary" v-on:click="testFunction">Signup</button>
+        <button v-on:click="post">Validate</button>
+        <button class="btn btn-lg btn-primary" v-on:click="testFunction">Login</button>
   </div>
 </template>
 
@@ -42,7 +43,7 @@ export default {
       this.$emit("test");
     },
     post: function() {
-      axios
+      this.$http
         .post("http://localhost:8000/auth/signup", {
           username: this.user.username,
           password: this.user.password,

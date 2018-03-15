@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1>Logged</h1>
-  <home v-if="logged"/>
-  <userList v-else-if/>
-  <messages v-else-if/>
+  <home v-on:userList="logged = '2'" v-on:messages="logged = '3'" v-if="logged = '1'" />
+  <userList v-on:home="logged = '1'" v-on:messages="logged = '3'" v-else-if="logged = '2'" />
+  <messages v-on:home="logged = '1'" v-on:userList="logged = '2'" v-else-if="logged = '3'" />
   </div>
 </template>
 
@@ -16,14 +16,14 @@ export default {
   name: "logged",
   data() {
     return {
-      logged: true
+      loggedView: "1"
     };
   },
   components: {
     home,
     userList,
     messages
-  }
+  },
 };
 </script>
 

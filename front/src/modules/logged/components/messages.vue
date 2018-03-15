@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    <button class="btn btn-lg btn-primary" v-on:click="ONE">Home</button>
+    <button class="btn btn-lg btn-primary" v-on:click="TWO">UserList</button>
     <p>{{ messages }}</p>
     <button v-on:click = "getMessage">Get the messages</button><br><br>
       <label for="receiverId">sendTo </label>
@@ -26,6 +28,14 @@ export default {
     };
   },
   methods: {
+    ONE: function() {
+      this.$emit("home");
+      // console.log(this.$emit("test"));
+    },
+    TWO: function() {
+      this.$emit("userList");
+      // console.log(this.$emit("test"));
+    },
     getMessage: function() {
       axios.get("http://localhost:8000/messages", {}).then(function(res) {
         this.messages = res.data.content;
