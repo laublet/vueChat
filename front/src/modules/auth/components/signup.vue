@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>{{ check }}</h1>
     <div>
       <label for="username">Username </label>
       <input v-model="user.username" id="username" name="username" type="email" placeholder="Username" required><br><br>
@@ -11,13 +11,14 @@
       <label for="lastName">lastName </label>
       <input v-model="user.lastName" id="lastName" name="lastName" type="text" placeholder="lastName">
     </div>
-    <button class="btn btn-lg btn-primary" v-on:click="login = !login">Login</button>
+    <button class="btn btn-lg btn-primary" v-on:click="check = !check">Signup</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "signup",
+  props: ['check'],
   data() {
     return {
       msg: "Signup to OurAwesomeApp",

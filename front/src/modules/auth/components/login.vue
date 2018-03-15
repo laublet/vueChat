@@ -1,17 +1,18 @@
 <template>
   <div class="hello">
-    <h1>{{ content }}</h1>
+    <h1>{{ check }}</h1>
     <input type="email" placeholder="Enter Email" key="email-input">
     <br><br>
     <input type="password" placeholder="Enter Password" key="password-input">
     <br><br>
-    <button class="btn btn-lg btn-primary" v-on:click="login = !login">Signup</button>
+    <button class="btn btn-lg btn-primary" v-on:click="check = !check">Login</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "login",
+  props: ['check'],
   data() {
     return {
       msg: "Log here !",
