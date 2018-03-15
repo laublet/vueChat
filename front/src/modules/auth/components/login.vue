@@ -1,18 +1,20 @@
 <template>
   <div class="hello">
-    <h1>{{ check }}</h1>
+    <h1>{{ display }}</h1>
     <input type="email" placeholder="Enter Email" key="email-input">
     <br><br>
     <input type="password" placeholder="Enter Password" key="password-input">
     <br><br>
-    <button class="btn btn-lg btn-primary" v-on:click="check = !check">Login</button>
+     <button> <router-link to="/logged">Login</router-link></button>
+    <button class="btn btn-lg btn-primary" v-on:click="QHHHHHHHHH">Signup</button>
+    <!-- <button class="btn btn-lg btn-primary" v-bind="test">Login</button> -->
   </div>
 </template>
 
 <script>
 export default {
   name: "login",
-  props: ['check'],
+  props: ["display"],
   data() {
     return {
       msg: "Log here !",
@@ -23,8 +25,12 @@ export default {
     };
   },
   methods: {
+    QHHHHHHHHH: function() {
+      this.$emit("test");
+      // console.log(this.$emit("test"));
+    },
     post: function() {
-      this.$http
+      axios
         .post("http://localhost:8000/auth/login", {
           username: this.user.username,
           password: this.user.password

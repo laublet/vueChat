@@ -2,7 +2,6 @@
   <div class="hello">
     <p>{{ list }}</p>
     <button v-on:click = "getListUSer">Get the user list</button>
-    <router-link to="/">accueil</router-link>
   </div>
 </template>
 
@@ -16,7 +15,7 @@ export default {
   },
   methods: {
     getListUSer: function() {
-      this.$http.get("http://localhost:8000/users", {}).then(function(res) {
+      axios.get("http://localhost:8000/users", {}).then(function(res) {
         this.list = res.data.content;
         console.log(this.list);
       });

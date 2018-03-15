@@ -1,12 +1,9 @@
 <template>
   <div>
-    <!-- <h1>noLogged</h1> -->
-  <!-- <login v-bind:login="true" v-if="login"/>
-  <signup v-bind:login="false" v-else/> -->
-  <!-- <login v-bind:turlu="contentTitle"/>
-  <signup v-bind:turlu="contentTitle" /> -->
-    <login  v-bind:check="login" />
-    <signup v-bind:check="login" />
+    <h1>noLogged</h1>
+    {{ loginStatus }}
+  <login  v-on:test="loginStatus = !loginStatus" v-if="loginStatus"/>
+  <signup v-on:test="loginStatus = !loginStatus" v-else/>
   </div>
 </template>
 
@@ -18,16 +15,22 @@ export default {
   name: "noLogged",
   data() {
     return {
-      login: true,
+      content: "Login",
+      loginStatus: true
     };
   },
   components: {
     signup,
     login
+  },
+  methods: {
+    functionDEmerde: function() {
+      console.log("loginStatus");
+      loginStatus = false;
+    }
   }
 };
 </script>
 
 <style scoped>
 </style>
-
