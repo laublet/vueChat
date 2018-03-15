@@ -1,7 +1,11 @@
 <template>
   <div class="hello">
-    <button class="btn btn-lg btn-primary" v-on:click="ONE">Home</button>
-    <button class="btn btn-lg btn-primary" v-on:click="TWO">UserList</button>
+    <router-link :to="{name: 'home'}">
+      <button class="btn btn-lg btn-primary">Home</button>
+    </router-link>
+    <router-link :to="{name: 'userList'}">
+      <button class="btn btn-lg btn-primary">User List</button>
+    </router-link>
     <p>{{ messages }}</p>
     <button v-on:click = "getMessage">Get the messages</button><br><br>
       <label for="receiverId">sendTo </label>
@@ -28,21 +32,13 @@ export default {
     };
   },
   methods: {
-    ONE: function() {
-      this.$emit("home");
-      // console.log(this.$emit("test"));
-    },
-    TWO: function() {
-      this.$emit("userList");
-      // console.log(this.$emit("test"));
-    },
     getMessage: function() {
-      axios.get("http://localhost:8000/messages", {}).then(function(res) {
+      this.$http.get("http://localhost:8000/messages", {}).then(function(res) {
         this.messages = res.data.content;
       });
     },
     sendMessage: function() {
-      axios
+      this.$http
         .post("http://localhost:8000/messages", {
           title: this.messagesToSend.title,
           content: this.messagesToSend.content,
