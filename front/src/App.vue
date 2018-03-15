@@ -5,19 +5,14 @@
 </template>
 
 <script>
-import home from "@/components/home";
-import login from "@/components/login";
-import signup from "@/components/signup";
-import userList from "@/components/userList";
-import messages from "@/components/messages";
+import noLogged from "@/modules/auth/noLogged";
+// import logged from "@/modules/logged/logged";
 
 export default {
   name: "App",
   components: {
-    home,
-    signup,
-    login,
-    userList
+    noLogged
+    // logged
   }
 };
 </script>

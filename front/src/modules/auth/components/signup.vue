@@ -11,12 +11,7 @@
       <label for="lastName">lastName </label>
       <input v-model="user.lastName" id="lastName" name="lastName" type="text" placeholder="lastName">
     </div>
-   <!--  <input v-model="user.username" type="text" >
-    <input v-model="user.email" type="email" >
-    <input v-model="user.password" type="password" >
-    <input v-model="user.message" type="string" > -->
-    <button v-on:click = "post">Validate</button>
-    <button v-on:click = "post"><router-link to="/">Accueil</router-link></button>
+    <button class="btn btn-lg btn-primary" v-on:click="login = !login">Login</button>
   </div>
 </template>
 

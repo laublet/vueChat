@@ -1,11 +1,11 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <input v-model="user.username" type="username" placeholder="username">
-    <input v-model="user.password" type="password" placeholder="password">
-    <button v-on:click = "post"> Login</button>
-    <button> <router-link to="/">Accueil</router-link></button>
-    <button> <router-link to="/signup">Signup</router-link></button>
+    <h1>{{ content }}</h1>
+    <input type="email" placeholder="Enter Email" key="email-input">
+    <br><br>
+    <input type="password" placeholder="Enter Password" key="password-input">
+    <br><br>
+    <button class="btn btn-lg btn-primary" v-on:click="login = !login">Signup</button>
   </div>
 </template>
 
