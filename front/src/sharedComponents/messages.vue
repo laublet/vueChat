@@ -6,7 +6,12 @@
     <router-link :to="{name: 'userList'}">
       <button class="btn btn-lg btn-primary">User List</button>
     </router-link>
-    <p>{{ messages }}</p>
+    <div v-for="message in messages">
+      <p>From: {{ message.senderId }}</p>
+      <p>Subject: {{ message.title }}</p>
+      <p>Content: {{ message.content }}</p>
+      <hr>
+    </div>
     <button v-on:click = "getMessage">Get the messages</button><br><br>
       <label for="receiverId">sendTo </label>
       <input v-model="messagesToSend.receiverId" id="receiverId" name="receiverId" type="text" placeholder="receiver" required><br><br>
@@ -23,7 +28,7 @@ export default {
   name: "messages",
   data() {
     return {
-      messages: {},
+      messages: [],
       messagesToSend: {
         title: "",
         content: "",
