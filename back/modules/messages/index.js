@@ -15,7 +15,7 @@ messages.post('/' , (req, res) => {
 			if(err) {
 				res.status(400).json({sucees: false, message: err.message})
 			} else {
-				res.status(200).json({success: true, message: 'Message posted', content: naming})
+				res.status(200).json({success: true, message: 'Message posted'})
 			}
 		})
 	}
@@ -24,8 +24,11 @@ messages.post('/' , (req, res) => {
 
 messages.get('/' , (req, res) => {
 	Message.find({receiverId: req.decode.username},(err, usersMessages) => {
-		if (err) res.status(500).json({success: false, message: err.message})
-			else res.status(200).json({success: true, message: 'Here are your message!', content: usersMessages});
+			// Message.findAndUpdate({receiverId: req.decode.username}, {read: true}, {new: true} ,(err, usersMessages) => {
+		if (err) { res.status(500).json({success: false, message: err.message})
+			} else {
+			 res.status(200).json({success: true, message: 'Here are your message!', content: usersMessages});
+			}
 	})
 });
 

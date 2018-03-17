@@ -10,6 +10,7 @@
 <script>
 import signup from "./components/signup";
 import login from "./components/login";
+
 export default {
   name: "noLogged",
   data() {

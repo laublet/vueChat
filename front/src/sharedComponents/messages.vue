@@ -1,6 +1,17 @@
 <template>
   <div class="hello">
-    <p>{{ messages }}</p>
+    <router-link :to="{name: 'home'}">
+      <button class="btn btn-lg btn-primary">Home</button>
+    </router-link>
+    <router-link :to="{name: 'userList'}">
+      <button class="btn btn-lg btn-primary">User List</button>
+    </router-link>
+    <div v-for="message in messages">
+      <p>From: {{ message.senderId }}</p>
+      <p>Subject: {{ message.title }}</p>
+      <p>Content: {{ message.content }}</p>
+      <hr>
+    </div>
     <button v-on:click = "getMessage">Get the messages</button><br><br>
       <label for="receiverId">sendTo </label>
       <input v-model="messagesToSend.receiverId" id="receiverId" name="receiverId" type="text" placeholder="receiver" required><br><br>
@@ -17,7 +28,7 @@ export default {
   name: "messages",
   data() {
     return {
-      messages: {},
+      messages: [],
       messagesToSend: {
         title: "",
         content: "",
@@ -27,12 +38,12 @@ export default {
   },
   methods: {
     getMessage: function() {
-      axios.get("http://localhost:8000/messages", {}).then(function(res) {
+      this.$http.get("http://localhost:8000/messages", {}).then(function(res) {
         this.messages = res.data.content;
       });
     },
     sendMessage: function() {
-      axios
+      this.$http
         .post("http://localhost:8000/messages", {
           title: this.messagesToSend.title,
           content: this.messagesToSend.content,

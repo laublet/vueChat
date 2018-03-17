@@ -22,11 +22,12 @@ let MessageSchema = new mongoose.Schema({
     type: String
   },
   read: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   readDate: {
     type: Date,
-    default: Date.now
+    default: null
   },
 });
 

@@ -16,14 +16,14 @@ export default {
   name: "logged",
   data() {
     return {
-      logged: true
+      loggedView: "1"
     };
   },
   components: {
     home,
     userList,
     messages
-  }
+  },
 };
 </script>
 

@@ -6,26 +6,26 @@ import axios from "axios";
 import App from "./App";
 import router from "./router";
 
-Vue.use(axios);
+// Vue.use(axios);
 Vue.use(VueResource);
 Vue.config.productionTip = false;
 
-axios.interceptors.request.use(
-	function(config) {
-		request.headers.set("Authorization", localStorage.getItem("Clef"));
-		return config;
-	},
-	function(error) {
-		// Do something with request error
-		return Promise.reject(error);
-	}
-);
+// axios.interceptors.request.use(
+// 	function(config) {
+// 		request.headers.set("Authorization", localStorage.getItem("Clef"));
+// 		return config;
+// 	},
+// 	function(error) {
+// 		// Do something with request error
+// 		return Promise.reject(error);
+// 	}
+// );
 
-// Vue.http.interceptors.push((request, next) => {
-// 	request.headers.set("Authorization", localStorage.getItem("Clef"));
-// 	// console.log(request.headers);
-// 	next();
-// });
+Vue.http.interceptors.push((request, next) => {
+	request.headers.set("Authorization", localStorage.getItem("Clef"));
+	// console.log(request.headers);
+	next();
+});
 /* eslint-disable no-new */
 new Vue({
 	el: "#app",

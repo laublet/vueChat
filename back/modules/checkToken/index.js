@@ -1,11 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
-import bodyParser from "body-parser";
+// import bodyParser from 'body-parser'
 
 let app = express();
 let checkToken = (req, res, next) => {
-  // console.log(req.headers);
   if (
     req.headers &&
     req.headers.authorization &&
@@ -17,15 +16,18 @@ let checkToken = (req, res, next) => {
       function(err, decode) {
         if (err) res.status(500).json({ success: false, message: err });
         else {
-          // console.log('decode HERE')
-          // console.log(decode)
           req.decode = decode;
           next();
         }
       }
     );
   } else {
-    res.status(403).json({ success: false, message: "You shall not pass !" });
+    res
+      .status(403)
+      .json({
+        success: false,
+        message: "You should be authenticaded to access this route"
+      });
   }
 };
 

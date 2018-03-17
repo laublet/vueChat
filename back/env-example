@@ -1,5 +1,0 @@
-HOST=localhost:
-PORT=8000
-SECRETKEY=RewriteTheStars
-AUTHBEARER=Trololo
-MONGOURL=mongodb://localhost:27017/vueProject
