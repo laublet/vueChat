@@ -1,14 +1,17 @@
 <template>
   <div id="app">
+    <div class="container">
      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
 import noLogged from "@/modules/auth/noLogged";
+import messages from "@/modules/messages/messages";
 import home from "@/sharedComponents/home";
-import messages from "@/sharedComponents/messages";
 import userList from "@/sharedComponents/userList";
+// import messages from "@/sharedComponents/messages";
 // import logged from "@/modules/logged/logged";
 
 export default {

@@ -7,7 +7,7 @@
       <button class="btn btn-lg btn-primary">Messages</button>
     </router-link>
 
-    <button v-on:click = "getListUSer">Get the user list</button>
+    <button v-on:click = "getListUSer" class="btn btn-lg btn-primary">Get the user list</button>
     <div v-for= "user in users">
       <div v-for= "(element, keyName) in user">
         <p>{{ keyName }}: {{ element }}</p>
@@ -39,7 +39,7 @@ export default {
       });
     },
     test: function() {
-      alert('test');
+      alert("test");
     }
   }
 };
