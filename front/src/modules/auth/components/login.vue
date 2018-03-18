@@ -1,23 +1,33 @@
 <template>
   <div class="hello">
-    <h1>{{ display }}</h1>
-    <label for="username">Username </label>
-      <input v-model="user.username" id="username" name="username" type="email" placeholder="Username" required><br><br>
-      <label for="password">Password</label>
-      <input v-model="user.password" id="password" name="password" type="password" placeholder="password" required><br><br>
-     <button v-on:click="post">Login</button>
-    <button class="btn btn-lg btn-primary" v-on:click="QHHHHHHHHH">Signup</button>
-    <!-- <button class="btn btn-lg btn-primary" v-bind="test">Login</button> -->
+    <form >
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+
+        <h1>{{ title }}</h1>
+        <hr>
+        <div class="form-group">
+        <label for="username">Username </label>
+        <input v-model="user.username" id="username" class="form-control" name="username" type="email" placeholder="email@example.com" required>
+        </div>
+        <div class="form-group">
+        <label for="password">Password</label>
+        <input v-model="user.password" id="password" class="form-control" name="password" type="password" placeholder="Enter your password" required>
+        </div>
+        <button class="btn btn-lg btn-primary" v-on:click="post">Login</button>
+        <button class="btn btn-lg btn-primary" v-on:click="switching">Signup</button>
+        </div>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
 export default {
   name: "login",
-  props: ["display"],
   data() {
     return {
-      msg: "Log here !",
+      title: "Login",
       user: {
         username: "",
         password: ""
@@ -25,8 +35,8 @@ export default {
     };
   },
   methods: {
-    QHHHHHHHHH: function() {
-      this.$emit("test");
+    switching() {
+      this.$emit("switching");
       // console.log(this.$emit("test"));
     },
     post: function() {

@@ -1,9 +1,7 @@
 <template>
   <div>
-    <h1>noLogged</h1>
-    {{ loginStatus }}
-  <login  v-on:test="loginStatus = !loginStatus" v-if="loginStatus"/>
-  <signup v-on:test="loginStatus = !loginStatus" v-else/>
+  <login  v-on:switching="loginStatus = !loginStatus" v-if="loginStatus"/>
+  <signup v-on:switching="loginStatus = !loginStatus" v-else/>
   </div>
 </template>
 

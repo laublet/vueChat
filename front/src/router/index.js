@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 import noLogged from "@/modules/auth/noLogged";
+import messages from "@/modules/messages/messages";
 import home from "@/sharedComponents/home";
-import messages from "@/sharedComponents/messages";
 import userList from "@/sharedComponents/userList";
 // import logged from "@/modules/logged/logged";
 
@@ -15,11 +15,6 @@ export default new Router({
       name: "noLogged",
       component: noLogged
     },
-    // {
-    //   path: "/logged",
-    //   name: "logged",
-    //   component: logged
-    // },
     {
       path: "/home",
       name: "home",

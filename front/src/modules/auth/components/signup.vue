@@ -1,18 +1,32 @@
 <template>
   <div class="hello">
-    <h1>{{ test }}</h1>
-    <div>
-      <label for="username">Username </label>
-      <input v-model="user.username" id="username" name="username" type="email" placeholder="Username" required><br><br>
-      <label for="password">Password</label>
-      <input v-model="user.password" id="password" name="password" type="password" placeholder="password" required><br><br>
-      <label for="firstName">firstName </label>
-      <input v-model="user.firstName" id="firstName" name="firstName" type="text" placeholder="firstName">
-      <label for="lastName">lastName </label>
-      <input v-model="user.lastName" id="lastName" name="lastName" type="text" placeholder="lastName">
-    </div>
-        <button v-on:click="post">Validate</button>
-        <button class="btn btn-lg btn-primary" v-on:click="testFunction">Login</button>
+    <form>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <h1>{{ title }}</h1>
+          <hr>
+          <div class="form-group">
+            <label for="username">Username <span>*</span> </label>
+            <input v-model="user.username" id="username" class="form-control" name="username" type="email" placeholder="email@example.com" required>
+          </div>
+          <!-- <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required><br><br> -->
+          <div class="form-group" >
+            <label for="password">Password <span>*</span> </label>
+            <input v-model="user.password" id="password" class="form-control" name="password" type="password" placeholder="Enter a valid password" required>
+          </div>
+          <div class="form-group">
+            <label for="firstName">FirstName   </label>
+            <input v-model="user.firstName" id="firstName" class="form-control" name="firstName" type="text" placeholder="...">
+          </div>
+          <div class="form-group">
+            <label for="lastName">LastName   </label>
+            <input v-model="user.lastName" id="lastName" class="form-control" name="lastName" type="text" placeholder="...">
+          </div>
+          <button class="btn btn-lg btn-primary" v-on:click="switching">Login</button>
+          <button class="btn btn-lg btn-primary" v-on:click="post">Sign In</button>
+        </div>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -29,7 +43,7 @@ export default {
   },
   data() {
     return {
-      msg: "Signup to OurAwesomeApp",
+      title: "Signup to OurAwesomeApp",
       user: {
         username: "",
         email: "",
@@ -39,8 +53,8 @@ export default {
     };
   },
   methods: {
-    testFunction: function() {
-      this.$emit("test");
+    switching() {
+      this.$emit("switching");
     },
     post: function() {
       this.$http
@@ -65,7 +79,7 @@ h1,
 h2 {
   font-weight: normal;
 }
-ul {
+ {
   list-style-type: none;
   padding: 0;
 }
@@ -73,7 +87,7 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
+0 {
   color: #42b983;
 }
 </style>
