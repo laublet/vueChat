@@ -37,7 +37,6 @@ export default {
   methods: {
     switching() {
       this.$emit("switching");
-      // console.log(this.$emit("test"));
     },
     post: function() {
       this.$http
@@ -46,7 +45,6 @@ export default {
           password: this.user.password
         })
         .then(function(data) {
-          // console.log(data.body.content.token);
           let token = data.body.content.token;
           localStorage.setItem("Clef", token);
           console.log(token);

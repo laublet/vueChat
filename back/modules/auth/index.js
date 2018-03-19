@@ -40,6 +40,7 @@ auth.post("/signup", (req, res) => {
 });
 
 auth.post("/login", (req, res) => {
+  console.log("login se lance");
   if (req.body.username && req.body.password) {
     User.findOne({ username: req.body.username }, function(err, user) {
       if (err) res.status(500).json({ success: false, message: err.message });
@@ -56,7 +57,10 @@ auth.post("/login", (req, res) => {
             },
             process.env.SECRETKEY,
             function(err, result) {
+              // console.log("HERE");
               let newToken = new Token({ token: result });
+              // console.log(newToken);
+              // newToken.save(function(err, ntoken) {
               if (err) {
                 res.status(500).json({ success: false, message: err.message });
               } else {
@@ -66,6 +70,7 @@ auth.post("/login", (req, res) => {
                   content: { token: process.env.AUTHBEARER + " " + result }
                 });
               }
+              // });
             }
           );
         }
