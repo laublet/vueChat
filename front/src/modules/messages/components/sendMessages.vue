@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
         <h1>sendMessages</h1>
-    <form>
+    <form v-on:submit.prevent>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <h1>{{ title }}</h1>
@@ -51,14 +51,14 @@ export default {
     switching() {
       this.$emit("switching");
     },
-    sendMessage: function() {
+    sendMessage() {
       this.$http
-        .post("http://localhost:8000/messages", {
+        .post("/messages", {
           title: this.messagesToSend.title,
           content: this.messagesToSend.content,
           receiverId: this.messagesToSend.receiverId
         })
-        .then(function(res) {
+        .then(res => {
           this.messages = res.data.content;
         });
     }

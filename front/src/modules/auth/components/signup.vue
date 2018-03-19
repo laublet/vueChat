@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <form>
+    <form v-on:submit.prevent>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <h1>{{ title }}</h1>
@@ -23,7 +23,7 @@
             <input v-model="user.lastName" id="lastName" class="form-control" name="lastName" type="text" placeholder="...">
           </div>
           <button class="btn btn-lg btn-primary" v-on:click="switching">Login</button>
-          <button class="btn btn-lg btn-primary" v-on:click="post">Sign In</button>
+          <button class="btn btn-lg btn-primary" v-on:click="singIn">Sign In</button>
         </div>
       </div>
     </form>
@@ -36,9 +36,6 @@ export default {
   props: {
     test: {
       type: Boolean
-      // default: function(value) {
-      //   return (test = !test);
-      // }
     }
   },
   data() {
@@ -56,18 +53,19 @@ export default {
     switching() {
       this.$emit("switching");
     },
-    post: function() {
+    singIn() {
       this.$http
-        .post("http://localhost:8000/auth/signup", {
+        .post("/auth/signup", {
           username: this.user.username,
           password: this.user.password,
           firstName: this.user.firstName,
           lastName: this.user.lastName
         })
-        .then(function(res) {
+        .then(res => {
           if (res) this.$router.push("/");
           else alert("You need to fill all the informations");
-        });
+        })
+        .catch(error => console.log(error));
     }
   }
 };

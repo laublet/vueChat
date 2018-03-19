@@ -27,12 +27,7 @@ export default {
     getMessages,
     sendMessages
   },
-  methods: {
-    functionDEmerde: function() {
-      console.log("loginStatus");
-      loginStatus = false;
-    }
-  }
+  methods: {}
 };
 </script>
 

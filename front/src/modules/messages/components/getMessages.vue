@@ -27,7 +27,7 @@ export default {
       this.$emit("switching");
     },
     getMessage: function() {
-      this.$http.get("http://localhost:8000/messages", {}).then(function(res) {
+      this.$http.get("/messages", {}).then(res => {
         this.messages = res.data.content;
       });
     },

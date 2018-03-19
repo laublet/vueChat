@@ -10,7 +10,7 @@ import signup from "./components/signup";
 import login from "./components/login";
 
 export default {
-  name: "noLogged",
+  name: "auth",
   data() {
     return {
       content: "Login",
@@ -21,12 +21,7 @@ export default {
     signup,
     login
   },
-  methods: {
-    functionDEmerde: function() {
-      console.log("loginStatus");
-      loginStatus = false;
-    }
-  }
+  methods: {}
 };
 </script>
 

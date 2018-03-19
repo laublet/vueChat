@@ -6,13 +6,12 @@
     <router-link :to="{name: 'messages'}">
       <button class="btn btn-lg btn-primary">Messages</button>
     </router-link>
-
     <button v-on:click = "getListUSer" class="btn btn-lg btn-primary">Get the user list</button>
     <div v-for= "user in users">
-      <div v-for= "(element, keyName) in user">
-        <p>{{ keyName }}: {{ element }}</p>
-
-      </div>
+        <p>Username: {{ user.username }}</p>
+        <p>FirstName: {{ user.firstName }}</p>
+        <p>LastName: {{ user.lastName }}</p>
+        <hr>
       <ul>
       </ul>
       <!-- <div v-for="(value, key) in user"> -->
@@ -32,13 +31,13 @@ export default {
     };
   },
   methods: {
-    getListUSer: function() {
-      this.$http.get("http://localhost:8000/users", {}).then(function(res) {
+    getListUSer() {
+      this.$http.get("/users", {}).then(res => {
+        console.log("Here", res.data.content);
         this.users = res.data.content;
-        console.log(this.users);
       });
     },
-    test: function() {
+    test() {
       alert("test");
     }
   }
