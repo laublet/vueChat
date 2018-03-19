@@ -25,11 +25,32 @@ export default {
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.7),
+      rgba(40, 180, 131, 0.7)
+    ),
+    url(./assets/backgroundIMG.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 50px 20px rgba(0, 0, 0, 0.2);
 }
 </style>

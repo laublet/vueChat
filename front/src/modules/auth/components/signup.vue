@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="auth">
     <form v-on:submit.prevent>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
@@ -22,8 +22,8 @@
             <label for="lastName">LastName   </label>
             <input v-model="user.lastName" id="lastName" class="form-control" name="lastName" type="text" placeholder="...">
           </div>
-          <button class="btn btn-lg btn-primary" v-on:click="switching">Login</button>
-          <button class="btn btn-lg btn-primary" v-on:click="singIn">Sign In</button>
+          <button class="btn btn-lg btn-white" v-on:click="switching">Login</button>
+          <button class="btn btn-lg btn-white" v-on:click="singIn">Sign In</button>
         </div>
       </div>
     </form>
@@ -73,19 +73,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
- {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-0 {
-  color: #42b983;
-}
 </style>
