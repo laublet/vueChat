@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>GetMessages</h1>
+    <h1>Your Messages</h1>
     <div>
       <button v-on:click = "getMessage" class="btn btn-lg btn-primary">Get the messages</button>
       <div v-for="message in messages">

@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-        <h1>sendMessages</h1>
+        <button class="btn btn-lg btn-primary" v-on:click="switching">Get your messages</button>
     <form>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
@@ -30,7 +30,6 @@
         </div>
       </div>
     </form>
-        <button class="btn btn-lg btn-primary" v-on:click="switching">Get your messages</button>
   </div>
 </template>
 
