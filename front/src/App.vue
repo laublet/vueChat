@@ -31,7 +31,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 
-  height: 95vh;
+  height: 100vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(126, 213, 111, 0.7),
@@ -41,10 +41,7 @@ export default {
   background-size: cover;
   background-position: top;
   position: relative;
-
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
-
 .btn-white {
   background-color: #fff;
   color: #777;

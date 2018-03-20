@@ -1,13 +1,15 @@
 <template>
-  <div>
+  <div class="messages">
    <router-link :to="{name: 'home'}">
-    <button class="btn btn-lg btn-primary">Home</button>
+    <button class="btn btn-lg btn-white">Home</button>
   </router-link>
   <router-link :to="{name: 'userList'}">
-    <button class="btn btn-lg btn-primary">User List</button>
+    <button class="btn btn-lg btn-white">User List</button>
   </router-link>
+  <div class="row">
   <getMessages  v-on:switching="Status = !Status" v-if="Status"/>
   <sendMessages v-on:switching="Status = !Status" v-else/>
+  </div>
 </div>
 </template>
 
@@ -32,4 +34,7 @@ export default {
 </script>
 
 <style scoped>
+.messages {
+  margin-top: 50px;
+}
 </style>
