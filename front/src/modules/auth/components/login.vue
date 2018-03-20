@@ -1,6 +1,6 @@
 <template>
-  <div class="hello">
-    <form >
+  <div class="auth">
+    <form v-on:submit.prevent>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 
@@ -14,8 +14,8 @@
         <label for="password">Password</label>
         <input v-model="user.password" id="password" class="form-control" name="password" type="password" placeholder="Enter your password" required>
         </div>
-        <button class="btn btn-lg btn-primary" v-on:click="post">Login</button>
-        <button class="btn btn-lg btn-primary" v-on:click="switching">Signup</button>
+        <button class="btn btn-lg btn-white" v-on:click="signUp">Login</button>
+        <button class="btn btn-lg btn-white" v-on:click="switching">Signup</button>
         </div>
       </div>
     </form>
@@ -37,19 +37,16 @@ export default {
   methods: {
     switching() {
       this.$emit("switching");
-      // console.log(this.$emit("test"));
     },
-    post: function() {
+    signUp() {
       this.$http
-        .post("http://localhost:8000/auth/login", {
+        .post("/auth/login", {
           username: this.user.username,
           password: this.user.password
         })
-        .then(function(data) {
-          // console.log(data.body.content.token);
-          let token = data.body.content.token;
+        .then(res => {
+          let token = res.data.content.token;
           localStorage.setItem("Clef", token);
-          console.log(token);
           if (token) this.$router.push("/home");
           else this.$router.go("/");
         });
@@ -60,19 +57,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>

@@ -1,24 +1,30 @@
 <template>
   <div class="hello">
+    <div class="row">
     <router-link :to="{name: 'home'}">
-      <button class="btn btn-lg btn-primary">Home</button>
+      <button class="btn btn-lg btn-white">Home</button>
     </router-link>
     <router-link :to="{name: 'messages'}">
-      <button class="btn btn-lg btn-primary">Messages</button>
+      <button class="btn btn-lg btn-white">Messages</button>
     </router-link>
-
-    <button v-on:click = "getListUSer" class="btn btn-lg btn-primary">Get the user list</button>
+    </div>
+    <div class="list">
+      <h1>{{ title }}</h1>
+    <!-- <button v-on:click = "getListUSer" class="btn btn-lg btn-white">Get the user list</button> -->
+    <div class="space"></div>
     <div v-for= "user in users">
-      <div v-for= "(element, keyName) in user">
-        <p>{{ keyName }}: {{ element }}</p>
-
-      </div>
       <ul>
+        <li>Username: {{ user.username }}</li><br>
+        <li>FirstName: {{ user.firstName }}</li><br>
+        <li>LastName: {{ user.lastName }}</li><br>
+        <hr>
       </ul>
       <!-- <div v-for="(value, key) in user"> -->
         <!-- <p>{{ key }}: {{ value }}</p> -->
       </div>
       <hr>
+
+    </div>
     </div>
   </div>
 </template>
@@ -28,19 +34,20 @@ export default {
   name: "userList",
   data() {
     return {
+      title: "Here is your awesomeUserList",
       users: []
     };
   },
   methods: {
-    getListUSer: function() {
-      this.$http.get("http://localhost:8000/users", {}).then(function(res) {
+    getListUSer() {
+      this.$http.get("/users", {}).then(res => {
+        console.log("Here", res.data.content);
         this.users = res.data.content;
-        console.log(this.users);
       });
-    },
-    test: function() {
-      alert("test");
     }
+  },
+  beforeMount() {
+    this.getListUSer();
   }
 };
 </script>
@@ -54,6 +61,7 @@ h2 {
 ul {
   list-style-type: none;
   padding: 0;
+  margin-top: 10px;
 }
 li {
   display: inline-block;
@@ -61,5 +69,14 @@ li {
 }
 a {
   color: #42b983;
+}
+.hello {
+  margin-top: 50px;
+}
+.list {
+  margin-top: 50px;
+}
+.space {
+  padding: 20px;
 }
 </style>

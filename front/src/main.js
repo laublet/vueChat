@@ -1,31 +1,30 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
-import VueResource from "vue-resource";
 import axios from "axios";
+import VueAxios from "vue-axios";
 import App from "./App";
 import router from "./router";
 
-// Vue.use(axios);
-Vue.use(VueResource);
+Vue.use(VueAxios, axios);
 Vue.config.productionTip = false;
 
-// axios.interceptors.request.use(
-// 	function(config) {
-// 		request.headers.set("Authorization", localStorage.getItem("Clef"));
-// 		return config;
-// 	},
-// 	function(error) {
-// 		// Do something with request error
-// 		return Promise.reject(error);
-// 	}
-// );
+axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.headers.common["Authorization"] = localStorage.getItem("Clef");
+axios.defaults.headers.post["Content-Type"] =
+	"application/x-www-form-urlencoded";
 
-Vue.http.interceptors.push((request, next) => {
-	request.headers.set("Authorization", localStorage.getItem("Clef"));
-	// console.log(request.headers);
-	next();
+const reqInterceptor = axios.interceptors.request.use(config => {
+	console.log("Request Interceptor", config);
+	return config;
 });
+const resInterceptor = axios.interceptors.response.use(res => {
+	console.log("Response Interceptor", res);
+	return res;
+});
+
+// axios.interceptors.request.eject(reqInterceptor)
+// axios.interceptors.response.eject(resInterceptor)
 /* eslint-disable no-new */
 new Vue({
 	el: "#app",

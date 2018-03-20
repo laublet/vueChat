@@ -2,10 +2,10 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <router-link :to="{name: 'userList'}">
-      <button class="btn btn-lg btn-primary">User List</button>
+      <button class="btn btn-lg btn-white">User List</button>
     </router-link>
     <router-link :to="{name: 'messages'}">
-      <button class="btn btn-lg btn-primary">Messages</button>
+      <button class="btn btn-lg btn-white">Messages</button>
     </router-link>
   </div>
 </template>
