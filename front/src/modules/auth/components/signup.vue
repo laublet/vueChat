@@ -22,8 +22,8 @@
             <label for="lastName">LastName   </label>
             <input v-model="user.lastName" id="lastName" class="form-control" name="lastName" type="text" placeholder="...">
           </div>
-          <button class="btn btn-lg btn-white" v-on:click="switching">Login</button>
-          <button class="btn btn-lg btn-white" v-on:click="singIn">Sign In</button>
+          <button class="btn btn-lg btn-white" v-on:click="switching">Go to Login</button>
+          <button class="btn btn-lg btn-white" v-on:click="signIn">Sign In</button>
         </div>
       </div>
     </form>
@@ -33,11 +33,6 @@
 <script>
 export default {
   name: "signup",
-  props: {
-    test: {
-      type: Boolean
-    }
-  },
   data() {
     return {
       title: "Signup to OurAwesomeApp",
@@ -53,7 +48,7 @@ export default {
     switching() {
       this.$emit("switching");
     },
-    singIn() {
+    signIn() {
       this.$http
         .post("/auth/signup", {
           username: this.user.username,
@@ -62,10 +57,15 @@ export default {
           lastName: this.user.lastName
         })
         .then(res => {
-          if (res) this.$router.push("/");
-          else alert("You need to fill all the informations");
+          if (res) {
+            this.switching();
+          } else {
+            alert("Server Error");
+          }
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          if (error) alert(error.response.data.message);
+        });
     }
   }
 };
