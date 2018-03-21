@@ -3,9 +3,6 @@
     <div class="hello">
       <h1>{{ title }}</h1>
       <div>
-        <div class="button-send">
-        <button class="btn btn-lg btn-white" v-on:click="switching">Send an AwesomeMessages</button>
-        </div>
         <div v-for="message in messages">
           <p>From: {{ message.senderId }}</p>
           <p>Subject: {{ message.title }}</p>

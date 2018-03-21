@@ -27,14 +27,14 @@ const resInterceptor = axios.interceptors.response.use(res => {
 // axios.interceptors.request.eject(reqInterceptor)
 // axios.interceptors.response.eject(resInterceptor)
 
-export const eventBus = new Vue({
-	methods: {
-		setReceiverId(username) {
-			username = "test";
-			this.$emit("receiverIdIsSet", username);
-		}
-	}
-});
+// export const eventBus = new Vue({
+// 	methods: {
+// 		setReceiverId(username) {
+// 			username = "test";
+// 			this.$emit("receiverIdIsSet", username);
+// 		}
+// 	}
+// });
 
 new Vue({
 	el: "#app",
