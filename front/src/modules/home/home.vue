@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <layout></layout>
     <h1>{{ msg }}</h1>
     <router-link :to="{name: 'user'}">
       <button class="btn btn-lg btn-white">user</button>
@@ -11,6 +12,8 @@
 </template>
 
 <script>
+import layout from "@/sharedComponents/layout";
+
 export default {
   name: "home",
   data() {
@@ -18,6 +21,9 @@ export default {
       //Ajouter le nom de l user au msg
       msg: "Welcome home "
     };
+  },
+  components: {
+    layout
   }
 };
 </script>

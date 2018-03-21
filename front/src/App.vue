@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="container">
+    <div class="container-fluid no-gutters">
      <router-view></router-view>
     </div>
   </div>
@@ -12,7 +12,7 @@ import messages from "@/modules/messages/messages";
 import home from "@/modules/home/home";
 import user from "@/modules/user/user";
 import layout from "@/sharedComponents/layout";
-import test from "@/sharedComponents/test";
+// import test from "@/sharedComponents/test";
 
 export default {
   name: "App",
@@ -22,7 +22,7 @@ export default {
     messages,
     user,
     layout,
-    test
+    // test
   }
 };
 </script>
@@ -53,5 +53,9 @@ export default {
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 50px 20px rgba(0, 0, 0, 0.2);
+}
+
+.container-fluid {
+  padding: 0!important;
 }
 </style>
