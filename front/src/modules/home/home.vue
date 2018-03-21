@@ -2,7 +2,7 @@
   <div class="hello">
     <layout></layout>
     <h1>{{ msg }}</h1>
-    <router-link :to="{name: 'user'}">
+    <router-link :to="{name: 'test'}">
       <button class="btn btn-lg btn-white">user</button>
     </router-link>
     <router-link :to="{name: 'messages'}">

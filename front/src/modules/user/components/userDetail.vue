@@ -2,7 +2,11 @@
   <div>
     <div class="list">
       <h1>{{ title }}</h1>
-      {{ userO.username }}
+     <p>Username: {{ $route.params.id }}</p>
+     <p>FirstName: {{ $route.query.firstName }}</p>
+     <p>LastName: {{ $route.query.lastName }}</p>
+
+
     </div>
   </div>
 </template>
@@ -10,13 +14,16 @@
 <script>
 export default {
   name: "userDetail",
-  props: ["userO"],
   data() {
     return {
       title: "Your are on userDetail"
     };
   },
-  methods: {}
+  methods: {
+    showMeID() {
+      console.log("username", $route.params.id);
+    }
+  }
 };
 </script>
 
