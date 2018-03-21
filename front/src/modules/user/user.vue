@@ -1,39 +1,43 @@
 <template>
-  <div class="hello">
-    <div class="row">
-  <!--   <router-link :to="{name: 'home'}">
-      <button class="btn btn-lg btn-white">Home</button>
-    </router-link>
-    <router-link :to="{name: 'messages'}">
-      <button class="btn btn-lg btn-white">Messages</button>
-    </router-link> -->
-    </div>
-
-    <div class="list">
-      <h1>{{ title }}</h1>
-    <div class="space"></div>
-    <div v-for= "user in users">
-      <ul>
-        <li>Username: {{ user.username }}</li><br>
-        <li>FirstName: {{ user.firstName }}</li><br>
-        <li>LastName: {{ user.lastName }}</li><br>
-        <hr>
-      </ul>
-      <!-- <div v-for="(value, key) in user"> -->
-        <!-- <p>{{ key }}: {{ value }}</p> -->
+  <div>
+    <layout></layout>
+    <div class="hello">
+      <div class="row">
+        <!-- <router-link :to="{name: 'home'}">
+          <button class="btn btn-lg btn-white">Home</button>
+        </router-link>
+        <router-link :to="{name: 'messages'}">
+          <button class="btn btn-lg btn-white">Messages</button>
+        </router-link> -->
       </div>
-      <hr>
 
-    </div>
+      <div class="list">
+        <h1>{{ title }}</h1>
+        <div class="space"></div>
+        <div v-for= "user in users">
+          <ul>
+            <li>Username: {{ user.username }}</li><br>
+            <li>FirstName: {{ user.firstName }}</li><br>
+            <li>LastName: {{ user.lastName }}</li><br>
+            <hr>
+          </ul>
+          <!-- <div v-for="(value, key) in user">
+            <p>{{ key }}: {{ value }}</p>
+          </div> -->
+          <hr>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import layout from "@/sharedComponents/layout";
 import sendMessages from "./components/sendMessages";
 export default {
   name: "user",
   components: {
+    layout,
     sendMessages
   },
   data() {

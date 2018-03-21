@@ -22,8 +22,8 @@
             <label for="lastName">LastName   </label>
             <input v-model="user.lastName" id="lastName" class="form-control" name="lastName" type="text" placeholder="...">
           </div>
-          <button class="btn btn-lg btn-white" v-on:click="switching">Login</button>
-          <button class="btn btn-lg btn-white" v-on:click="singIn">Sign In</button>
+          <button class="btn btn-lg btn-white" v-on:click="switching">Go to Login</button>
+          <button class="btn btn-lg btn-white" v-on:click="signIn">Sign In</button>
         </div>
       </div>
     </form>
@@ -48,7 +48,7 @@ export default {
     switching() {
       this.$emit("switching");
     },
-    singIn() {
+    signIn() {
       this.$http
         .post("/auth/signup", {
           username: this.user.username,
