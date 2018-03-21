@@ -2,6 +2,7 @@
   <div>
     <layout></layout>
     <div class="hello">
+      <userDetail v-for='user in users' :userO='user'></userDetail>
       <div class="row">
         <!-- <router-link :to="{name: 'home'}">
           <button class="btn btn-lg btn-white">Home</button>
@@ -34,19 +35,23 @@
 <script>
 import layout from "@/sharedComponents/layout";
 import sendMessages from "./components/sendMessages";
+import userDetail from "./components/userDetail";
 export default {
   name: "user",
   components: {
     layout,
-    sendMessages
+    sendMessages,
+    userDetail
   },
   data() {
     return {
+      test: true,
       title: "Here is your awesomeUserList",
       users: []
     };
   },
   methods: {
+    show(user) {},
     getListUSer() {
       this.$http.get("/users", {}).then(res => {
         // console.log("Here", res.data.content);
