@@ -9,8 +9,8 @@
 <script>
 import auth from "@/modules/auth/auth";
 import messages from "@/modules/messages/messages";
-import home from "@/sharedComponents/home";
-import userList from "@/sharedComponents/userList";
+import home from "@/modules/home/home";
+import user from "@/modules/user/user";
 
 export default {
   name: "App",
@@ -18,7 +18,7 @@ export default {
     auth,
     home,
     messages,
-    userList
+    user
   }
 };
 </script>

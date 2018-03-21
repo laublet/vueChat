@@ -1,13 +1,14 @@
 <template>
   <div class="hello">
     <div class="row">
-    <router-link :to="{name: 'home'}">
+  <!--   <router-link :to="{name: 'home'}">
       <button class="btn btn-lg btn-white">Home</button>
     </router-link>
     <router-link :to="{name: 'messages'}">
       <button class="btn btn-lg btn-white">Messages</button>
-    </router-link>
+    </router-link> -->
     </div>
+
     <div class="list">
       <h1>{{ title }}</h1>
     <div class="space"></div>
@@ -29,9 +30,12 @@
 </template>
 
 <script>
-import { eventBus } from "../main";
+import sendMessages from "./components/sendMessages";
 export default {
-  name: "userList",
+  name: "user",
+  components: {
+    sendMessages
+  },
   data() {
     return {
       title: "Here is your awesomeUserList",
@@ -45,12 +49,6 @@ export default {
         this.users = res.data.content;
       });
     }
-    // sendMessage() {
-    //   alert("sendMessage fonctionne");
-    //   this.users.username = "test";
-    //   eventBus.setReceiverId(this.users.username);
-    //   this.$router.push("/messages");
-    // }
   },
   created() {
     this.getListUSer();

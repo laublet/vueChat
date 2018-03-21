@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <router-link :to="{name: 'userList'}">
-      <button class="btn btn-lg btn-white">User List</button>
+    <router-link :to="{name: 'user'}">
+      <button class="btn btn-lg btn-white">user</button>
     </router-link>
     <router-link :to="{name: 'messages'}">
       <button class="btn btn-lg btn-white">Messages</button>

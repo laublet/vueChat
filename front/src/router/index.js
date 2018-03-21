@@ -2,8 +2,8 @@ import Vue from "vue";
 import Router from "vue-router";
 import auth from "@/modules/auth/auth";
 import messages from "@/modules/messages/messages";
-import home from "@/sharedComponents/home";
-import userList from "@/sharedComponents/userList";
+import home from "@/modules/home/home";
+import user from "@/modules/user/user";
 
 Vue.use(Router);
 
@@ -25,9 +25,9 @@ export default new Router({
       component: messages
     },
     {
-      path: "/userList",
-      name: "userList",
-      component: userList
+      path: "/user",
+      name: "user",
+      component: user
     },
     {
       path: "*",
