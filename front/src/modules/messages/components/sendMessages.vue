@@ -4,7 +4,7 @@
       <form v-on:submit.prevent>
         <div class="row">
           <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-            <h1>{{ title }}</h1>
+            <h1>{{ messagesToSend.receiverId }}</h1>
             <hr>
             <div class="form-group">
               <label for="receiverId">Send message to</label>
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { eventBus } from "../../../main.js";
 export default {
   name: "sendMessages",
   data() {
@@ -63,6 +64,13 @@ export default {
           if (res) alert(" Message send !");
           else alert("You need to fill all the informations");
         });
+    }
+  },
+  watch: {
+    messagesToSend: function() {
+      eventBus.$on("receiverIdIsSet", username => {
+        this.messagesToSend.receiverId = messagesToSend.receiverId;
+      });
     }
   }
 };

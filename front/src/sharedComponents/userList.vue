@@ -12,7 +12,7 @@
       <h1>{{ title }}</h1>
     <!-- <button v-on:click = "getListUSer" class="btn btn-lg btn-white">Get the user list</button> -->
     <div class="space"></div>
-    <div v-for= "user in users">
+    <div v-for= "user in users" @click="sendMessage">
       <ul>
         <li>Username: {{ user.username }}</li><br>
         <li>FirstName: {{ user.firstName }}</li><br>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { eventBus } from "../main";
 export default {
   name: "userList",
   data() {
@@ -44,6 +45,12 @@ export default {
         console.log("Here", res.data.content);
         this.users = res.data.content;
       });
+    },
+    sendMessage() {
+      alert("sendMessage fonctionne");
+      this.users.username = "test";
+      eventBus.setReceiverId(this.users.username);
+      this.$router.push("/messages");
     }
   },
   beforeMount() {
