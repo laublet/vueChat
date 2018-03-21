@@ -57,12 +57,14 @@ export default {
           lastName: this.user.lastName
         })
         .then(res => {
-          if (res) this.$router.push("/");
-          else alert("Server Error");
+          if (res) {
+            this.switching();
+          } else {
+            alert("Server Error");
+          }
         })
         .catch(error => {
-          console.log(error.response.data);
-          alert(error.response.data.message);
+          if (error) alert(error.response.data.message);
         });
     }
   }
