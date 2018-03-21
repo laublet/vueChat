@@ -11,6 +11,8 @@ import auth from "@/modules/auth/auth";
 import messages from "@/modules/messages/messages";
 import home from "@/modules/home/home";
 import user from "@/modules/user/user";
+import layout from "@/sharedComponents/layout";
+import test from "@/sharedComponents/test";
 
 export default {
   name: "App",
@@ -18,7 +20,9 @@ export default {
     auth,
     home,
     messages,
-    user
+    user,
+    layout,
+    test
   }
 };
 </script>
