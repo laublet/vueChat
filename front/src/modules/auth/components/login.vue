@@ -3,7 +3,6 @@
     <form v-on:submit.prevent>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-
         <h1>{{ title }}</h1>
         <hr>
         <div class="form-group">
@@ -48,7 +47,11 @@ export default {
           let token = res.data.content.token;
           localStorage.setItem("Clef", token);
           if (token) this.$router.push("/home");
-          else this.$router.go("/");
+          else alert("Server error");
+        })
+        .catch(error => {
+          console.log(error.response.data);
+          alert(error.response.data.message);
         });
     }
   }

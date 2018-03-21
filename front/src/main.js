@@ -30,6 +30,7 @@ const resInterceptor = axios.interceptors.response.use(res => {
 export const eventBus = new Vue({
 	methods: {
 		setReceiverId(username) {
+			username = "test";
 			this.$emit("receiverIdIsSet", username);
 		}
 	}

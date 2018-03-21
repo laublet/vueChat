@@ -10,9 +10,8 @@
     </div>
     <div class="list">
       <h1>{{ title }}</h1>
-    <!-- <button v-on:click = "getListUSer" class="btn btn-lg btn-white">Get the user list</button> -->
     <div class="space"></div>
-    <div v-for= "user in users" @click="sendMessage">
+    <div v-for= "user in users">
       <ul>
         <li>Username: {{ user.username }}</li><br>
         <li>FirstName: {{ user.firstName }}</li><br>
@@ -42,18 +41,18 @@ export default {
   methods: {
     getListUSer() {
       this.$http.get("/users", {}).then(res => {
-        console.log("Here", res.data.content);
+        // console.log("Here", res.data.content);
         this.users = res.data.content;
       });
-    },
-    sendMessage() {
-      alert("sendMessage fonctionne");
-      this.users.username = "test";
-      eventBus.setReceiverId(this.users.username);
-      this.$router.push("/messages");
     }
+    // sendMessage() {
+    //   alert("sendMessage fonctionne");
+    //   this.users.username = "test";
+    //   eventBus.setReceiverId(this.users.username);
+    //   this.$router.push("/messages");
+    // }
   },
-  beforeMount() {
+  created() {
     this.getListUSer();
   }
 };
