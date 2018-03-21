@@ -32,13 +32,13 @@ messages.get("/", (req, res) => {
 		if (err) {
 			res.status(500).json({ success: false, message: err.message });
 		} else {
-			res
-				.status(200)
-				.json({
-					success: true,
-					message: "Here are your message!",
-					content: usersMessages
-				});
+
+			res.status(200).json({
+				success: true,
+				message: "Here are your message!",
+				content: usersMessages
+			});
+
 		}
 	});
 });

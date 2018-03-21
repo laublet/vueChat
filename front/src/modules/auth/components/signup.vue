@@ -33,11 +33,6 @@
 <script>
 export default {
   name: "signup",
-  props: {
-    test: {
-      type: Boolean
-    }
-  },
   data() {
     return {
       title: "Signup to OurAwesomeApp",
@@ -63,9 +58,12 @@ export default {
         })
         .then(res => {
           if (res) this.$router.push("/");
-          else alert("You need to fill all the informations");
+          else alert("Server Error");
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          console.log(error.response.data);
+          alert(error.response.data.message);
+        });
     }
   }
 };

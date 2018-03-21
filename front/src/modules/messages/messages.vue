@@ -7,7 +7,7 @@
     <button class="btn btn-lg btn-white">User List</button>
   </router-link>
   <div class="row">
-  <getMessages  v-on:switching="Status = !Status" v-if="Status"/>
+  <getMessages  v-on:switching="Status = !Status" v-if="!Status"/>
   <sendMessages v-on:switching="Status = !Status" v-else/>
   </div>
 </div>
