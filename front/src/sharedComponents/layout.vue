@@ -36,7 +36,7 @@ VUE ROUTER (CF DOC) CAR IL Y A DES POSSIBILITE AVEC.
           <li><a href="#" v-on:click="routerMessages">Messages</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">User Profile</a></li>
+          <li><a href="#" v-on:click="routerProfile"> Profile</a></li>
           <li><a href="#" v-on:click="routerLogout">Logout</a></li>
         </ul>
       </div><!--/.nav-collapse -->
@@ -60,10 +60,35 @@ export default {
     routerMessages: function() {
       this.$router.push("/messages");
     },
+    routerProfile: function() {
+      // this.$router.push('/profile');
+      alert("Try later !");
+    },
     routerLogout: function() {
       localStorage.removeItem("Clef");
+      // if (this.getToken === undefined) {
+      console.log("Logout :", this.getToken);
       this.$router.push("/login");
+      // } else {
+      // getToken = true;
+      // console.log('NOT FALSE :', this.getToken);
+      // this.$router.push('/login');
+      // }
+    },
+    Token: function() {
+      let getToken = localStorage.getItem("Clef");
+      if (getToken === null) {
+        // getToken = false;
+        console.log("FALSE : ", getToken);
+        this.$router.push("/login");
+      } else {
+        // getToken = true;
+        console.log("TRUE : ", getToken);
+      }
     }
+  },
+  created() {
+    this.Token();
   }
 };
 </script>
