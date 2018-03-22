@@ -18,7 +18,8 @@
 
 <script>
 import layout from "@/sharedComponents/layout";
-import getMessages from "./components/getMessages";
+import messagesList from "./components/messagesList";
+import messagesDetail from "./components/messagesDetail";
 
 export default {
   name: "messages",
@@ -29,7 +30,8 @@ export default {
   },
   components: {
     layout,
-    getMessages
+    messagesList,
+    messagesDetail
   },
   methods: {}
 };

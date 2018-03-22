@@ -5,24 +5,16 @@ MAIS QUAND JE SUPP LA DIV 1 UNIQUEMENT EN LAISANT SON CONTENU BEN ÇA CHANGE RIE
   <div class="col-xs-12">
     <div class="hello">
       <h1>{{ title }}</h1>
-      <div>
-        <div v-for="message in messages">
-          <p>From: {{ message.senderId }}</p>
-          <p>Subject: {{ message.title }}</p>
-          <p>Content: {{ message.content }}</p>
-          <hr>
-        </div>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "getMessages",
+  name: "messagesDetail",
   data() {
     return {
-      title: "Here are your AwesomeMessages",
+      title: "messagesDetail.vue",
       messages: []
     };
   },

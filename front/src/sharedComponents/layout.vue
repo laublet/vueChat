@@ -1,7 +1,7 @@
 <!-- https://openclassrooms.com/forum/sujet/bootstrap-utilisation-de-class-active -->
 <!-- https://css-tricks.com/snippets/jquery/add-active-navigation-class-based-on-url/ -->
 
-<!-- 
+<!--
 <ul class="nav nav-pills">
        <router-link to="/" tag="li" active-class="active" exact><a>Home</a></router-link>
        <router-link to="/user" tag="li" active-class="active"><a>User</a></router-link>
@@ -48,23 +48,21 @@ VUE ROUTER (CF DOC) CAR IL Y A DES POSSIBILITE AVEC.
 export default {
   name: "layout",
   data() {
-    return {
-
-    };
+    return {};
   },
   methods: {
-    routerHome: function () {
-        this.$router.push('/home');
+    routerHome: function() {
+      this.$router.push("/home");
     },
-    routerUser: function () {
-        this.$router.push('/user');
+    routerUser: function() {
+      this.$router.push("/user");
     },
-    routerMessages: function () {
-        this.$router.push('/messages');
+    routerMessages: function() {
+      this.$router.push("/messages");
     },
-    routerLogout: function () {
-        localStorage.removeItem('Clef');
-        this.$router.push('/login');
+    routerLogout: function() {
+      localStorage.removeItem("Clef");
+      this.$router.push("/login");
     }
   }
 };
