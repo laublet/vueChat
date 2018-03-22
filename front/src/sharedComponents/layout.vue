@@ -51,12 +51,12 @@ export default {
       // alert("Try later !");
 swal({
   title: 'Try later (╯°□°）╯︵ ┻━┻',
-  width: 600,
-  background: '#fff url("https://wallpaperscraft.com/image/scheme_lines_dark_white_47453_800x600.jpg")',
-  padding: 100,
+  width: 345,
+  background: '#fff url("https://media.giphy.com/media/RrVzUOXldFe8M/giphy.gif")',
+  padding: 65,
   backdrop: `
     rgba(0,0,123,0.4)
-    url("https://media.giphy.com/media/RrVzUOXldFe8M/giphy.gif")
+    url("")
     center right
     no-repeat
   `
