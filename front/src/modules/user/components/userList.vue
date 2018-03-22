@@ -1,7 +1,7 @@
 <template>
     <div>
       <h2>Here is your AwesomeUserList</h2>
-      <router-link tag="div" :to="{name:'userDetail' , params: {id:user.username , user: user}}" style="cursor: pointer" v-for='user in users'>
+      <router-link tag="div" :to="{name:'userDetail' , params: {id:user.username , user: user}}" style="cursor: pointer" v-for='user in users' :key="user.username">
         <p>{{ user.username }}</p>
       </router-link>
     </div>
