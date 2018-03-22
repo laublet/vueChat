@@ -21,7 +21,7 @@ export default {
     home,
     messages,
     user,
-    layout,
+    layout
     // test
   }
 };
@@ -56,6 +56,6 @@ export default {
 }
 
 .container-fluid {
-  padding: 0!important;
+  padding: 0 !important;
 }
 </style>

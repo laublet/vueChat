@@ -1,12 +1,10 @@
 <template>
   <div>
-    <div class="list">
       <h1>{{ title }}</h1>
+    <div class="list" @click='sendMessages($route.params.id)' style="cursor: pointer">
      <p>Username: {{ $route.params.id }}</p>
-     <p>FirstName: {{ $route.query.firstName }}</p>
-     <p>LastName: {{ $route.query.lastName }}</p>
-
-
+     <p>FirstName: {{ $route.params.user.firstName }}</p>
+     <p>LastName: {{ $route.params.user.lastName }}</p>
     </div>
   </div>
 </template>
@@ -16,12 +14,16 @@ export default {
   name: "userDetail",
   data() {
     return {
-      title: "Your are on userDetail"
+      title: "Here are the userDetail"
     };
   },
   methods: {
-    showMeID() {
-      console.log("username", $route.params.id);
+    sendMessages(usernameToSendTo) {
+      // console.log("Here", usernameToSendTo);
+      this.$router.push({
+        name: "sendMessages",
+        params: { receiverId: usernameToSendTo }
+      });
     }
   }
 };

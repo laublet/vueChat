@@ -1,40 +1,30 @@
 <template>
-    <!-- <div class="list" @click="show(userO)">
-      <h1>{{ title }}</h1>
-      {{ userO.username }}
-    </div> -->
     <div>
-      <h2>userListView</h2>
-    <router-link tag="div" :to="link">
-       {{ userO.username }}
-    </router-link>
+      <h2>Here is your AwesomeUserList</h2>
+      <router-link tag="div" :to="{name:'userDetail' , params: {id:user.username , user: user}}" style="cursor: pointer" v-for='user in users' :key="user.username">
+        <p>{{ user.username }}</p>
+      </router-link>
     </div>
-</template>
+  </template>
 
-<script>
+  <script>
 export default {
   name: "userList",
-  props: ["userO"],
   data() {
     return {
-      title: "Your are on userList",
-      link: {
-        name: "userDetail",
-        params: {
-          id: this.userO.username
-        },
-        query: {
-          firstName: this.userO.username,
-          lastName: this.userO.username
-        }
-      }
+      users: [],
+      title: "Your are on userList"
     };
   },
   methods: {
-    show(id) {
-      console.log("Here", id);
-      this.$router.push("/user/" + id.username);
+    getListUSer() {
+      this.$http.get("/users", {}).then(res => {
+        this.users = res.data.content;
+      });
     }
+  },
+  created() {
+    this.getListUSer();
   }
 };
 </script>
