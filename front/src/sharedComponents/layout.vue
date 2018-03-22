@@ -1,21 +1,3 @@
-<!-- https://openclassrooms.com/forum/sujet/bootstrap-utilisation-de-class-active -->
-<!-- https://css-tricks.com/snippets/jquery/add-active-navigation-class-based-on-url/ -->
-
-<!--
-<ul class="nav nav-pills">
-       <router-link to="/" tag="li" active-class="active" exact><a>Home</a></router-link>
-       <router-link to="/user" tag="li" active-class="active"><a>User</a></router-link>
-</ul>
--->
-
-<!--
-PROBLEME DACCES AUX ROUTES NECESSITANT LE TOKEN ALORS QUE CELUI A ETE SUPP DU LOCAL STORAGE :
-
-PROBLEME DE PUR FRONT CAR ON ACCEDE A LA VU PAS AUX FONCTIONS DONC SOIT UTILISER LE
-LIFE CYCLE POUR VERIFIER OU NON LA PRESENCE DU TOKEN DANS LE LOCAL OU UTILISER
-VUE ROUTER (CF DOC) CAR IL Y A DES POSSIBILITE AVEC.
--->
-
 <template>
   <nav class="navbar navbar-default">
     <div class="container">

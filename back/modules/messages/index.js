@@ -32,15 +32,56 @@ messages.get("/", (req, res) => {
 		if (err) {
 			res.status(500).json({ success: false, message: err.message });
 		} else {
-
 			res.status(200).json({
 				success: true,
 				message: "Here are your message!",
 				content: usersMessages
 			});
-
 		}
 	});
+});
+
+messages.put("/:messageId", (req, res) => {
+	console.log("HERE", req.params.messageId);
+	if (ObjectId.isValid) {
+		Message.findOneAndUpdate(
+			{ $set: { _id: req.params.messageId } },
+			{ read: true },
+			{ new: true },
+			function(err, doc) {
+				if (err) {
+					res
+						.status(500)
+						.json({ success: false, message: err.message });
+				} else {
+					res.status(200).json({
+						success: true,
+						message: "Here are your message!",
+						content: usersMessages
+					});
+				}
+			}
+		);
+	} else {
+		res.status(400).json({
+			success: false,
+			message: "Id not valid !"
+		});
+	}
+	// Message.findOneAndUpdate({ receiverId: req.decode.username }, (err, usersMessages) => {
+	// 	// Message.findAndUpdate({receiverId: req.decode.username}, {read: true}, {new: true} ,(err, usersMessages) => {
+	// 	if (err) {
+	// 		res.status(500).json({ success: false, message: err.message });
+	// 	} else {
+
+	// 		res.status(200).json({
+	// 			success: true,
+	// 			message: "Here are your message!",
+	// 			content: usersMessages
+	// 		});
+
+	// 	}
+	// });
 });
 
 export default messages;

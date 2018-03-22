@@ -55,7 +55,7 @@ export default new Router({
 					component: messagesList
 				},
 				{
-					path: ":senderId",
+					path: ":ID",
 					name: "messagesDetail",
 					component: messagesDetail
 				}
@@ -83,16 +83,6 @@ export default new Router({
 				}
 			]
 		},
-		// {
-		//   path: "/layout",
-		//   name: "layout",
-		//   component: layout
-		// },
-		// {
-		//   path: "/test",
-		//   name: "test",
-		//   component: test
-		// },
 		{
 			path: "*",
 			redirect: "/"
