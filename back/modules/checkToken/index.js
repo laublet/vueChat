@@ -1,7 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
-// import bodyParser from 'body-parser'
 
 let app = express();
 let checkToken = (req, res, next) => {
@@ -22,12 +21,10 @@ let checkToken = (req, res, next) => {
       }
     );
   } else {
-    res
-      .status(403)
-      .json({
-        success: false,
-        message: "You should be authenticaded to access this route"
-      });
+    res.status(403).json({
+      success: false,
+      message: "You should be authenticaded to access this route"
+    });
   }
 };
 

@@ -2,7 +2,7 @@
   <div class="col-xs-12">
     <div class="hello">
       <h1>{{ title }}</h1>
-      <router-link tag="div" :to="{name:'messagesDetail' , params: {senderId: message.senderId , message: message}}" style="cursor: pointer" v-for='message in messages' :key="message.senderId">
+      <router-link tag="div" :to="{name:'messagesDetail' , params: {ID: message._id , message: message}}" style="cursor: pointer" v-for='message in messages' :key="message._id">
         <p>{{ message.title }}</p>
         <hr>
       </router-link>

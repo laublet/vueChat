@@ -50,7 +50,6 @@ export default {
           else alert("Server error");
         })
         .catch(error => {
-          console.log(error.response.data);
           alert(error.response.data.message);
         });
     }

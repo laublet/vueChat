@@ -1,9 +1,8 @@
 <template>
   <div class="col-xs-12">
-    <div class="hello">
-      <h1>{{ title }}</h1>
+    <div class="hello" @click='update($route.params.ID)' style="cursor: pointer">
+      <h1>{{ $route.params.message.title }}</h1>
       <p>From: {{ $route.params.message.senderId }}</p>
-      <p>Title: {{ $route.params.message.title }}</p>
       <p>Content: {{ $route.params.message.content }}</p>
     </div>
   </div>
@@ -14,7 +13,6 @@ export default {
   name: "messagesDetail",
   data() {
     return {
-      title: "messagesDetail.vue",
       messages: []
     };
   },
@@ -22,14 +20,12 @@ export default {
     switching() {
       this.$emit("switching");
     },
-    getMessage() {
-      this.$http.get("/messages", {}).then(res => {
-        this.messages = res.data.content;
+    update(param) {
+      console.log(param);
+      this.$http.put("/messages/" + param).then(res => {
+        alert(res.data.message);
       });
     }
-  },
-  beforeMount() {
-    this.getMessage();
   }
 };
 </script>
