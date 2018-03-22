@@ -24,8 +24,8 @@ const resInterceptor = axios.interceptors.response.use(res => {
 	return res;
 });
 
-// axios.interceptors.request.eject(reqInterceptor)
-// axios.interceptors.response.eject(resInterceptor)
+// axios.interceptors.request.eject(reqInterceptor);
+// axios.interceptors.response.eject(resInterceptor);
 
 // export const eventBus = new Vue({
 // 	methods: {

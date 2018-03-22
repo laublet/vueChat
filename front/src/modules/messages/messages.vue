@@ -2,23 +2,15 @@
 <div>
   <layout></layout>
   <div class="messages">
-  <!--  <router-link :to="{name: 'home'}">
-    <button class="btn btn-lg btn-white">Home</button>
-  </router-link>
-  <router-link :to="{name: 'userList'}">
-    <button class="btn btn-lg btn-white">User List</button>
-  </router-link> -->
-    <div class="row">
-      <getMessages /> <!-- C'EST LUI QUI FOU LA MERDE AVEC LA SCROLL VERTICAL ET HORIZONTAL !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-  <!-- <getMessages  v-on:switching="Status = !Status" v-if="!Status"/> -->
-    </div>
+    <router-view></router-view>
   </div>
 </div>
 </template>
 
 <script>
 import layout from "@/sharedComponents/layout";
-import getMessages from "./components/getMessages";
+import messagesList from "./components/messagesList";
+import messagesDetail from "./components/messagesDetail";
 
 export default {
   name: "messages",
@@ -29,7 +21,8 @@ export default {
   },
   components: {
     layout,
-    getMessages
+    messagesList,
+    messagesDetail
   },
   methods: {}
 };

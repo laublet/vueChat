@@ -1,7 +1,7 @@
 <!-- https://openclassrooms.com/forum/sujet/bootstrap-utilisation-de-class-active -->
 <!-- https://css-tricks.com/snippets/jquery/add-active-navigation-class-based-on-url/ -->
 
-<!-- 
+<!--
 <ul class="nav nav-pills">
        <router-link to="/" tag="li" active-class="active" exact><a>Home</a></router-link>
        <router-link to="/user" tag="li" active-class="active"><a>User</a></router-link>
@@ -53,37 +53,38 @@ export default {
     };
   },
   methods: {
-    routerHome: function () {
-        this.$router.push('/home');
+    routerHome: function() {
+      this.$router.push("/home");
     },
-    routerUser: function () {
-        this.$router.push('/user');
+    routerUser: function() {
+      this.$router.push("/user");
     },
-    routerMessages: function () {
-        this.$router.push('/messages');
+    routerMessages: function() {
+      this.$router.push("/messages");
     },
-    routerProfile: function () {
-        // this.$router.push('/profile');
-        alert("Try later !");
+    routerProfile: function() {
+      // this.$router.push('/profile');
+      alert("Try later !");
     },
-    routerLogout: function () {
-        localStorage.removeItem('Clef');
-        // if (this.getToken === undefined) {
-        console.log('Logout :', this.getToken);
-        this.$router.push('/login');
+    routerLogout: function() {
+      // sessionStorage.clear();
+      localStorage.removeItem("Clef");
+      localStorage.removeItem("User");
+      // if (this.getToken === undefined) {
+      console.log("Logout :", this.getToken);
+      this.$router.push("/login");
       // } else {
-        // getToken = true;
-        // console.log('NOT FALSE :', this.getToken);
-        // this.$router.push('/login');
+      // getToken = true;
+      // console.log('NOT FALSE :', this.getToken);
+      // this.$router.push('/login');
       // }
     },
     Token: function () {
       let getToken = localStorage.getItem('Clef');
-      // let User = localStorage.getItem('User');
       if (getToken === null) {
         // getToken = false;
         console.log("FALSE : ", getToken);
-        this.$router.push('/login');
+        this.$router.push("/login");
       } else {
         // getToken = true;
         console.log("TRUE : ", getToken);

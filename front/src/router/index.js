@@ -1,9 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
 import auth from "@/modules/auth/auth";
-import messages from "@/modules/messages/messages";
 import home from "@/modules/home/home";
 import user from "@/modules/user/user";
+import messages from "@/modules/messages/messages";
+import messagesList from "@/modules/messages/components/messagesList";
+import messagesDetail from "@/modules/messages/components/messagesDetail";
 import userList from "@/modules/user/components/userList";
 import userDetail from "@/modules/user/components/userDetail";
 import sendMessages from "@/modules/user/components/sendMessages";
@@ -45,7 +47,19 @@ export default new Router({
 		{
 			path: "/messages",
 			name: "messages",
-			component: messages
+			component: messages,
+			children: [
+				{
+					path: "",
+					name: "messagesList",
+					component: messagesList
+				},
+				{
+					path: ":senderId",
+					name: "messagesDetail",
+					component: messagesDetail
+				}
+			]
 		},
 		{
 			path: "/user",

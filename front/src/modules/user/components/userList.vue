@@ -12,8 +12,8 @@ export default {
   name: "userList",
   data() {
     return {
-      users: [],
-      title: "Your are on userList"
+      title: "Your are on userList",
+      users: []
     };
   },
   methods: {
