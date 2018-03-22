@@ -53,6 +53,11 @@ export default new Router({
 					path: "",
 					name: "messagesList",
 					component: messagesList
+				},
+				{
+					path: ":senderId",
+					name: "messagesDetail",
+					component: messagesDetail
 				}
 			]
 		},
