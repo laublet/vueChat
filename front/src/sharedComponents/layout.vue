@@ -18,7 +18,7 @@
           <li><a href="#" v-on:click="routerMessages">Messages</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" v-on:click="routerProfile"> Profile</a></li>
+          <li><a href="#" v-on:click="routerProfile">{{ User }} Profile</a></li>
           <li><a href="#" v-on:click="routerLogout">Logout</a></li>
         </ul>
       </div><!--/.nav-collapse -->
@@ -30,7 +30,9 @@
 export default {
   name: "layout",
   data() {
-    return {};
+    return {
+      User: localStorage.getItem('User')
+    };
   },
   methods: {
     routerHome: function() {
@@ -47,7 +49,9 @@ export default {
       alert("Try later !");
     },
     routerLogout: function() {
+      // sessionStorage.clear();
       localStorage.removeItem("Clef");
+      localStorage.removeItem("User");
       // if (this.getToken === undefined) {
       console.log("Logout :", this.getToken);
       this.$router.push("/login");
@@ -57,8 +61,8 @@ export default {
       // this.$router.push('/login');
       // }
     },
-    Token: function() {
-      let getToken = localStorage.getItem("Clef");
+    Token: function () {
+      let getToken = localStorage.getItem('Clef');
       if (getToken === null) {
         // getToken = false;
         console.log("FALSE : ", getToken);
@@ -71,7 +75,7 @@ export default {
   },
   created() {
     this.Token();
-  }
+  },
 };
 </script>
 
