@@ -9,6 +9,8 @@
 </template>
 
 <script>
+// import swal from 'sweetalert2';
+
 export default {
   name: "messagesDetail",
   data() {
@@ -24,6 +26,11 @@ export default {
       console.log(param);
       this.$http.put("/messages/" + param).then(res => {
         alert(res.data.message);
+        // swal(
+        //   'Great !',
+        //   'Your message is gone ... but where ?',
+        //   'Success'
+        // )
       });
     }
   }
