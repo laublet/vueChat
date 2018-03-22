@@ -1,7 +1,9 @@
 import express from "express";
+import mongoose from "mongoose";
 import connection from "../connection/index";
 import User from "./../../models/User";
 import Message from "./../../models/Message";
+
 let messages = express.Router();
 
 messages.post("/", (req, res) => {
@@ -43,21 +45,25 @@ messages.get("/", (req, res) => {
 
 messages.put("/:messageId", (req, res) => {
 	console.log("HERE", req.params.messageId);
-	if (ObjectId.isValid) {
-		Message.findOneAndUpdate(
-			{ $set: { _id: req.params.messageId } },
-			{ read: true },
-			{ new: true },
+	if (mongoose.Types.ObjectId.isValid(req.params.messageId)) {
+		Message.findByIdAndUpdate(
+			req.params.messageId,
+			{
+				$set: {
+					read: true,
+					readDate: Date.now()
+				}
+			},
 			function(err, doc) {
 				if (err) {
+					console.log(err.message);
 					res
 						.status(500)
 						.json({ success: false, message: err.message });
 				} else {
 					res.status(200).json({
 						success: true,
-						message: "Here are your message!",
-						content: usersMessages
+						message: "Message Updated !"
 					});
 				}
 			}

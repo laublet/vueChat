@@ -21,10 +21,14 @@ export default {
       this.$emit("switching");
     },
     update(param) {
-      console.log(param);
-      this.$http.put("/messages/" + param).then(res => {
-        alert(res.data.message);
-      });
+      // let read = this.message.readDate;
+      if ($route.params.message.read === false) {
+        this.$http.put("/messages/" + param).then(res => {
+          // alert(res.data.message);
+        });
+      } else {
+        alert("already read");
+      }
     }
   }
 };

@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import swal from 'sweetalert2';
+import swal from "sweetalert2";
 
 export default {
   name: "signup",
@@ -66,20 +66,20 @@ export default {
           }
         })
         .catch(error => {
-          if (error) 
-          // alert(error.response.data.message);
-          swal({
-            type: 'error',
-            title: 'Oh no ...',
-            text: error.response.data.message,
-          });
+          if (error)
+            // alert(error.response.data.message);
+            swal({
+              type: "error",
+              title: "Oh no ...",
+              text: error.response.data.message
+            });
         });
-        // });
+      // });
     }
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+  <!-- Add "scoped" attribute to limit CSS to this component only -->
+  <style scoped>
 </style>
