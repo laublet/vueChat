@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import swal from 'sweetalert2';
+
 export default {
   name: "signup",
   data() {
@@ -64,8 +66,15 @@ export default {
           }
         })
         .catch(error => {
-          if (error) alert(error.response.data.message);
+          if (error) 
+          // alert(error.response.data.message);
+          swal({
+            type: 'error',
+            title: 'Oh no ...',
+            text: error.response.data.message,
+          });
         });
+        // });
     }
   }
 };

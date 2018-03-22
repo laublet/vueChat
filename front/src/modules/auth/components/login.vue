@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import swal from 'sweetalert2';
+
 export default {
   name: "login",
   data() {
@@ -52,7 +54,12 @@ export default {
         })
         .catch(error => {
           console.log(error.response.data);
-          alert(error.response.data.message);
+          // alert(error.response.data.message);
+          swal({
+            type: 'error',
+            title: 'Oh no ...',
+            text: error.response.data.message,
+          });
         });
     }
   },
