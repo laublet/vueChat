@@ -6,9 +6,8 @@ import home from "@/modules/home/home";
 import user from "@/modules/user/user";
 import userList from "@/modules/user/components/userList";
 import userDetail from "@/modules/user/components/userDetail";
-import test from "@/modules/user/components/test";
+import sendMessages from "@/modules/user/components/sendMessages";
 // import layout from "@/sharedComponents/layout";
-// import test from "@/sharedComponents/test";
 
 // const userDetail = resolve => {
 //   require.ensure(
@@ -32,57 +31,57 @@ import test from "@/modules/user/components/test";
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
-      path: "/",
-      name: "auth",
-      component: auth
-    },
-    {
-      path: "/home",
-      name: "home",
-      component: home
-    },
-    {
-      path: "/messages",
-      name: "messages",
-      component: messages
-    },
-    {
-      path: "/user",
-      name: "user",
-      component: user,
-      children: [
-        {
-          path: "",
-          name: "userList",
-          component: userList
-        },
-        {
-          path: ":id",
-          name: "userDetail",
-          component: userDetail
-        },
-        {
-          path: "test",
-          name: "test",
-          component: test
-        }
-      ]
-    },
-    // {
-    //   path: "/layout",
-    //   name: "layout",
-    //   component: layout
-    // },
-    // {
-    //   path: "/test",
-    //   name: "test",
-    //   component: test
-    // },
-    {
-      path: "*",
-      redirect: "/"
-    }
-  ]
+	routes: [
+		{
+			path: "/",
+			name: "auth",
+			component: auth
+		},
+		{
+			path: "/home",
+			name: "home",
+			component: home
+		},
+		{
+			path: "/messages",
+			name: "messages",
+			component: messages
+		},
+		{
+			path: "/user",
+			name: "user",
+			component: user,
+			children: [
+				{
+					path: "",
+					name: "userList",
+					component: userList
+				},
+				{
+					path: ":id",
+					name: "userDetail",
+					component: userDetail
+				},
+				{
+					path: "/messagesToSend/:receiverId",
+					name: "sendMessages",
+					component: sendMessages
+				}
+			]
+		},
+		// {
+		//   path: "/layout",
+		//   name: "layout",
+		//   component: layout
+		// },
+		// {
+		//   path: "/test",
+		//   name: "test",
+		//   component: test
+		// },
+		{
+			path: "*",
+			redirect: "/"
+		}
+	]
 });

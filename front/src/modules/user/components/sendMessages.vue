@@ -64,6 +64,10 @@ export default {
           else alert("You need to fill all the informations");
         });
     }
+  },
+  beforeMount() {
+    this.messagesToSend.receiverId = this.$route.params.receiverId;
+    console.log("receiverId", this.messagesToSend.receiverId);
   }
 };
 </script>

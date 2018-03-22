@@ -2,10 +2,6 @@
   <div>
     <layout></layout>
     <div class="hello">
-     <h1>UserView</h1>
-     <hr>
-      <!-- <userList v-for='user in users' :key="user.username" :userO='user' style="cursor: pointer"></userList> -->
-     <hr>
      <router-view></router-view>
      <hr>
    </div>
@@ -14,39 +10,22 @@
 
 <script>
 import layout from "@/sharedComponents/layout";
-import sendMessages from "./components/sendMessages";
 import userDetail from "./components/userDetail";
 import userList from "./components/userList";
-import test from "./components/test";
+import sendMessages from "./components/sendMessages";
 export default {
   name: "user",
   components: {
     layout,
-    sendMessages,
     userDetail,
     userList,
-    test
+    sendMessages
   },
   data() {
     return {
-      test: true,
-      title: "Here is your awesomeUserList",
-      userO: {}
-      // users: []
+      title: "Here is your awesomeUserList"
     };
   }
-  // ,
-  // methods: {
-  //   getListUSer() {
-  //     this.$http.get("/users", {}).then(res => {
-  //       // console.log("Here", res.data.content);
-  //       this.users = res.data.content;
-  //     });
-  //   }
-  // },
-  // created() {
-  //   this.getListUSer();
-  // }
 };
 </script>
 

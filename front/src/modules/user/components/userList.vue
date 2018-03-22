@@ -1,13 +1,6 @@
 <template>
-    <!-- <div class="list" @click="show(userO)">
-      <h1>{{ title }}</h1>
-      {{ userO.username }}
-    </div> -->
     <div>
-      <h2>userListView</h2>
-      <!-- {{ user.username }} -->
-      <!-- <div v-for='user in users'>
-      </div> -->
+      <h2>Here is your AwesomeUserList</h2>
       <router-link tag="div" :to="{name:'userDetail' , params: {id:user.username , user: user}}" style="cursor: pointer" v-for='user in users'>
         <p>{{ user.username }}</p>
       </router-link>
@@ -17,7 +10,6 @@
   <script>
 export default {
   name: "userList",
-  // props: ["userO"],
   data() {
     return {
       users: [],
@@ -27,7 +19,6 @@ export default {
   methods: {
     getListUSer() {
       this.$http.get("/users", {}).then(res => {
-        console.log("Here", res.data.content);
         this.users = res.data.content;
       });
     }
@@ -35,12 +26,6 @@ export default {
   created() {
     this.getListUSer();
   }
-  // methods: {
-  //   show(id) {
-  //     console.log("Here", id);
-  //     this.$router.push("/user/" + id.username);
-  //   }
-  // }
 };
 </script>
 
