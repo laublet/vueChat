@@ -36,6 +36,8 @@
 </template>
 
 <script>
+import swal from 'sweetalert2';
+
 export default {
   name: "sendMessages",
   data() {
@@ -60,7 +62,13 @@ export default {
           receiverId: this.messagesToSend.receiverId
         })
         .then(res => {
-          if (res) alert(" Message send !");
+          if (res) 
+          // alert(" Message send !");
+          swal(
+            'Great !',
+            'Your message is gone ... but where ?',
+            'success'
+          )
           else alert("You need to fill all the informations");
         });
     }

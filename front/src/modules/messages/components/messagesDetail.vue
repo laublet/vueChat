@@ -9,6 +9,8 @@
 </template>
 
 <script>
+// import swal from 'sweetalert2';
+
 export default {
   name: "messagesDetail",
   data() {
