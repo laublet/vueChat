@@ -54,6 +54,10 @@ export default {
           alert(error.response.data.message);
         });
     }
+  },
+  created() {
+    this.user.username = "test@test.com";
+    this.user.password = "test";
   }
 };
 </script>

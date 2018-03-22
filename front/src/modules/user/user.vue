@@ -4,7 +4,7 @@
     <div class="hello">
      <h1>UserView</h1>
      <hr>
-      <userList v-for='user in users' :key="user.username" :userO='user' style="cursor: pointer"></userList>
+      <!-- <userList v-for='user in users' :key="user.username" :userO='user' style="cursor: pointer"></userList> -->
      <hr>
      <router-view></router-view>
      <hr>
@@ -31,21 +31,22 @@ export default {
     return {
       test: true,
       title: "Here is your awesomeUserList",
-      userO: {},
-      users: []
+      userO: {}
+      // users: []
     };
-  },
-  methods: {
-    getListUSer() {
-      this.$http.get("/users", {}).then(res => {
-        // console.log("Here", res.data.content);
-        this.users = res.data.content;
-      });
-    }
-  },
-  created() {
-    this.getListUSer();
   }
+  // ,
+  // methods: {
+  //   getListUSer() {
+  //     this.$http.get("/users", {}).then(res => {
+  //       // console.log("Here", res.data.content);
+  //       this.users = res.data.content;
+  //     });
+  //   }
+  // },
+  // created() {
+  //   this.getListUSer();
+  // }
 };
 </script>
 

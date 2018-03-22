@@ -3,8 +3,8 @@
     <div class="list">
       <h1>{{ title }}</h1>
      <p>Username: {{ $route.params.id }}</p>
-     <p>FirstName: {{ $route.query.firstName }}</p>
-     <p>LastName: {{ $route.query.lastName }}</p>
+     <p>FirstName: {{ $route.params.user.firstName }}</p>
+     <p>LastName: {{ $route.params.user.lastName }}</p>
 
 
     </div>

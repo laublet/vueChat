@@ -55,13 +55,18 @@ export default new Router({
       children: [
         {
           path: "",
-          name: "test",
-          component: test
+          name: "userList",
+          component: userList
         },
         {
           path: ":id",
           name: "userDetail",
           component: userDetail
+        },
+        {
+          path: "test",
+          name: "test",
+          component: test
         }
       ]
     },
