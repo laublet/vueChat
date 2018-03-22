@@ -36,7 +36,7 @@ VUE ROUTER (CF DOC) CAR IL Y A DES POSSIBILITE AVEC.
           <li><a href="#" v-on:click="routerMessages">Messages</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" v-on:click="routerProfile"> Profile</a></li>
+          <li><a href="#" v-on:click="routerProfile">{{ User }} Profile</a></li>
           <li><a href="#" v-on:click="routerLogout">Logout</a></li>
         </ul>
       </div><!--/.nav-collapse -->
@@ -49,7 +49,7 @@ export default {
   name: "layout",
   data() {
     return {
-
+      User: localStorage.getItem('User')
     };
   },
   methods: {
@@ -79,6 +79,7 @@ export default {
     },
     Token: function () {
       let getToken = localStorage.getItem('Clef');
+      // let User = localStorage.getItem('User');
       if (getToken === null) {
         // getToken = false;
         console.log("FALSE : ", getToken);
@@ -91,7 +92,7 @@ export default {
   },
   created() {
     this.Token();
-  }
+  },
 };
 </script>
 

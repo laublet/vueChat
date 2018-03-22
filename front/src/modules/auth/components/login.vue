@@ -46,6 +46,7 @@ export default {
         .then(res => {
           let token = res.data.content.token;
           localStorage.setItem("Clef", token);
+          localStorage.setItem("User", this.user.username);
           if (token) this.$router.push("/home");
           else alert("Server error");
         })
