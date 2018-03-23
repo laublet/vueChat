@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import userDetail from "./components/userDetail";
-import userList from "./components/userList";
-import sendMessages from "./components/sendMessages";
+import UserDetail from "./components/UserDetail";
+import UserList from "./components/UserList";
+import SendMessages from "./components/SendMessages";
 export default {
   name: "user",
   components: {
-    userDetail,
-    userList,
-    sendMessages
+    UserDetail,
+    UserList,
+    SendMessages
   },
   data() {
     return {

@@ -8,19 +8,19 @@
 </template>
 
 <script>
-import auth from "@/modules/auth/auth";
-import messages from "@/modules/messages/messages";
-import home from "@/modules/home/home";
-import user from "@/modules/user/user";
+import Auth from "@/modules/auth/Auth";
+import Messages from "@/modules/messages/Messages";
+import Home from "@/modules/home/Home";
+import User from "@/modules/user/User";
 import Header from "@/sharedComponents/Header";
 
 export default {
   name: "App",
   components: {
-    auth,
-    home,
-    messages,
-    user,
+    Auth,
+    Home,
+    Messages,
+    User,
     Header
     // test
   }

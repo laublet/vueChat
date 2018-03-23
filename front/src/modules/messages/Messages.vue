@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import messagesList from "./components/messagesList";
-import messagesDetail from "./components/messagesDetail";
+import MessagesList from "./components/MessagesList";
+import MessagesDetail from "./components/MessagesDetail";
 
 export default {
   name: "messages",
@@ -18,8 +18,8 @@ export default {
     };
   },
   components: {
-    messagesList,
-    messagesDetail
+    MessagesList,
+    MessagesDetail
   },
   methods: {}
 };

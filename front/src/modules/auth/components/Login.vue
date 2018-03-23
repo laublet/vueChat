@@ -14,7 +14,7 @@
         <input v-model="user.password" id="password" class="form-control" name="password" type="password" placeholder="Enter your password" required>
         </div>
         <button class="btn btn-lg btn-white" v-on:click="signUp">Login</button>
-        <button class="btn btn-lg btn-white" v-on:click="switching">Go to Signup</button>
+            <router-link tag="button" class="btn btn-lg btn-white":to="{name:'signup'}">Go to Signup</router-link>
         </div>
       </div>
     </form>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import swal from 'sweetalert2';
+import swal from "sweetalert2";
 
 export default {
   name: "login",
@@ -36,9 +36,6 @@ export default {
     };
   },
   methods: {
-    switching() {
-      this.$emit("switching");
-    },
     signUp() {
       this.$http
         .post("/auth/login", {
@@ -56,9 +53,9 @@ export default {
           console.log(error.response.data);
           // alert(error.response.data.message);
           swal({
-            type: 'error',
-            title: 'Oh no ...',
-            text: error.response.data.message,
+            type: "error",
+            title: "Oh no ...",
+            text: error.response.data.message
           });
         });
     }

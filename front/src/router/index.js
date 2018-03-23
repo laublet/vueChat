@@ -1,35 +1,82 @@
 import Vue from "vue";
 import Router from "vue-router";
-import auth from "@/modules/auth/auth";
-import home from "@/modules/home/home";
-import user from "@/modules/user/user";
 import Header from "@/sharedComponents/Header";
-import messages from "@/modules/messages/messages";
-import messagesList from "@/modules/messages/components/messagesList";
-import messagesDetail from "@/modules/messages/components/messagesDetail";
-import userList from "@/modules/user/components/userList";
-import userDetail from "@/modules/user/components/userDetail";
-import sendMessages from "@/modules/user/components/sendMessages";
+import Auth from "@/modules/auth/Auth";
+import Login from "@/modules/auth/components/Login";
+import Signup from "@/modules/auth/components/Signup";
+import Home from "@/modules/home/Home";
+// import Messages from "@/modules/messages/Messages";
+// import MessagesList from "@/modules/messages/components/MessagesList";
+// import MessagesDetail from "@/modules/messages/components/MessagesDetail";
+// import User from "@/modules/user/User";
+// import UserList from "@/modules/user/components/UserList";
+// import UserDetail from "@/modules/user/components/UserDetail";
+// import SendMessages from "@/modules/user/components/SendMessages";
 
-// const userDetail = resolve => {
-//   require.ensure(
-//     ["../modules/user/components/userDetail.vue"],
-//     () => {
-//       resolve(require("../modules/user/components/userDetail.vue"));
-//     },
-//     "user"
-//   );
-// };
+const Messages = resolve => {
+	require.ensure(
+		["../modules/messages/Messages"],
+		() => {
+			resolve(require("../modules/messages/Messages"));
+		},
+		"messages"
+	);
+};
+const MessagesList = resolve => {
+	require.ensure(
+		["../modules/messages/components/MessagesList"],
+		() => {
+			resolve(require("../modules/messages/components/MessagesList"));
+		},
+		"messages"
+	);
+};
+const MessagesDetail = resolve => {
+	require.ensure(
+		["../modules/messages/components/MessagesDetail"],
+		() => {
+			resolve(require("../modules/messages/components/MessagesDetail"));
+		},
+		"messages"
+	);
+};
+const User = resolve => {
+	require.ensure(
+		["../modules/user/User"],
+		() => {
+			resolve(require("../modules/user/User"));
+		},
+		"user"
+	);
+};
+const UserList = resolve => {
+	require.ensure(
+		["../modules/user/components/UserList"],
+		() => {
+			resolve(require("../modules/user/components/UserList"));
+		},
+		"user"
+	);
+};
+const UserDetail = resolve => {
+	require.ensure(
+		["../modules/user/components/UserDetail"],
+		() => {
+			resolve(require("../modules/user/components/UserDetail"));
+		},
+		"user"
+	);
+};
+const SendMessages = resolve => {
+	require.ensure(
+		["../modules/user/components/SendMessages"],
+		() => {
+			resolve(require("../modules/user/components/SendMessages"));
+		},
+		"user"
+	);
+};
 
-// const test = resolve => {
-//   require.ensure(
-//     ["../modules/user/components/test.vue"],
-//     () => {
-//       resolve(require("../modules/user/components/test.vue"));
-//     },
-//     "user"
-//   );
-// };
 Vue.use(Router);
 
 export default new Router({
@@ -37,13 +84,27 @@ export default new Router({
 		{
 			path: "/",
 			name: "auth",
-			component: auth
+			components: {
+				default: Auth
+			},
+			children: [
+				{
+					path: "",
+					name: "login",
+					component: Login
+				},
+				{
+					path: "signup",
+					name: "signup",
+					component: Signup
+				}
+			]
 		},
 		{
 			path: "/home",
 			name: "home",
 			components: {
-				default: home,
+				default: Home,
 				header: Header
 			}
 		},
@@ -51,19 +112,19 @@ export default new Router({
 			path: "/messages",
 			name: "messages",
 			components: {
-				default: messages,
+				default: Messages,
 				header: Header
 			},
 			children: [
 				{
 					path: "",
 					name: "messagesList",
-					component: messagesList
+					component: MessagesList
 				},
 				{
 					path: ":ID",
 					name: "messagesDetail",
-					component: messagesDetail
+					component: MessagesDetail
 				}
 			]
 		},
@@ -71,24 +132,24 @@ export default new Router({
 			path: "/user",
 			name: "user",
 			components: {
-				default: user,
+				default: User,
 				header: Header
 			},
 			children: [
 				{
 					path: "",
 					name: "userList",
-					component: userList
+					component: UserList
 				},
 				{
 					path: ":id",
 					name: "userDetail",
-					component: userDetail
+					component: UserDetail
 				},
 				{
 					path: "/messagesToSend/:receiverId",
 					name: "sendMessages",
-					component: sendMessages
+					component: SendMessages
 				}
 			]
 		},
