@@ -1,6 +1,5 @@
 <template>
   <div>
-    <layout></layout>
     <div class="hello">
      <router-view></router-view>
      <hr>
@@ -9,14 +8,12 @@
 </template>
 
 <script>
-import layout from "@/sharedComponents/layout";
 import userDetail from "./components/userDetail";
 import userList from "./components/userList";
 import sendMessages from "./components/sendMessages";
 export default {
   name: "user",
   components: {
-    layout,
     userDetail,
     userList,
     sendMessages

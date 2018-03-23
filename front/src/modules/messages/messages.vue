@@ -1,6 +1,5 @@
 <template>
 <div>
-  <layout></layout>
   <div class="messages">
     <router-view></router-view>
   </div>
@@ -8,7 +7,6 @@
 </template>
 
 <script>
-import layout from "@/sharedComponents/layout";
 import messagesList from "./components/messagesList";
 import messagesDetail from "./components/messagesDetail";
 
@@ -20,7 +18,6 @@ export default {
     };
   },
   components: {
-    layout,
     messagesList,
     messagesDetail
   },

@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import swal from 'sweetalert2';
+import swal from "sweetalert2";
 
 export default {
-  name: "layout",
+  name: "Header",
   data() {
     return {
-      User: localStorage.getItem('User')
+      User: localStorage.getItem("User")
     };
   },
   methods: {
@@ -49,18 +49,19 @@ export default {
     routerProfile: function() {
       // this.$router.push('/profile');
       // alert("Try later !");
-swal({
-  title: 'Try later (╯°□°）╯︵ ┻━┻',
-  width: 345,
-  background: '#fff url("https://media.giphy.com/media/RrVzUOXldFe8M/giphy.gif")',
-  padding: 65,
-  backdrop: `
+      swal({
+        title: "Try later (╯°□°）╯︵ ┻━┻",
+        width: 345,
+        background:
+          '#fff url("https://media.giphy.com/media/RrVzUOXldFe8M/giphy.gif")',
+        padding: 65,
+        backdrop: `
     rgba(0,0,123,0.4)
     url("")
     center right
     no-repeat
   `
-});
+      });
     },
     routerLogout: function() {
       // sessionStorage.clear();
@@ -75,8 +76,8 @@ swal({
       // this.$router.push('/login');
       // }
     },
-    Token: function () {
-      let getToken = localStorage.getItem('Clef');
+    Token: function() {
+      let getToken = localStorage.getItem("Clef");
       if (getToken === null) {
         // getToken = false;
         console.log("FALSE : ", getToken);
@@ -89,7 +90,7 @@ swal({
   },
   created() {
     this.Token();
-  },
+  }
 };
 </script>
 

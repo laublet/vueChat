@@ -3,13 +3,13 @@ import Router from "vue-router";
 import auth from "@/modules/auth/auth";
 import home from "@/modules/home/home";
 import user from "@/modules/user/user";
+import Header from "@/sharedComponents/Header";
 import messages from "@/modules/messages/messages";
 import messagesList from "@/modules/messages/components/messagesList";
 import messagesDetail from "@/modules/messages/components/messagesDetail";
 import userList from "@/modules/user/components/userList";
 import userDetail from "@/modules/user/components/userDetail";
 import sendMessages from "@/modules/user/components/sendMessages";
-// import layout from "@/sharedComponents/layout";
 
 // const userDetail = resolve => {
 //   require.ensure(
@@ -42,12 +42,18 @@ export default new Router({
 		{
 			path: "/home",
 			name: "home",
-			component: home
+			components: {
+				default: home,
+				header: Header
+			}
 		},
 		{
 			path: "/messages",
 			name: "messages",
-			component: messages,
+			components: {
+				default: messages,
+				header: Header
+			},
 			children: [
 				{
 					path: "",
@@ -64,7 +70,10 @@ export default new Router({
 		{
 			path: "/user",
 			name: "user",
-			component: user,
+			components: {
+				default: user,
+				header: Header
+			},
 			children: [
 				{
 					path: "",

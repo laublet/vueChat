@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div class="container-fluid no-gutters">
+     <router-view name="header"></router-view>
      <router-view></router-view>
     </div>
   </div>
@@ -11,8 +12,7 @@ import auth from "@/modules/auth/auth";
 import messages from "@/modules/messages/messages";
 import home from "@/modules/home/home";
 import user from "@/modules/user/user";
-import layout from "@/sharedComponents/layout";
-// import test from "@/sharedComponents/test";
+import Header from "@/sharedComponents/Header";
 
 export default {
   name: "App",
@@ -21,7 +21,7 @@ export default {
     home,
     messages,
     user,
-    layout
+    Header
     // test
   }
 };
