@@ -46,7 +46,7 @@ export default {
       messagesToSend: {
         title: "",
         content: "",
-        receiverId: ""
+        userID: ""
       }
     };
   },
@@ -59,7 +59,7 @@ export default {
         .post("/messages", {
           title: this.messagesToSend.title,
           content: this.messagesToSend.content,
-          receiverId: this.messagesToSend.receiverId
+          userID: this.messagesToSend.receiverId
         })
         .then(res => {
           if (res) {
@@ -71,8 +71,8 @@ export default {
     }
   },
   beforeMount() {
-    this.messagesToSend.receiverId = this.$route.params.receiverId;
-    console.log("receiverId", this.messagesToSend.receiverId);
+    this.messagesToSend.userID = this.$route.params.receiverId;
+    console.log("receiverId", this.messagesToSend.userID);
   }
 };
 </script>

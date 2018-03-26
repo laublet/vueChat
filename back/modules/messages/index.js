@@ -13,11 +13,12 @@ messages.post("/", (req, res) => {
 		} else {
 			let newMessage = new Message(req.body);
 			newMessage.senderId = req.decode.username;
+			newMessage.receiverId = req.body.userID;
 			newMessage.save(function(err, naming) {
 				if (err) {
 					res
 						.status(400)
-						.json({ sucees: false, message: err.message });
+						.json({ success: false, message: err.message });
 				} else {
 					res
 						.status(200)

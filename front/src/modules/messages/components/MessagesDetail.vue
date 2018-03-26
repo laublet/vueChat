@@ -3,7 +3,7 @@
     <div class="hello">
       <h1>{{ $route.params.message.title }}</h1>
       <p>From: {{ $route.params.message.senderId }}</p>
-      <p class="content">Content: {{ $route.params.message.content }}</p>
+      <div class="content">Content: {{ $route.params.message.content }}</div>
     </div>
   </div>
 </template>

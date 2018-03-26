@@ -64,12 +64,12 @@ textarea {
 .messageToRead {
   margin: 0 auto;
   width: 50rem;
-  background-color: ;
+  background-color: #2500ca;
 }
 
 .messageReaded {
   margin: 0 auto;
   width: 50rem;
-  background-color: #a6a6a6ff;
+  background-color: #9100c5;
 }
 </style>
