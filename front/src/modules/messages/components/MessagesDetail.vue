@@ -3,7 +3,7 @@
     <div class="hello">
       <h1>{{ $route.params.message.title }}</h1>
       <p>From: {{ $route.params.message.senderId }}</p>
-      <p>Content: {{ $route.params.message.content }}</p>
+      <p class="content">Content: {{ $route.params.message.content }}</p>
     </div>
   </div>
 </template>
@@ -26,7 +26,7 @@ export default {
       let readDate = Date.now();
       if (this.$route.params.message.read === false) {
         this.$http.put("/messages/" + id, { _readDate: readDate }).then(res => {
-          console.log(res.data.message);
+          // console.log(res.data.message);
         });
       }
     }
@@ -55,19 +55,8 @@ li {
 a {
   color: #42b983;
 }
-textarea {
-  resize: none;
-  /*white-space: prem;*/
-  /*Style a sav pour garder les sauts de lignes qd on affichera les messages*/
-}
 
-.button-send {
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
-.list {
-  background-color: red;
-  height: 50px;
-  width: 50px;
+.content {
+  resize: none;
 }
 </style>

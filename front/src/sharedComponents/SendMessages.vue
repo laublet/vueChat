@@ -64,8 +64,8 @@ export default {
         .then(res => {
           if (res) {
             swal("Great !", "Your message is gone ... but where ?", "success");
-            (this.messagesToSend.content = ""),
-              (this.messagesToSend.receiverId = "");
+            (this.messagesToSend.title = ""),
+              (this.messagesToSend.content = "");
           } else alert("You need to fill all the informations");
         });
     }
