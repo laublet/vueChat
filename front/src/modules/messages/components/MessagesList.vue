@@ -1,11 +1,14 @@
 <template>
   <div class="col-xs-12">
-    <div class="hello">
-      <h1>{{ title }}</h1>
-      <router-link tag="div" :to="{name:'messagesDetail' , params: {ID: message._id , message: message}}" style="cursor: pointer" v-for='message in messages' :key="message._id">
-        <p>{{ message.title }}</p>
-        <hr>
-      </router-link>
+    <!-- <div class="hello"> -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <h1>{{ title }}</h1>
+          <router-link tag="div" :class="[{messageToRead: !message.read}, {messageReaded: message.read}]":to="{name:'messagesDetail' , params: {ID: message._id , message: message}}" style="cursor: pointer" v-for='message in messages' :key="message._id" >
+          <p>{{ message.title }}</p>
+          </router-link>
+        <!-- </div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -36,8 +39,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1,
+<!-- h1,
 h2 {
   font-weight: normal;
 }
@@ -51,15 +53,23 @@ li {
 }
 a {
   color: #42b983;
-}
+} -->
+<style scoped>
 textarea {
   resize: none;
   /*white-space: prem;*/
   /*Style a sav pour garder les sauts de lignes qd on affichera les messages*/
 }
 
-.button-send {
-  margin-top: 25px;
-  margin-bottom: 25px;
+.messageToRead {
+  margin: 0 auto;
+  width: 50rem;
+  background-color: ;
+}
+
+.messageReaded {
+  margin: 0 auto;
+  width: 50rem;
+  background-color: #a6a6a6ff;
 }
 </style>

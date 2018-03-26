@@ -8,14 +8,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">vueChat</a>
+        <a class="navbar-brand" href="#" v-on:click="routerHome">vueChat</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <!-- <li class="active"><a href="#">Menu</a></li> -->
-          <li><a href="#" v-on:click="routerHome">Menu</a></li>
+          <li><a href="#" v-on:click="routerHome">Home</a></li>
           <li><a href="#" v-on:click="routerUser">User</a></li>
-          <li><a href="#" v-on:click="routerMessages">Messages</a></li>
+          <li><a href="#" v-on:click="routerMessages">Your Messages</a></li>
+          <li><a href="#" v-on:click="routerSendMessages">Send a Message</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#" v-on:click="routerProfile">{{ User }} Profile</a></li>
@@ -37,16 +38,19 @@ export default {
     };
   },
   methods: {
-    routerHome: function() {
+    routerHome() {
       this.$router.push("/home");
     },
-    routerUser: function() {
+    routerUser() {
       this.$router.push("/user");
     },
-    routerMessages: function() {
+    routerMessages() {
       this.$router.push("/messages");
     },
-    routerProfile: function() {
+    routerSendMessages() {
+      this.$router.push("/sendMessages");
+    },
+    routerProfile() {
       // this.$router.push('/profile');
       // alert("Try later !");
       swal({
@@ -63,7 +67,7 @@ export default {
   `
       });
     },
-    routerLogout: function() {
+    routerLogout() {
       // sessionStorage.clear();
       localStorage.removeItem("Clef");
       localStorage.removeItem("User");
@@ -76,7 +80,7 @@ export default {
       // this.$router.push('/login');
       // }
     },
-    Token: function() {
+    Token() {
       let getToken = localStorage.getItem("Clef");
       if (getToken === null) {
         // getToken = false;

@@ -11,7 +11,7 @@ import Home from "@/modules/home/Home";
 // import User from "@/modules/user/User";
 // import UserList from "@/modules/user/components/UserList";
 // import UserDetail from "@/modules/user/components/UserDetail";
-// import SendMessages from "@/modules/user/components/SendMessages";
+// import SendMessages from "@/sharedComponents/SendMessages";
 
 const Messages = resolve => {
 	require.ensure(
@@ -69,9 +69,9 @@ const UserDetail = resolve => {
 };
 const SendMessages = resolve => {
 	require.ensure(
-		["../modules/user/components/SendMessages"],
+		["../sharedComponents/SendMessages.vue"],
 		() => {
-			resolve(require("../modules/user/components/SendMessages"));
+			resolve(require("../sharedComponents/SendMessages.vue"));
 		},
 		"user"
 	);
@@ -105,6 +105,14 @@ export default new Router({
 			name: "home",
 			components: {
 				default: Home,
+				header: Header
+			}
+		},
+		{
+			path: "/sendMessages",
+			name: "sendMessages",
+			components: {
+				default: SendMessages,
 				header: Header
 			}
 		},

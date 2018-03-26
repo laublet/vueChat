@@ -25,8 +25,8 @@ export default {
 };
 </script>
 
-<style scoped>
-.messages {
+<!-- .messages {
   margin-top: 50px;
-}
+} -->
+<style scoped>
 </style>

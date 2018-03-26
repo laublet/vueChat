@@ -1,10 +1,9 @@
 <template>
   <div class="col-xs-12">
-    <div class="hello"  style="cursor: pointer">
+    <div class="hello">
       <h1>{{ $route.params.message.title }}</h1>
       <p>From: {{ $route.params.message.senderId }}</p>
       <p>Content: {{ $route.params.message.content }}</p>
-      <p>read: {{ $route.params.message.read }}</p>
     </div>
   </div>
 </template>
@@ -27,10 +26,8 @@ export default {
       let readDate = Date.now();
       if (this.$route.params.message.read === false) {
         this.$http.put("/messages/" + id, { _readDate: readDate }).then(res => {
-          alert(res.data.message);
+          console.log(res.data.message);
         });
-      } else {
-        alert("already read");
       }
     }
   },
@@ -67,5 +64,10 @@ textarea {
 .button-send {
   margin-top: 25px;
   margin-bottom: 25px;
+}
+.list {
+  background-color: red;
+  height: 50px;
+  width: 50px;
 }
 </style>
