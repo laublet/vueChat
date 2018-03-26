@@ -1,6 +1,6 @@
 <template>
   <div class="col-xs-12">
-    <div class="hello" @click='update($route.params.ID)' style="cursor: pointer">
+    <div class="hello"  style="cursor: pointer">
       <h1>{{ $route.params.message.title }}</h1>
       <p>From: {{ $route.params.message.senderId }}</p>
       <p>Content: {{ $route.params.message.content }}</p>
@@ -24,19 +24,19 @@ export default {
       this.$emit("switching");
     },
     update(id) {
-      // console.log(this.$route.params.message.read);
       let readDate = Date.now();
-      console.log(readDate);
-      if (this.$route.params.message.read === true) {
-        this.$http
-          .put("/messages/" + id, { params: { _readDate: readDate } })
-          .then(res => {
-            alert(res.data.message);
-          });
+      if (this.$route.params.message.read === false) {
+        this.$http.put("/messages/" + id, { _readDate: readDate }).then(res => {
+          alert(res.data.message);
+        });
       } else {
         alert("already read");
       }
     }
+  },
+  beforeMount() {
+    let id = this.$route.params.ID;
+    this.update(id);
   }
 };
 </script>
