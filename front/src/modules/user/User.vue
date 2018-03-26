@@ -1,10 +1,8 @@
 <template>
-  <div>
     <div class="hello">
      <router-view></router-view>
      <hr>
    </div>
- </div>
 </template>
 
 <script>

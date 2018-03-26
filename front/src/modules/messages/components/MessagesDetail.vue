@@ -4,6 +4,7 @@
       <h1>{{ $route.params.message.title }}</h1>
       <p>From: {{ $route.params.message.senderId }}</p>
       <p>Content: {{ $route.params.message.content }}</p>
+      <p>read: {{ $route.params.message.read }}</p>
     </div>
   </div>
 </template>
@@ -22,12 +23,16 @@ export default {
     switching() {
       this.$emit("switching");
     },
-    update(param) {
-      // let read = this.message.readDate;
-      if ($route.params.message.read === false) {
-        this.$http.put("/messages/" + param).then(res => {
-          // alert(res.data.message);
-        });
+    update(id) {
+      // console.log(this.$route.params.message.read);
+      let readDate = Date.now();
+      console.log(readDate);
+      if (this.$route.params.message.read === true) {
+        this.$http
+          .put("/messages/" + id, { params: { _readDate: readDate } })
+          .then(res => {
+            alert(res.data.message);
+          });
       } else {
         alert("already read");
       }

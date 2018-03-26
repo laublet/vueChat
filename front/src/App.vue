@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div class="container-fluid no-gutters">
      <router-view name="header"></router-view>
+     <div class="container-fluid no-gutters">
      <router-view></router-view>
     </div>
   </div>
@@ -22,7 +22,6 @@ export default {
     Messages,
     User,
     Header
-    // test
   }
 };
 </script>

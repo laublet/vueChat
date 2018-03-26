@@ -17,7 +17,7 @@ export default {
   name: "home",
   data() {
     return {
-      msg: "Welcome home "
+      msg: "Welcome"
     };
   }
 };
