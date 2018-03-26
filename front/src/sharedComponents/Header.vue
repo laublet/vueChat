@@ -48,7 +48,7 @@ export default {
       this.$router.push("/messages");
     },
     routerSendMessages() {
-      this.$router.push("/sendMessages");
+      this.$router.push("/sendMessage");
     },
     routerProfile() {
       // this.$router.push('/profile');
@@ -72,7 +72,7 @@ export default {
       localStorage.removeItem("Clef");
       localStorage.removeItem("User");
       // if (this.getToken === undefined) {
-      console.log("Logout :", this.getToken);
+      // console.log("Logout :", this.getToken);
       this.$router.push("/login");
       // } else {
       // getToken = true;
@@ -84,11 +84,11 @@ export default {
       let getToken = localStorage.getItem("Clef");
       if (getToken === null) {
         // getToken = false;
-        console.log("FALSE : ", getToken);
+        // console.log("FALSE : ", getToken);
         this.$router.push("/login");
       } else {
         // getToken = true;
-        console.log("TRUE : ", getToken);
+        // console.log("TRUE : ", getToken);
       }
     }
   },

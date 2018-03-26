@@ -45,14 +45,13 @@ messages.get("/", (req, res) => {
 });
 
 messages.put("/:messageId", (req, res) => {
-	console.log("HERE", req.body);
 	if (mongoose.Types.ObjectId.isValid(req.params.messageId)) {
 		Message.findByIdAndUpdate(
 			req.params.messageId,
 			{
 				$set: {
 					read: true,
-					readDate: req.body._readDate
+					readDate: req.body.readDate
 				}
 			},
 			function(err, doc) {

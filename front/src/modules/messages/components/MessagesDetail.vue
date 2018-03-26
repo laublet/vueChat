@@ -23,11 +23,11 @@ export default {
       this.$emit("switching");
     },
     update(id) {
-      let readDate = Date.now();
+      let _readDate = Date.now();
       if (this.$route.params.message.read === false) {
-        this.$http.put("/messages/" + id, { _readDate: readDate }).then(res => {
-          // console.log(res.data.message);
-        });
+        this.$http
+          .put("/messages/" + id, { readDate: _readDate })
+          .then(res => {});
       }
     }
   },
@@ -57,6 +57,6 @@ a {
 }
 
 .content {
-  resize: none;
+  white-space: normal;
 }
 </style>

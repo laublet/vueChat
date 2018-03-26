@@ -7,8 +7,8 @@
             <h1>{{ title }}</h1>
             <hr>
             <div class="form-group">
-              <label for="receiverId">Send message to</label>
-              <input v-model="messagesToSend.receiverId" id="receiverId" class="form-control" name="receiverId" type="text" placeholder="To" required>
+              <label for="userID">Send message to</label>
+              <input v-model="messagesToSend.userID" id="userID" class="form-control" name="userID" type="text" placeholder="To" required>
             </div>
             <!-- <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required><br><br> -->
             <div class="form-group" >
@@ -27,7 +27,6 @@
               ></textarea>
             </div>
             <button v-on:click = "sendMessage" class="btn btn-lg btn-white">Send</button>
-            <button class="btn btn-lg btn-white" v-on:click="switching">Get your messages</button>
           </div>
         </div>
       </form>
@@ -59,7 +58,7 @@ export default {
         .post("/messages", {
           title: this.messagesToSend.title,
           content: this.messagesToSend.content,
-          userID: this.messagesToSend.receiverId
+          userID: this.messagesToSend.userID
         })
         .then(res => {
           if (res) {
@@ -71,8 +70,8 @@ export default {
     }
   },
   beforeMount() {
-    this.messagesToSend.userID = this.$route.params.receiverId;
-    console.log("receiverId", this.messagesToSend.userID);
+    this.messagesToSend.userID = this.$route.params.userID;
+    // console.log("userID", this.messagesToSend.userID);
   }
 };
 </script>

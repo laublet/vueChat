@@ -18,11 +18,10 @@ export default {
     };
   },
   methods: {
-    sendMessages(usernameToSendTo) {
-      // console.log("Here", usernameToSendTo);
+    sendMessages(idToSendTo) {
       this.$router.push({
         name: "sendMessages",
-        params: { receiverId: usernameToSendTo }
+        params: { userID: idToSendTo }
       });
     }
   }

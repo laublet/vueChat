@@ -8,13 +8,11 @@
 <script>
 import UserDetail from "./components/UserDetail";
 import UserList from "./components/UserList";
-import SendMessages from "./components/SendMessages";
 export default {
   name: "user",
   components: {
     UserDetail,
-    UserList,
-    SendMessages
+    UserList
   },
   data() {
     return {
