@@ -26,7 +26,7 @@
               required
               ></textarea>
             </div>
-            <button v-on:click = "sendMessage" class="btn btn-lg btn-white">Send</button>
+            <button v-on:click = "sendMessage" class="btn btn-lg btn--white">Send</button>
           </div>
         </div>
       </form>

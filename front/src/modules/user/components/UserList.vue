@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="userlist" >
     <h2>Here is your AwesomeUserList</h2>
-    <div class="row">
-      <router-link tag="div"  class="col-lg-12" :to="{name:'userDetail' , params: {id:user.username , user: user}}" style="cursor: pointer" v-for='user in users' :key="user.username">
-        <p>{{ user.username }}</p> <hr>
+    <div class="row userlist__row">
+      <router-link tag="div"  class="userlist__list col-xs-6 col-lg-3" :to="{name:'userDetail' , params: {id:user.username , user: user}}" style="cursor: pointer" v-for='user in users' :key="user.username">
+      <p>{{ user.username }}</p>
       </router-link>
     </div>
   </div>

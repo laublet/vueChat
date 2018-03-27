@@ -1,11 +1,8 @@
 <template>
-  <div>
-      <h1>{{ title }}</h1>
-    <div class="list" @click='sendMessages($route.params.id)' style="cursor: pointer">
-     <p>Username: {{ user.username }}</p>
-   <p>FirstName: {{ user.firstName }}</p>
-      <p>LastName: {{ user.lastName }}</p>
-    </div>
+    <div class="userdetails" @click='sendMessages($route.params.id)' style="cursor: pointer">
+    <p><span>Username</span>: {{ user.username }}</p>
+    <p><span>FirstName</span>: {{ user.firstName }}</p>
+    <p><span>LastName</span>: {{ user.lastName }}</p>
   </div>
 </template>
 

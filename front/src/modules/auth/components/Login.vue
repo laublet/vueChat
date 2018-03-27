@@ -14,7 +14,7 @@
         <input v-model="user.password" id="password" class="form-control" name="password" type="password" placeholder="Enter your password" required>
         </div>
         <button class="btn btn-lg btn-white" v-on:click="signUp">Login</button>
-            <router-link tag="button" class="btn btn-lg btn-white":to="{name:'signup'}">Go to Signup</router-link>
+            <router-link tag="button" class="btn btn-lg btn--white":to="{name:'signup'}">Go to Signup</router-link>
         </div>
       </div>
     </form>

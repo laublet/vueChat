@@ -23,7 +23,7 @@
             <input v-model="user.lastName" id="lastName" class="form-control" name="lastName" type="text" placeholder="...">
           </div>
           <router-link tag="button" class="btn btn-lg btn-white":to="{name:'login'}">Go to Login</router-link>
-          <button class="btn btn-lg btn-white" v-on:click="signIn">Sign In</button>
+          <button class="btn btn-lg btn--white" v-on:click="signIn">Sign In</button>
         </div>
       </div>
     </form>

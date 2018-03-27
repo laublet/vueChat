@@ -18,7 +18,7 @@
           <router-link tag="li":to="{name: 'sendMessages'}"><a>Send a message</a></router-link>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a :click="routerProfile">{{ User }} Profile</a></li>
+          <li><a @click="routerProfile" style="cursor: pointer">{{ User }} Profile</a></li>
           <router-link tag="li":to="{name: 'login'}"><a :click="routerLogout">Logout</a></router-link>
         </ul>
       </div><!--/.nav-collapse -->
@@ -38,6 +38,7 @@ export default {
   },
   methods: {
     routerProfile() {
+      console.log("test");
       // this.$router.push('/profile');
       // alert("Try later !");
       swal({
@@ -46,12 +47,7 @@ export default {
         background:
           '#fff url("https://media.giphy.com/media/RrVzUOXldFe8M/giphy.gif")',
         padding: 65,
-        backdrop: `
-    rgba(0,0,123,0.4)
-    url("")
-    center right
-    no-repeat
-  `
+        backdrop: `rgba(0,0,123,0.4) url("") center right no-repeat`
       });
     },
     routerLogout() {
