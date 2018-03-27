@@ -1,6 +1,6 @@
 .messageslist {
 	width: 80vw;
-	margin: 0 auto;
+	margin: 8vh auto;
 	background-color: $color-primary-dark;
 	box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
 	padding: 2rem;
@@ -12,6 +12,8 @@
 		justify-content: center;
 	}
 	&__messageToRead {
+		// height: 5vh;
+		// width: 3vw;
 		padding: 2rem;
 		margin: 1rem;
 		box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
@@ -24,11 +26,13 @@
 	}
 
 	&__messageReaded {
+		// height: 5vh;
+		// width: 3vw;
 		padding: 2rem;
 		margin: 1rem;
 		box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
 		// width: 4rem;
-		background-color: $color-tertiary-dark;
+		background-color: $color-secondary-dark;
 		transition: transform 0.3s;
 		&:hover {
 			transform: translateY(-1.5rem) translateX(-1rem) scale(1.03);
