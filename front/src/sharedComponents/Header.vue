@@ -8,19 +8,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#" v-on:click="routerHome">vueChat</a>
+        <router-link tag="a" class="navbar-brand" :to="{name: 'home'}">vueChat</router-link>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <!-- <li class="active"><a href="#">Menu</a></li> -->
-          <li><a href="#" v-on:click="routerHome">Home</a></li>
-          <li><a href="#" v-on:click="routerUser">User</a></li>
-          <li><a href="#" v-on:click="routerMessages">Your Messages</a></li>
-          <li><a href="#" v-on:click="routerSendMessages">Send a Message</a></li>
+          <router-link tag="li":to="{name: 'home'}"><a>Home</a></router-link>
+          <router-link tag="li":to="{name: 'userList'}"><a>Users</a></router-link>
+          <router-link tag="li":to="{name: 'messagesList'}"><a>Your Inbox</a></router-link>
+          <router-link tag="li":to="{name: 'sendMessages'}"><a>Send a message</a></router-link>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" v-on:click="routerProfile">{{ User }} Profile</a></li>
-          <li><a href="#" v-on:click="routerLogout">Logout</a></li>
+          <li><a :click="routerProfile">{{ User }} Profile</a></li>
+          <router-link tag="li":to="{name: 'login'}"><a :click="routerLogout">Logout</a></router-link>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -38,18 +37,6 @@ export default {
     };
   },
   methods: {
-    routerHome() {
-      this.$router.push("/home");
-    },
-    routerUser() {
-      this.$router.push("/user");
-    },
-    routerMessages() {
-      this.$router.push("/messages");
-    },
-    routerSendMessages() {
-      this.$router.push("/sendMessage");
-    },
     routerProfile() {
       // this.$router.push('/profile');
       // alert("Try later !");

@@ -23,9 +23,6 @@ export default {
     };
   },
   methods: {
-    switching() {
-      this.$emit("switching");
-    },
     getMessage() {
       this.$http.get("/messages", {}).then(res => {
         this.messages = res.data.content;

@@ -19,14 +19,14 @@ export default {
     };
   },
   methods: {
-    getListUSer() {
+    getListUser() {
       this.$http.get("/users", {}).then(res => {
         this.users = res.data.content;
       });
     }
   },
   created() {
-    this.getListUSer();
+    this.getListUser();
   }
 };
 </script>

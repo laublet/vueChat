@@ -57,19 +57,22 @@ export default {
         })
         .then(res => {
           if (res) {
-            this.switching();
+            alert(res.data.message);
+            this.$router.push("/login");
           } else {
             alert("Server Error");
           }
         })
         .catch(error => {
-          if (error)
-            // alert(error.response.data.message);
+          if (error) {
             swal({
               type: "error",
               title: "Oh no ...",
               text: error.response.data.message
             });
+            // alert(error.response.data.message);
+          } else {
+          }
         });
       // });
     }

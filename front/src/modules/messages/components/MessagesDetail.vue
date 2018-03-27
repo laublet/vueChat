@@ -19,9 +19,6 @@ export default {
     };
   },
   methods: {
-    switching() {
-      this.$emit("switching");
-    },
     update(id) {
       let _readDate = Date.now();
       if (this.$route.params.message.read === false) {

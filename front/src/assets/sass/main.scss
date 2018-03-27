@@ -1,0 +1,64 @@
+@import "abstracts/variables";
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	/* font-size: 16px; */
+	line-height: 1.7;
+	color: #777;
+	/* padding: 3rem; */
+}
+
+body {
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
+
+	height: 100vh;
+	background: linear-gradient(to right bottom, $primary, $secondary);
+	position: relative;
+	font-weight: 400;
+	/* font-size: 16px; */
+	line-height: 1.7;
+	color: #777;
+	/* padding: 30px; */
+}
+
+.btn:link,
+.btn:visited {
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 1.5rem 4rem;
+	display: inline-block;
+	border-radius: 10rem;
+	transition: all 0.2s;
+	position: relative;
+}
+
+.btn:hover {
+	transform: translateY(-0.3rem);
+	box-shadow: 0.5rem 1rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+	transform: translateY(-0.1rem);
+	box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+	background-color: #fff;
+	color: #444;
+}

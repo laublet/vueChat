@@ -5,7 +5,7 @@
       <button class="btn btn-lg btn-white">User</button>
     </router-link>
     <router-link :to="{name: 'messagesList'}">
-      <button class="btn btn-lg btn-white">Messages</button>
+      <button class="btn btn-lg btn-white">Your Inbox</button>
     </router-link>
   </div>
 </template>
