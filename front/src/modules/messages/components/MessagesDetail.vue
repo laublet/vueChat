@@ -1,9 +1,9 @@
 <template>
   <div class="col-xs-12">
-    <div class="hello">
+    <div class="messagesdetails">
       <h1>{{ $route.params.message.title }}</h1>
       <p>From: {{ $route.params.message.senderId }}</p>
-      <div class="content">Content: {{ $route.params.message.content }}</div>
+      <div class="content">{{ $route.params.message.content }}</div>
     </div>
   </div>
 </template>
@@ -35,24 +35,7 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-
 .content {
   white-space: normal;
 }

@@ -7,16 +7,16 @@
             <h1>{{ title }}</h1>
             <hr>
             <div class="form-group">
-              <label for="userID">Send message to</label>
+              <label for="userID"></label>
               <input v-model="messagesToSend.userID" id="userID" class="form-control" name="userID" type="text" placeholder="To" required>
             </div>
             <!-- <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required><br><br> -->
             <div class="form-group" >
-              <label for="title">Title </label>
+              <label for="title"></label>
               <input v-model="messagesToSend.title" id="title" class="form-control" name="title" type="text" placeholder="Title" required>
             </div>
             <div class="form-group">
-              <label for="content">Content</label>
+              <label for="content"></label>
               <textarea
               v-model="messagesToSend.content"
               id="content"
