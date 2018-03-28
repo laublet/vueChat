@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="messages">
+  <div>
     <router-view></router-view>
   </div>
 </div>

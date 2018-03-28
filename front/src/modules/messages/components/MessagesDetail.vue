@@ -1,7 +1,7 @@
 <template>
   <div class="col-xs-12">
     <div class="messagesdetails">
-      <h1>{{ $route.params.message.title }}</h1>
+      <h2 class="heading-secondary">{{ $route.params.message.title }}</h2>
       <p>From: {{ $route.params.message.senderId }}</p>
       <div class="content">{{ $route.params.message.content }}</div>
     </div>

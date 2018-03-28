@@ -1,17 +1,12 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <router-link :to="{name: 'userList'}">
-      <button class="btn btn-lg btn--white">User</button>
-    </router-link>
-    <router-link :to="{name: 'messagesList'}">
-      <button class="btn btn-lg btn--white">Your Inbox</button>
-    </router-link>
+   <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import layout from "@/sharedComponents/layout";
+import ProductsList from "./components/ProductsList";
+import Welcome from "./components/Welcome";
 
 export default {
   name: "home",

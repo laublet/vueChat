@@ -1,5 +1,4 @@
 import express from "express";
-import mongoose from "mongoose";
 import connection from "../connection/index";
 import User from "./../../models/User";
 import Message from "./../../models/Message";

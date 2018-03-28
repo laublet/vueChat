@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     getTheUser(id) {
-      this.$http.get("/users/one/" + id).then(res => {
+      this.$http.get("/users/" + id).then(res => {
         this.user = res.data.content;
       });
     },

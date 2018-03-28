@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
-import mongooseTypeEmail from 'mongoose-type-email'
-import bcrypt from 'bcrypt'
+import mongoose from "mongoose";
+import mongooseTypeEmail from "mongoose-type-email";
+import bcrypt from "bcrypt";
 
 let UserSchema = new mongoose.Schema({
   username: {
@@ -17,14 +17,38 @@ let UserSchema = new mongoose.Schema({
   lastName: {
     type: String
   },
+  address: {
+    country: {
+      type: String
+    },
+    region: {
+      type: String
+    },
+    city: {
+      type: String
+    },
+    street: {
+      type: String
+    },
+    longitude: {
+      type: Number
+    },
+    latitude: {
+      type: Number
+    }
+  },
   creationDate: {
     type: Date,
     default: Date.now
   },
+  lastUpdateDate: {
+    type: Date,
+    default: null
+  }
 });
 
 UserSchema.methods.comparePasswords = function(password) {
   return bcrypt.compareSync(password, this.password);
-}
+};
 
-export default mongoose.model('User', UserSchema);
+export default mongoose.model("User", UserSchema);

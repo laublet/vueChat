@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
-import mongooseTypeEmail from 'mongoose-type-email'
-import bcrypt from 'bcrypt'
+import mongoose from "mongoose";
+import mongooseTypeEmail from "mongoose-type-email";
+import bcrypt from "bcrypt";
 
 let MessageSchema = new mongoose.Schema({
   title: {
@@ -15,12 +15,6 @@ let MessageSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  senderId: {
-    type: String
-  },
-  receiverId: {
-    type: String
-  },
   read: {
     type: Boolean,
     default: false
@@ -29,6 +23,12 @@ let MessageSchema = new mongoose.Schema({
     type: Date,
     default: null
   },
+  senderId: {
+    type: String
+  },
+  receiverId: {
+    type: String
+  }
 });
 
-export default mongoose.model('Message', MessageSchema);
+export default mongoose.model("Message", MessageSchema);

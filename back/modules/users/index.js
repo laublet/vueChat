@@ -4,9 +4,8 @@ import User from "./../../models/User";
 let users = express.Router();
 
 users.get("/", (req, res) => {
-	// console.log('test')
 	User.find({}, { password: 0 }, (err, usersList) => {
-		if (err) res.status(500).json({ success: false, message: "test" });
+		if (err) res.status(500).json({ success: false, message: err.message });
 		else
 			res.status(200).json({
 				success: true,
@@ -16,13 +15,13 @@ users.get("/", (req, res) => {
 	});
 });
 
-users.get("/one/:id", (req, res) => {
-	console.log("Here", req.params);
+users.get("/:id", (req, res) => {
 	User.findOne(
 		{ username: req.params.id },
 		{ password: 0 },
 		(err, userData) => {
-			if (err) res.status(500).json({ success: false, message: "test" });
+			if (err)
+				res.status(500).json({ success: false, message: err.message });
 			else
 				res.status(200).json({
 					success: true,
