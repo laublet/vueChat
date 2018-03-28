@@ -60,13 +60,12 @@ export default {
             swal("Great !", "Your message is gone ... but where ?", "success");
             (this.messagesToSend.title = ""),
               (this.messagesToSend.content = "");
-          } else alert("You need to fill all the informations");
+          } else swal("You need to fill all the inputs");
         });
     }
   },
   beforeMount() {
     this.messagesToSend.userID = this.$route.params.userID;
-    // console.log("userID", this.messagesToSend.userID);
   }
 };
 </script>

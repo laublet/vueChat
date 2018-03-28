@@ -47,11 +47,13 @@ export default {
           localStorage.setItem("Clef", token);
           localStorage.setItem("User", this.user.username);
           if (token) this.$router.push("/home");
-          else alert("Server error");
+          else
+            swal({
+              type: "error",
+              text: "Server error"
+            });
         })
         .catch(error => {
-          console.log(error.response.data);
-          // alert(error.response.data.message);
           swal({
             type: "error",
             title: "Oh no ...",

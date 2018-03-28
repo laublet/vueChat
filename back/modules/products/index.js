@@ -30,7 +30,6 @@ products.get("/:id", (req, res) => {
 });
 
 products.post("/", (req, res) => {
-	console.log("Id:", req.decode.id);
 	let newProduct = new Product(req.body);
 	newProduct.userId = req.decode.id;
 	newProduct.save(function(err, product) {
