@@ -11,14 +11,18 @@
 		flex-wrap: wrap;
 		justify-content: center;
 	}
-	&__messageToRead {
+	&__messageToRead,
+	&__messageReaded {
 		// height: 5vh;
 		// width: 3vw;
+		// width: 4rem;
 		padding: 2rem;
 		margin: 1rem;
 		box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
-		// width: 4rem;
 		background-color: $color-tertiary-light;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		transition: transform 0.3s;
 		&:hover {
 			transform: translateY(-1.5rem) scale(1.03);
@@ -26,16 +30,6 @@
 	}
 
 	&__messageReaded {
-		// height: 5vh;
-		// width: 3vw;
-		padding: 2rem;
-		margin: 1rem;
-		box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
-		// width: 4rem;
 		background-color: $color-secondary-dark;
-		transition: transform 0.3s;
-		&:hover {
-			transform: translateY(-1.5rem) translateX(-1rem) scale(1.03);
-		}
 	}
 }

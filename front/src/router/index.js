@@ -4,7 +4,9 @@ import Header from "@/sharedComponents/Header";
 import Auth from "@/modules/auth/Auth";
 import Login from "@/modules/auth/components/Login";
 import Signup from "@/modules/auth/components/Signup";
-import Home from "@/modules/home/Home";
+// import Home from "@/modules/home/Home";
+// import Productslist from "@/modules/home/components/ProductsList";
+// import Welcome from "@/modules/home/components/Welcome";
 // import Messages from "@/modules/messages/Messages";
 // import MessagesList from "@/modules/messages/components/MessagesList";
 // import MessagesDetail from "@/modules/messages/components/MessagesDetail";
@@ -77,6 +79,74 @@ const SendMessages = resolve => {
 	);
 };
 
+const Home = resolve => {
+	require.ensure(
+		["../modules/home/Home"],
+		() => {
+			resolve(require("../modules/home/Home"));
+		},
+		"Home"
+	);
+};
+const Welcome = resolve => {
+	require.ensure(
+		["../modules/home/components/Welcome"],
+		() => {
+			resolve(require("../modules/home/components/Welcome"));
+		},
+		"Home"
+	);
+};
+const ProductsList = resolve => {
+	require.ensure(
+		["../modules/home/components/ProductsList"],
+		() => {
+			resolve(require("../modules/home/components/ProductsList"));
+		},
+		"Home"
+	);
+};
+
+const Profile = resolve => {
+	require.ensure(
+		["../modules/profile/Profile"],
+		() => {
+			resolve(require("../modules/profile/Profile"));
+		},
+		"Profile"
+	);
+};
+
+const ProfileEdit = resolve => {
+	require.ensure(
+		["../modules/profile/components/ProfileEdit"],
+		() => {
+			resolve(require("../modules/profile/components/ProfileEdit"));
+		},
+		"Profile"
+	);
+};
+
+const NewProduct = resolve => {
+	require.ensure(
+		["../modules/profile/components/NewProduct"],
+		() => {
+			resolve(require("../modules/profile/components/NewProduct"));
+		},
+		"Profile"
+	);
+};
+
+const ProductsListUser = resolve => {
+	require.ensure(
+		["../modules/profile/components/ProductsListUser"],
+		() => {
+			resolve(require("../modules/profile/components/ProductsListUser"));
+		},
+		"Profile"
+	);
+};
+
 Vue.use(Router);
 
 export default new Router({
@@ -106,7 +176,19 @@ export default new Router({
 			components: {
 				default: Home,
 				header: Header
-			}
+			},
+			children: [
+				{
+					path: "",
+					name: "welcome",
+					component: Welcome
+				},
+				{
+					path: "productsList",
+					name: "productsList",
+					component: ProductsList
+				}
+			]
 		},
 		{
 			path: "/sendMessages",
@@ -158,6 +240,31 @@ export default new Router({
 					path: "/messagesToSend/:receiverId",
 					name: "sendMessages",
 					component: SendMessages
+				}
+			]
+		},
+		{
+			path: "/profile",
+			name: "profile",
+			components: {
+				default: Profile,
+				header: Header
+			},
+			children: [
+				{
+					path: "",
+					name: "profileEdit",
+					component: ProfileEdit
+				},
+				{
+					path: "/newProduct",
+					name: "newProduct",
+					component: NewProduct
+				},
+				{
+					path: "/productsListUser",
+					name: "productsListUser",
+					component: ProductsListUser
 				}
 			]
 		},

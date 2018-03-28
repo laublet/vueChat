@@ -8,17 +8,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <router-link tag="a" class="navbar-brand" :to="{name: 'home'}">vueChat</router-link>
+        <router-link tag="a" class="navbar-brand" :to="{name: 'welcome'}">vueChat</router-link>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <router-link tag="li":to="{name: 'home'}"><a>Home</a></router-link>
+          <router-link tag="li":to="{name: 'welcome'}"><a>Home</a></router-link>
           <router-link tag="li":to="{name: 'userList'}"><a>Users</a></router-link>
           <router-link tag="li":to="{name: 'messagesList'}"><a>Your Inbox</a></router-link>
           <router-link tag="li":to="{name: 'sendMessages'}"><a>Send a message</a></router-link>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a @click="routerProfile" style="cursor: pointer">{{ User }} Profile</a></li>
+          <router-link tag="li":to="{name: 'profileEdit'}"><a>{{ User }}</a></router-link>
           <router-link tag="li":to="{name: 'login'}"><a :click="routerLogout">Logout</a></router-link>
         </ul>
       </div><!--/.nav-collapse -->

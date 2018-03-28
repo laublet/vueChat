@@ -3,7 +3,7 @@
     <form v-on:submit.prevent>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-          <h1>{{ title }}</h1>
+          <h1 class="heading-primary">{{ title }}</h1>
           <hr>
           <div class="form-group">
             <label for="username">Username <span>*</span> </label>
@@ -22,7 +22,7 @@
             <label for="lastName">LastName   </label>
             <input v-model="user.lastName" id="lastName" class="form-control" name="lastName" type="text" placeholder="...">
           </div>
-          <router-link tag="button" class="btn btn-lg btn-white":to="{name:'login'}">Go to Login</router-link>
+          <router-link tag="button" class="btn btn-lg btn--white":to="{name:'login'}">Go to Login</router-link>
           <button class="btn btn-lg btn--white" v-on:click="signIn">Sign In</button>
         </div>
       </div>

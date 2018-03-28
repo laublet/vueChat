@@ -3,7 +3,7 @@
     <form v-on:submit.prevent>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-        <h1>{{ title }}</h1>
+        <h1 class="heading-primary">{{ title }}</h1>
         <hr>
         <div class="form-group">
         <label for="username">Username </label>
@@ -13,7 +13,7 @@
         <label for="password">Password</label>
         <input v-model="user.password" id="password" class="form-control" name="password" type="password" placeholder="Enter your password" required>
         </div>
-        <button class="btn btn-lg btn-white" v-on:click="signUp">Login</button>
+        <button class="btn btn-lg btn--white" v-on:click="signUp">Login</button>
             <router-link tag="button" class="btn btn-lg btn--white":to="{name:'signup'}">Go to Signup</router-link>
         </div>
       </div>

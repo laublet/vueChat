@@ -11,6 +11,8 @@ import checkToken from "./modules/checkToken/index";
 import auth from "./modules/auth/index";
 import users from "./modules/users/index";
 import messages from "./modules/messages/index";
+import profile from "./modules/profile/index";
+import products from "./modules/products/index";
 
 let app = express();
 
@@ -25,6 +27,8 @@ app.use("/auth", auth);
 app.use(checkToken);
 app.use("/users", users);
 app.use("/messages", messages);
+app.use("/profile", profile);
+app.use("/products", products);
 
 process.on("uncaughtException", err => {
 	console.log("\u0007");

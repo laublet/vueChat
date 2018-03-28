@@ -1,5 +1,5 @@
-import express from "express"
-import mongoose from "mongoose"
+import express from "express";
+import mongoose from "mongoose";
 
 let app = express();
 
@@ -18,5 +18,18 @@ let connection = () => {
 		}
 	});
 };
+
+// let connection = () => {
+// 	mongoose.connect(process.env.MONGOURL,{}).then(
+// 		() => {
+// 				let host = process.env.HOST;
+// let port = process.env.PORT || 8080;
+// app.listen(port, () => console.log("App listen on port: " + host + port));
+// 		},
+// 		err => {
+
+// 		}
+// 		)
+// };
 
 export default connection;

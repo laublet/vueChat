@@ -1,10 +1,9 @@
 <template>
   <div class="col-xs-12">
-    <div class="hello">
+    <div class="sendmessages">
       <form v-on:submit.prevent>
-        <div class="row">
-          <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-            <h1>{{ title }}</h1>
+        <div class="row sendmessages__row">
+            <h2 class="heading-secondary">{{ title }}</h2>
             <hr>
             <div class="form-group">
               <label for="userID"></label>
@@ -27,7 +26,6 @@
               ></textarea>
             </div>
             <button v-on:click = "sendMessage" class="btn btn-lg btn--white">Send</button>
-          </div>
         </div>
       </form>
     </div>
@@ -50,9 +48,6 @@ export default {
     };
   },
   methods: {
-    switching() {
-      this.$emit("switching");
-    },
     sendMessage() {
       this.$http
         .post("/messages", {
@@ -76,26 +71,5 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-textarea {
-  resize: none;
-  /*white-space: prem;*/
-  /*Style a sav pour garder les sauts de lignes qd on affichera les messages*/
-}
 </style>
