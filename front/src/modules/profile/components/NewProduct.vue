@@ -64,11 +64,9 @@ export default {
               title: "Oh no ...",
               text: error.response.data.message
             });
-            // alert(error.response.data.message);
           } else {
           }
         });
-      // });
     }
   }
 };

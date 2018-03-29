@@ -19,7 +19,6 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <router-link tag="li":to="{name: 'profileEdit'}"><a>{{ User }}</a></router-link>
-          <router-link tag="li":to="{name: 'login'}"><a :click="routerLogout">Logout</a></router-link>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -51,6 +50,7 @@ export default {
       });
     },
     routerLogout() {
+      console.log("test");
       // sessionStorage.clear();
       localStorage.removeItem("Clef");
       localStorage.removeItem("User");
