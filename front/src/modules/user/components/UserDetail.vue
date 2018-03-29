@@ -22,15 +22,34 @@ export default {
   },
   methods: {
     getTheUser(id) {
-      this.$http.get("/users/" + id).then(res => {
-        this.user = res.data.content;
-      });
+      this.$http
+        .get("/users/" + id)
+        .then(res => {
+          this.user = res.data.content;
+        })
+        .catch(error => {
+          if (error)
+            swal({
+              type: "error",
+              title: "Oh no ...",
+              text: error.response.data.message
+            });
+        });
     },
     sendMessages(idToSendTo) {
-      this.$router.push({
-        name: "sendMessages",
-        params: { userID: idToSendTo }
-      });
+      this.$router
+        .push({
+          name: "sendMessages",
+          params: { userID: idToSendTo }
+        })
+        .catch(error => {
+          if (error)
+            swal({
+              type: "error",
+              title: "Oh no ...",
+              text: error.response.data.message
+            });
+        });
     }
   },
   beforeMount() {

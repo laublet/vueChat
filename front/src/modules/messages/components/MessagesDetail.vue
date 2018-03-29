@@ -24,7 +24,15 @@ export default {
       if (this.$route.params.message.read === false) {
         this.$http
           .put("/messages/" + id, { readDate: _readDate })
-          .then(res => {});
+          .then(res => {})
+          .catch(error => {
+            if (error)
+              swal({
+                type: "error",
+                title: "Oh no ...",
+                text: error.response.data.message
+              });
+          });
       }
     }
   },

@@ -23,9 +23,19 @@ export default {
   },
   methods: {
     getMessage() {
-      this.$http.get("/messages", {}).then(res => {
-        this.messages = res.data.content;
-      });
+      this.$http
+        .get("/messages", {})
+        .then(res => {
+          this.messages = res.data.content;
+        })
+        .catch(error => {
+          if (error)
+            swal({
+              type: "error",
+              title: "Oh no ...",
+              text: error.response.data.message
+            });
+        });
     }
   },
   beforeMount() {

@@ -20,9 +20,19 @@ export default {
   },
   methods: {
     getListUser() {
-      this.$http.get("/users", {}).then(res => {
-        this.users = res.data.content;
-      });
+      this.$http
+        .get("/users", {})
+        .then(res => {
+          this.users = res.data.content;
+        })
+        .catch(error => {
+          if (error)
+            swal({
+              type: "error",
+              title: "Oh no ...",
+              text: error.response.data.message
+            });
+        });
     }
   },
   created() {

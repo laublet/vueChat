@@ -22,9 +22,19 @@ export default {
   },
   methods: {
     getProducts() {
-      this.$http.get("/products", {}).then(res => {
-        this.products = res.data.content;
-      });
+      this.$http
+        .get("/products", {})
+        .then(res => {
+          this.products = res.data.content;
+        })
+        .catch(error => {
+          if (error)
+            swal({
+              type: "error",
+              title: "Oh no ...",
+              text: error.response.data.message
+            });
+        });
     }
   },
   created() {

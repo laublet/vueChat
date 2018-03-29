@@ -3,7 +3,7 @@
     <h2 class="heading-secondary">Here is your AwesomeUserList</h2>
     <div class="row userlist__row">
       <router-link tag="div"  class="userlist__list col-xs-6 col-lg-3" :to="{name:'userDetail' , params: {id:user.username , user: user}}" style="cursor: pointer" v-for='user in users' :key="user.username">
-      <p>{{ user.username }}</p>
+        <p>{{ user.username }}</p>
       </router-link>
     </div>
   </div>
@@ -20,9 +20,19 @@ export default {
   },
   methods: {
     getListUser() {
-      this.$http.get("/users", {}).then(res => {
-        this.users = res.data.content;
-      });
+      this.$http
+        .get("/users", {})
+        .then(res => {
+          this.users = res.data.content;
+        })
+        .catch(error => {
+          if (error)
+            swal({
+              type: "error",
+              title: "Oh no ...",
+              text: error.response.data.message
+            });
+        });
     }
   },
   created() {
