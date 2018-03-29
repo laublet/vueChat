@@ -12,13 +12,15 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <router-link tag="li":to="{name: 'welcome'}"><a>Home</a></router-link>
-          <router-link tag="li":to="{name: 'userList'}"><a>Users</a></router-link>
-          <router-link tag="li":to="{name: 'messagesList'}"><a>Your Inbox</a></router-link>
-          <router-link tag="li":to="{name: 'sendMessages'}"><a>Send a message</a></router-link>
+          <router-link tag="li" :to="{name: 'welcome'}"><a>Home</a></router-link>
+          <router-link tag="li" :to="{name: 'userList'}"><a>Users</a></router-link>
+          <router-link tag="li" :to="{name: 'messagesList'}"><a>Your Inbox</a></router-link>
+          <router-link tag="li" :to="{name: 'sendMessages'}"><a>Send a message</a></router-link>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <router-link tag="li":to="{name: 'profileEdit'}"><a>{{ User }}</a></router-link>
+          <router-link tag="li" :to="{name: 'profileEdit'}"><a>{{ User }}</a></router-link>
+          <!-- <router-link tag="li" :to="{name: 'login'}"></router-link> -->
+          <li><a href="#" v-on:click="routerLogout">Logout</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
