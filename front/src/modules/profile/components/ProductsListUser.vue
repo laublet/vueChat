@@ -2,19 +2,35 @@
   <div class="productsListUser" >
     <h2 class="heading-tertiary">{{ title }}</h2>
     <div class="row productsListUser__row">
+       <product v-for="product in products" :key="product.price" :product="product"></product>
     </div>
   </div>
 </template>
 
 <script>
+import Product from "@/sharedComponents/Product";
 export default {
   name: "productsListUser",
   data() {
     return {
-      title: "Your are on productsListUser"
+      title: "Your are on productsListUser",
+      products: []
     };
   },
-  methods: {}
+  components: {
+    Product
+  },
+  methods: {
+    getProducts() {
+      console.log("here");
+      this.$http.get("/profile/products", {}).then(res => {
+        this.products = res.data.content;
+      });
+    }
+  },
+  created() {
+    this.getProducts();
+  }
 };
 </script>
 

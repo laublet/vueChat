@@ -1,4 +1,5 @@
 import express from "express";
+import mongoose from "mongoose";
 import connection from "../connection/index";
 import User from "./../../models/User";
 import Message from "./../../models/Message";
@@ -6,9 +7,14 @@ import Message from "./../../models/Message";
 let messages = express.Router();
 
 messages.post("/", (req, res) => {
-	User.find({ username: req.body.receiverId }, (err, usersMessages) => {
-		if (err) {
-			res.status(500).json({ success: false, message: err.message });
+	console.log(req.body.userID);
+	User.findOne({ username: req.body.userID }, (err, user) => {
+		if (err) res.status(500).json({ success: false, message: err.message });
+		console.log(user);
+		if (user === null) {
+			res
+				.status(401)
+				.json({ success: false, message: "User does not exist" });
 		} else {
 			let newMessage = new Message(req.body);
 			newMessage.senderId = req.decode.username;
@@ -30,7 +36,6 @@ messages.post("/", (req, res) => {
 
 messages.get("/", (req, res) => {
 	Message.find({ receiverId: req.decode.username }, (err, usersMessages) => {
-		// Message.findAndUpdate({receiverId: req.decode.username}, {read: true}, {new: true} ,(err, usersMessages) => {
 		if (err) {
 			res.status(500).json({ success: false, message: err.message });
 		} else {
@@ -55,7 +60,6 @@ messages.put("/:messageId", (req, res) => {
 			},
 			function(err, doc) {
 				if (err) {
-					console.log(err.message);
 					res
 						.status(500)
 						.json({ success: false, message: err.message });
@@ -70,7 +74,7 @@ messages.put("/:messageId", (req, res) => {
 	} else {
 		res.status(400).json({
 			success: false,
-			message: "Id not valid !"
+			message: "Message ID not valid !"
 		});
 	}
 });

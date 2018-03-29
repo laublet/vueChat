@@ -23,7 +23,7 @@
             <input v-model="user.lastName" id="lastName" class="form-control" name="lastName" type="text" placeholder="...">
           </div>
           <router-link tag="button" class="btn btn-lg btn--white":to="{name:'login'}">Go to Login</router-link>
-          <button class="btn btn-lg btn--white" v-on:click="signIn">Sign In</button>
+          <button class="btn btn-lg btn--white" @click="signIn">Sign In</button>
         </div>
       </div>
     </form>
@@ -57,10 +57,17 @@ export default {
         })
         .then(res => {
           if (res) {
-            alert(res.data.message);
+            swal({
+              type: "success",
+              title: "Congrat !",
+              text: res.data.message
+            });
             this.$router.push("/login");
           } else {
-            alert("Server Error");
+            swal({
+              type: "error",
+              text: "Server Error"
+            });
           }
         })
         .catch(error => {
@@ -70,11 +77,9 @@ export default {
               title: "Oh no ...",
               text: error.response.data.message
             });
-            // alert(error.response.data.message);
           } else {
           }
         });
-      // });
     }
   }
 };
