@@ -14,7 +14,6 @@ export default {
   data() {
     return {
       title: "Your are on ProductsList",
-      // test: "test",
       products: []
     };
   },
