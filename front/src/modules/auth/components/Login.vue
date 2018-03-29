@@ -38,10 +38,7 @@ export default {
   methods: {
     signUp() {
       this.$http
-        .post("/auth/login", {
-          username: this.user.username,
-          password: this.user.password
-        })
+        .post("/auth/login", this.user)
         .then(res => {
           let token = res.data.content.token;
           localStorage.setItem("Clef", token);

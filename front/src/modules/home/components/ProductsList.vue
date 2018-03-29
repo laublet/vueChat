@@ -2,7 +2,7 @@
   <div class="productslist" >
     <h2 class="heading-tertiary">Here is your AwesomeProductsList</h2>
     <div class="row productslist__row">
-      <product v-for="product in products" :key="product.price" :product="product"></product>
+      <product v-for="product in products" :key="product.price" :naming="product"></product>
     </div>
   </div>
 </template>

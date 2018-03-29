@@ -2,7 +2,8 @@
   <div class="profileEdit" >
     <div class="row profileEdit__row">
       <form v-on:submit.prevent>
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <!-- <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3"> -->
+        <div class="col-xs-12 col-sm-6  col-md-6 ">
           <h1 class="heading-primary">{{ title }}</h1>
           <hr>
           <!-- <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required><br><br> -->
@@ -18,9 +19,38 @@
             <label for="lastName">LastName   </label>
             <input v-model="user.lastName" id="lastName" class="form-control" name="lastName" type="text" placeholder="...">
           </div>
-          <button class="btn btn-lg btn--white" @click="updateUser">Update</button>
+
         </div>
       </form>
+      <form v-on:submit.prevent>
+        <div class="col-xs-12 col-sm-6  col-md-6 ">
+          <div class="form-group" >
+            <label for="country">Country </label>
+            <input v-model="user.address.country" id="country" class="form-control" name="country" type="text" placeholder="..." required>
+          </div>
+          <div class="form-group" >
+            <label for="region">Region </label>
+            <input v-model="user.address.region" id="region" class="form-control" name="region" type="text" placeholder="..." required>
+          </div>
+          <div class="form-group" >
+            <label for="city">City </label>
+            <input v-model="user.address.city" id="city" class="form-control" name="city" type="text" placeholder="..." required>
+          </div>
+          <div class="form-group" >
+            <label for="street">Street </label>
+            <input v-model="user.address.street" id="street" class="form-control" name="street" type="text" placeholder="..." required>
+          </div>
+          <div class="form-group" >
+            <label for="longitude">Longitude </label>
+            <input v-model="user.address.longitude" id="longitude" class="form-control" name="longitude" type="text" placeholder="..." required>
+          </div>
+          <div class="form-group" >
+            <label for="latitude">Latitude </label>
+            <input v-model="user.address.latitude" id="latitude" class="form-control" name="latitude" type="text" placeholder="..." required>
+          </div>
+        </div>
+      </form>
+       <button class="btn btn-lg btn--white" @click="updateUser">Update</button>
     </div>
   </div>
 </template>
@@ -36,18 +66,22 @@ export default {
         username: "",
         email: "",
         password: "",
-        message: ""
+        message: "",
+        address: {
+          country: "",
+          region: "",
+          city: "",
+          street: "",
+          longitude: "",
+          latitude: ""
+        }
       }
     };
   },
   methods: {
     updateUser() {
       this.$http
-        .put("/profile", {
-          password: this.user.password,
-          firstName: this.user.firstName,
-          lastName: this.user.lastName
-        })
+        .put("/profile", this.user)
         .then(res => {
           if (res) {
             swal({

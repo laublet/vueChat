@@ -2,7 +2,7 @@
   <div class="productsListUser" >
     <h2 class="heading-tertiary">{{ title }}</h2>
     <div class="row productsListUser__row">
-       <product v-for="product in products" :key="product.price" :product="product"></product>
+       <product v-for="product in products" :key="product.price" :naming="product"></product>
     </div>
   </div>
 </template>

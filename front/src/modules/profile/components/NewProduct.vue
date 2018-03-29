@@ -41,11 +41,7 @@ export default {
   methods: {
     sendData() {
       this.$http
-        .post("/products", {
-          title: this.product.title,
-          description: this.product.description,
-          price: this.product.price
-        })
+        .post("/products", this.product)
         .then(res => {
           if (res) {
             swal({

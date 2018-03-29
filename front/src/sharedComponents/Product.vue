@@ -1,8 +1,8 @@
 <template>
     <div class="product">
-    <h2>{{ product.title }}</h2>
-    <p>{{ product.description }}</p>
-    <p>{{ product.price }}</p>
+    <h2>{{ naming.title }}</h2>
+    <p>{{ naming.description }}</p>
+    <p>{{ naming.price }}</p>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ import swal from "sweetalert2";
 
 export default {
   name: "product",
-  props: ["product"],
+  props: ["naming"],
   data() {
     return {
       title: "Product Component"

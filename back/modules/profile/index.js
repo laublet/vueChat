@@ -2,10 +2,10 @@ import express from "express";
 import connection from "../connection/index";
 import User from "./../../models/User";
 import Product from "./../../models/Product";
+import bcrypt from "bcrypt";
 let profile = express.Router();
 
 profile.get("/", (req, res) => {
-	// console.log("Here", req.decode.username);
 	User.find(
 		{ username: req.decode.username },
 		{ password: 0 },
@@ -35,18 +35,17 @@ profile.get("/products", (req, res) => {
 });
 
 profile.put("/", (req, res) => {
-	console.log(req.body);
-	let toUpdate = {
-		password: req.body.password,
-		firstName: req.body.firstName,
-		lastName: req.body.lastName,
-		lastUpdateDate: Date.now()
-	};
-
+	if (req.body.password)
+		req.body.password = bcrypt.hashSync(req.body.password, 11);
+	req.body.lastUpdateDate = Date.now();
+	const updateOps = {};
+	for (const key of Object.keys(req.body)) {
+		if (req.body[key]) updateOps[key] = req.body[key];
+	}
 	User.findOneAndUpdate(
 		{ username: req.decode.username },
 		{
-			$set: toUpdate
+			$set: updateOps
 		},
 		{ new: true },
 		(err, user) => {

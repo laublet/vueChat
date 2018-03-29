@@ -49,12 +49,7 @@ export default {
   methods: {
     signIn() {
       this.$http
-        .post("/auth/signup", {
-          username: this.user.username,
-          password: this.user.password,
-          firstName: this.user.firstName,
-          lastName: this.user.lastName
-        })
+        .post("/auth/signup", this.user)
         .then(res => {
           if (res) {
             swal({

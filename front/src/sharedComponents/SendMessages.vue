@@ -50,11 +50,7 @@ export default {
   methods: {
     sendMessage() {
       this.$http
-        .post("/messages", {
-          title: this.messagesToSend.title,
-          content: this.messagesToSend.content,
-          userID: this.messagesToSend.userID
-        })
+        .post("/messages", this.messagesToSend)
         .then(res => {
           if (res) {
             swal("Great !", "Your message is gone ... but where ?", "success");
