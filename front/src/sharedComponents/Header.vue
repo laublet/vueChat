@@ -8,7 +8,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <router-link tag="a" class="navbar-brand" :to="{name: 'welcome'}">vueChat</router-link>
+        <!-- <router-link tag="a" class="navbar-brand" :to="{name: 'welcome'}">vueChat</router-link> -->
+        <div>
+          <ul class="nav navbar-nav">
+            <li><a href="#" class="navbar-brand" id="vueChat" v-on:click="routerVueChat">vueChat</a></li>
+          </ul>
+        </div>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
@@ -38,9 +43,9 @@ export default {
     };
   },
   methods: {
-    routerProfile() {
+    routerVueChat() {
       swal({
-        title: "Try later (╯°□°）╯︵ ┻━┻",
+        title: "Get out (╯°□°）╯︵ ┻━┻",
         width: 345,
         background:
           '#fff url("https://media.giphy.com/media/RrVzUOXldFe8M/giphy.gif")',
@@ -100,4 +105,8 @@ export default {
     background-color: #c0392b;
   }
 } */
+
+#vueChat {
+  text-decoration: none;
+}
 </style>
