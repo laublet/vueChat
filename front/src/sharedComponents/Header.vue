@@ -39,9 +39,6 @@ export default {
   },
   methods: {
     routerProfile() {
-      console.log("test");
-      // this.$router.push('/profile');
-      // alert("Try later !");
       swal({
         title: "Try later (╯°□°）╯︵ ┻━┻",
         width: 345,
