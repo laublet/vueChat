@@ -53,6 +53,7 @@ export default {
               title: "Congrat !",
               text: res.data.message
             });
+            this.product = "";
           } else {
             alert("Server Error");
           }

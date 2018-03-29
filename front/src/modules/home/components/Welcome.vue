@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import swal from "sweetalert2";
 export default {
   name: "welcome",
   data() {
@@ -18,26 +19,7 @@ export default {
       title: "Welcome"
     };
   },
-  methods: {
-    getListUser() {
-      this.$http
-        .get("/users", {})
-        .then(res => {
-          this.users = res.data.content;
-        })
-        .catch(error => {
-          if (error)
-            swal({
-              type: "error",
-              title: "Oh no ...",
-              text: error.response.data.message
-            });
-        });
-    }
-  },
-  created() {
-    this.getListUser();
-  }
+  methods: {}
 };
 </script>
 

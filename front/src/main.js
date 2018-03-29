@@ -13,11 +13,15 @@ Vue.use(VueAxios, axios);
 Vue.config.productionTip = false;
 
 axios.defaults.baseURL = "http://localhost:8000";
-axios.defaults.headers.common["Authorization"] = localStorage.getItem("Clef");
+// axios.defaults.headers.common["Authorization"] = localStorage.getItem("Clef");
 axios.defaults.headers.post["Content-Type"] =
 	"application/x-www-form-urlencoded";
 
 const reqInterceptor = axios.interceptors.request.use(config => {
+	axios.defaults.headers.common["Authorization"] = localStorage.getItem(
+		"Clef"
+	);
+
 	console.log("Request Interceptor", config);
 	return config;
 });

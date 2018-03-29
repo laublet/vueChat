@@ -9,6 +9,7 @@
 
 <script>
 import Product from "@/sharedComponents/Product";
+import swal from "sweetalert2";
 export default {
   name: "productsListUser",
   data() {
@@ -22,10 +23,18 @@ export default {
   },
   methods: {
     getProducts() {
-      console.log("here");
-      this.$http.get("/profile/products", {}).then(res => {
-        this.products = res.data.content;
-      });
+      this.$http
+        .get("/profile/products", {})
+        .then(res => {
+          this.products = res.data.content;
+        })
+        .catch(error => {
+          swal({
+            type: "error",
+            title: "Oh no ...",
+            text: error.response.data.message
+          });
+        });
     }
   },
   created() {

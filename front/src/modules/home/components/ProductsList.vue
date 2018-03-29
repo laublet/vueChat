@@ -9,6 +9,7 @@
 
 <script>
 import Product from "@/sharedComponents/Product";
+import swal from "sweetalert2";
 export default {
   name: "productsList",
   data() {

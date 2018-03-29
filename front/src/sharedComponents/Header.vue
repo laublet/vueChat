@@ -52,7 +52,6 @@ export default {
       });
     },
     routerLogout() {
-      console.log("test");
       // sessionStorage.clear();
       localStorage.removeItem("Clef");
       localStorage.removeItem("User");
