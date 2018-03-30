@@ -1,7 +1,7 @@
 <template>
   <div class="profileEdit" >
     <div class="row profileEdit__row">
-      <h2 class="heading-secondary">{{ title }}</h2>
+      <h2 class="heading-secondary">ICI {{ teston }}</h2>
       <hr>
       <form v-on:submit.prevent v-if="test">
         <div class="profileEdit__firstform">
@@ -56,12 +56,13 @@
 
 <script>
 import swal from "sweetalert2";
-import { eventBus } from '../../../main';
+import { eventBus } from "../../../main";
 export default {
   name: "Edit your profile",
   data() {
     return {
       title: "Edit your profile",
+      teston: "",
       test: true,
       user: {
         username: "",
@@ -113,17 +114,16 @@ export default {
         });
     }
   },
-  beforeMount() {
-    eventBus.$on('latitude', (datalat) => {
-      this.user.address.latitude = datalat;
-      console.log(datalat);
-      console.log("hoyoyo");
+  created() {
+    eventBus.$on("latitude", datalat => {
+      this.teston = datalat;
+      console.log("we create", this.teston);
     });
-    eventBus.$on('longitude', (datalon) => {
-      this.user.address.longitude = datalon;
-      console.log(datalon);
-      console.log("hayaya");
-    });
+    // eventBus.$on("longitude", datalon => {
+    //   this.user.address.longitude = datalon;
+    //   console.log(datalon);
+    //   console.log("hayaya");
+    // });
   }
 };
 </script>
