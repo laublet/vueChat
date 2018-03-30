@@ -44,8 +44,8 @@ body {
 	//Use the color = transpa
 	background-image: linear-gradient(
 		to right,
-		$color-tertiary-light,
-		$color-tertiary-dark
+		$color-secondary-light,
+		$color-secondary-dark
 	);
 	//Clip the background to the text
 	-webkit-background-clip: text;

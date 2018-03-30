@@ -1,7 +1,7 @@
 <template>
   <div class="profileEdit" >
     <div class="row profileEdit__row">
-      <h1 class="heading-primary">{{ title }}</h1>
+      <h2 class="heading-secondary">{{ title }}</h2>
       <hr>
       <form v-on:submit.prevent v-if="test">
         <div class="profileEdit__firstform">
