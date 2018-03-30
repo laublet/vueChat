@@ -39,6 +39,12 @@ const resInterceptor = axios.interceptors.response.use(res => {
 // 	}
 // });
 
+// const EventBus = new Vue();
+// export default EventBus;
+// let test = "testhelo";
+// export {test};
+export const eventBus = new Vue();
+
 new Vue({
 	el: "#app",
 	router,
