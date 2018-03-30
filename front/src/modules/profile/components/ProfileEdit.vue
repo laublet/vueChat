@@ -1,10 +1,10 @@
 <template>
   <div class="profileEdit" >
     <div class="row profileEdit__row">
-          <h1 class="heading-primary">{{ title }}</h1>
+      <h1 class="heading-primary">{{ title }}</h1>
+      <hr>
       <form v-on:submit.prevent v-if="test">
-        <div class="col-xs-10 profileEdit__firstform">
-          <hr>
+        <div class="profileEdit__firstform">
           <!-- <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required><br><br> -->
           <div class="form-group" >
             <label for="password">Password <span>*</span> </label>
@@ -21,7 +21,7 @@
         </div>
       </form>
       <form v-on:submit.prevent v-else>
-        <div class="col-xs-10 profileEdit__adressform">
+        <div class="profileEdit__adressform">
           <div class="form-group" >
             <label for="country">Country </label>
             <input v-model="user.address.country" id="country" class="form-control" name="country" type="text" placeholder="..." required>
@@ -49,8 +49,8 @@
         </div>
       </form>
     </div>
-       <button class="btn btn-lg btn--white" @click="updateUser">Update</button>
-       <button class="btn btn-lg btn--white" @click="test=!test">Update your adress</button>
+    <button class="btn btn-lg btn--white" @click="updateUser">Update your profile</button>
+    <button class="btn btn-lg btn--white" @click="test=!test">Go update your adress !</button>
   </div>
 </template>
 
@@ -60,7 +60,7 @@ export default {
   name: "Edit your profile",
   data() {
     return {
-      title: "Your are on profileEdit",
+      title: "Edit your profile",
       test: true,
       user: {
         username: "",

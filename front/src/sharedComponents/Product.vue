@@ -1,8 +1,8 @@
 <template>
     <div class="product">
-    <h2>Title: {{ naming.title }}</h2>
-    <p>Description: {{ naming.description }}</p>
-    <p>Price: {{ naming.price }} euros</p>
+    <h2>{{ naming.title }}</h2>
+    <p>{{ naming.description }}</p>
+    <p>{{ naming.price }} euros</p>
     </div>
 </template>
 
