@@ -6,7 +6,7 @@
 		text-decoration: none;
 		padding: 1.5rem 4rem;
 		display: inline-block;
-		border-radius: 10rem;
+
 		transition: all 0.2s;
 		position: relative;
 	}
@@ -22,7 +22,13 @@
 	}
 
 	&--white {
+		border-radius: 10rem;
 		background-color: #fff;
+		color: #444;
+	}
+
+	&--menu {
+		background-color: $color-tertiary-light;
 		color: #444;
 	}
 }

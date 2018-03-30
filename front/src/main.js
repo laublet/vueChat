@@ -18,9 +18,7 @@ axios.defaults.headers.post["Content-Type"] =
 	"application/x-www-form-urlencoded";
 
 const reqInterceptor = axios.interceptors.request.use(config => {
-	axios.defaults.headers.common["Authorization"] = localStorage.getItem(
-		"Clef"
-	);
+	config.headers.common["Authorization"] = localStorage.getItem("Clef");
 	console.log("Request Interceptor", config);
 	return config;
 });

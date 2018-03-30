@@ -2,7 +2,7 @@
     <div class="product">
     <h2>{{ naming.title }}</h2>
     <p>{{ naming.description }}</p>
-    <p>{{ naming.price }}</p>
+    <p>{{ naming.price }} euros</p>
     </div>
 </template>
 

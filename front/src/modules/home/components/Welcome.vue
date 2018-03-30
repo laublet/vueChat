@@ -1,10 +1,10 @@
 <template>
   <div class="welcome" >
     <div class="row welcome__row">
-      <h2 class="heading-secondary">{{ location }}</h2><br>
       <router-link :to="{name: 'productsList'}">
-        <button class="btn btn-lg btn--white">Productslist</button>
-      </router-link>
+        <button class="btn btn-lg btn--menu">Get the list of products !</button>
+      </router-link><br>
+      <h2 class="heading-secondary">{{ title }}</h2>
     </div>
     <div id="mapid"></div>
   </div>
@@ -74,64 +74,4 @@ export default {
 </script>
 
 <style scoped>
-/* body {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    min-width: 200px;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-} */
-
-/* a {
-    color: #00B7FF;
-} */
-
-#mapid {
-  position: absolute;
-  left: 50%;
-  top: 55%;
-  transform: translate(-50%, -30%);
-  width: 80%;
-  height: 60%;
-  min-height: 40%;
-  border-radius: 3px;
-}
-
-.mylocation {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translate(-50%, 10%);
-  -webkit-border-radius: 7;
-  -moz-border-radius: 7;
-  border-radius: 7px;
-  font-family: Arial;
-  color: #1f628d;
-  font-size: 30px;
-  background: #ffffff;
-  padding: 10px 20px 10px 20px;
-  border: solid #1f628d 2px;
-  text-decoration: none;
-}
-
-.mylocation:hover {
-  background: #1f628d;
-  text-decoration: none;
-  color: #ffffff;
-  border: none;
-}
-
-@media (max-width: 767px) {
-  #mapid,
-  .mylocation {
-    display: none;
-  }
-}
-
-/* @media (max-width: 993) {
-  #mapid, .mylocation {
-
-  }
-} */
 </style>

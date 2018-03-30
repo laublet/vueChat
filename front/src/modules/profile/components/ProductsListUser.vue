@@ -2,7 +2,7 @@
   <div class="productsListUser" >
     <h2 class="heading-tertiary">{{ title }}</h2>
     <div class="row productsListUser__row">
-       <product v-for="product in products" :key="product.price" :naming="product"></product>
+       <product class="productsListUser__products" v-for="product in products" :key="product.price" :naming="product"></product>
     </div>
   </div>
 </template>
@@ -11,7 +11,7 @@
 import Product from "@/sharedComponents/Product";
 import swal from "sweetalert2";
 export default {
-  name: "productsListUser",
+  name: "Here are your products",
   data() {
     return {
       title: "Your are on productsListUser",
