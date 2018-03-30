@@ -57,6 +57,7 @@
 
 <script>
 import swal from "sweetalert2";
+import { eventBus } from '../../../main';
 export default {
   name: "profileEdit",
   data() {
@@ -111,6 +112,18 @@ export default {
           }
         });
     }
+  },
+  beforeMount() {
+    eventBus.$on('latitude', (datalat) => {
+      this.user.address.latitude = datalat;
+      console.log(datalat);
+      console.log("hoyoyo");
+    });
+    eventBus.$on('longitude', (datalon) => {
+      this.user.address.longitude = datalon;
+      console.log(datalon);
+      console.log("hayaya");
+    });
   }
 };
 </script>
