@@ -2,7 +2,7 @@
   <div class="welcome" >
     <div class="row welcome__row">
       <router-link :to="{name: 'productsList'}">
-        <button class="btn btn-lg btn--white">Productslist</button>
+        <button class="btn btn-lg btn--menu">Get the list of products !</button>
       </router-link><br>
       <h2 class="heading-secondary">{{ title }}</h2>
     </div>

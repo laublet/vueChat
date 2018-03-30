@@ -2,13 +2,13 @@
 <div>
   <div>
     <router-link :to="{name: 'newProduct'}">
-      <button class="btn btn-lg btn--white">Register a new product </button>
+      <button class="btn btn-lg btn--menu">Register a new product </button>
     </router-link>
     <router-link :to="{name: 'productsListUser'}">
-      <button class="btn btn-lg btn--white">Your products</button>
+      <button class="btn btn-lg btn--menu">Your products</button>
     </router-link>
     <router-link :to="{name: 'profileEdit'}">
-      <button class="btn btn-lg btn--white">Edit your profile</button>
+      <button class="btn btn-lg btn--menu">Edit your profile</button>
     </router-link>
     <router-view></router-view><br>
   </div>

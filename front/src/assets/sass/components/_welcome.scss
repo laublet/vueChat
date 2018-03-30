@@ -1,4 +1,5 @@
 .welcome {
+	position: relative;
 	height: 100vh;
 	width: 80vw;
 	font-size: 3rem;
@@ -13,25 +14,21 @@
 }
 
 #mapid {
-	position: absolute;
-	left: 50%;
-	top: 60%;
-	// bottom: ;
-	transform: translate(-50%, -30%);
-	width: 80%;
-	height: 60%;
-	min-height: 40%;
-	border-radius: 3px;
+	position: relative;
+	margin: 0 auto;
+	width: 70vw;
+	height: 60vh;
+	min-height: 40vh;
+	border-radius: 0.3rem;
 }
 
 .mylocation {
 	position: absolute;
 	bottom: 10%;
 	left: 50%;
-	transform: translate(-50%, 10%);
 	-webkit-border-radius: 7;
 	-moz-border-radius: 7;
-	border-radius: 7px;
+	border-radius: 0.7rem;
 	font-family: Arial;
 	color: #1f628d;
 	font-size: 30px;
@@ -51,12 +48,6 @@
 @media (max-width: 767px) {
 	#mapid,
 	.mylocation {
-		display: none;
+		// display: none;
 	}
 }
-
-/* @media (max-width: 993) {
-  #mapid, .mylocation {
-
-  }
-} */
