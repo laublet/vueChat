@@ -6,7 +6,7 @@
           <h2 class="heading-secondary">{{ title }}</h2>
           <hr>
           <div class="form-group">
-            <label for="title">title <span>*</span> </label>
+            <label for="title">Title <span>*</span> </label>
             <input v-model="product.title" id="title" class="form-control" name="title" type="text" placeholder="The name of your product" required>
           </div>
           <div class="form-group" >
@@ -27,7 +27,7 @@
 <script>
 import swal from "sweetalert2";
 export default {
-  name: "NewProduct",
+  name: "Register your product",
   data() {
     return {
       title: "Your are on NewProduct",
@@ -49,7 +49,7 @@ export default {
               title: "Congrat !",
               text: res.data.message
             });
-            this.product = "";
+            this.product = {};
           } else {
             alert("Server Error");
           }
@@ -61,7 +61,6 @@ export default {
               title: "Oh no ...",
               text: error.response.data.message
             });
-          } else {
           }
         });
     }

@@ -1,10 +1,9 @@
 <template>
   <div class="profileEdit" >
     <div class="row profileEdit__row">
-      <form v-on:submit.prevent>
-        <!-- <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3"> -->
-        <div class="col-xs-12 col-sm-6  col-md-6 ">
           <h1 class="heading-primary">{{ title }}</h1>
+      <form v-on:submit.prevent v-if="test">
+        <div class="col-xs-10 profileEdit__firstform">
           <hr>
           <!-- <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required><br><br> -->
           <div class="form-group" >
@@ -19,11 +18,10 @@
             <label for="lastName">LastName   </label>
             <input v-model="user.lastName" id="lastName" class="form-control" name="lastName" type="text" placeholder="...">
           </div>
-
         </div>
       </form>
-      <form v-on:submit.prevent>
-        <div class="col-xs-12 col-sm-6  col-md-6 ">
+      <form v-on:submit.prevent v-else>
+        <div class="col-xs-10 profileEdit__adressform">
           <div class="form-group" >
             <label for="country">Country </label>
             <input v-model="user.address.country" id="country" class="form-control" name="country" type="text" placeholder="..." required>
@@ -50,18 +48,20 @@
           </div>
         </div>
       </form>
-       <button class="btn btn-lg btn--white" @click="updateUser">Update</button>
     </div>
+       <button class="btn btn-lg btn--white" @click="updateUser">Update</button>
+       <button class="btn btn-lg btn--white" @click="test=!test">Update your adress</button>
   </div>
 </template>
 
 <script>
 import swal from "sweetalert2";
 export default {
-  name: "profileEdit",
+  name: "Edit your profile",
   data() {
     return {
       title: "Your are on profileEdit",
+      test: true,
       user: {
         username: "",
         email: "",
