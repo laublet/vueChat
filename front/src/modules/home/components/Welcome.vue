@@ -28,8 +28,9 @@ export default {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position) => {
             let marker = L.marker([position.coords.latitude,position.coords.longitude]).addTo(mymap);
-            marker.bindPopup("Ma position :<br> Latitude : " + position.coords.latitude + ",<br>Longitude " + position.coords.longitude).openPopup();
-            this.$store.state.location = position.coords
+            // marker.bindPopup("Ma position :<br> Latitude : " + position.coords.latitude + ",<br>Longitude " + position.coords.longitude).openPopup();
+            this.$store.state.location = position.coords;
+
             let geocoding = L.esri.Geocoding.reverseGeocode().latlng([position.coords.latitude, position.coords.longitude])
             .run((error, result, response) => {
               let address = result.address
@@ -37,9 +38,10 @@ export default {
               this.$store.state.location = address
               this.$store.state.location.latitude = position.coords.latitude
               this.$store.state.location.longitude = position.coords.longitude
+
+              console.log('ICI' ,this.$store.state.location)
+              marker.bindPopup("Here" + this.$store.state.location.City).openPopup();
             });
-            // console.log('ICI' ,this.$store.state.location)
-            // marker.bindPopup("Here" + this.$store.state.location.City ).openPopup();
           });
         } else {
           alert("La géolocalisation n'est pas supportée par ce navigateur.");
@@ -48,7 +50,7 @@ export default {
       currentLocation();
       var mymap = L.map("mapid", {
         center: ["45.99956", "-1.21353"],
-        zoom: 14
+        zoom: 18
       });
       L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
         {attribution:

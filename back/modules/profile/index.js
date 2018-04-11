@@ -35,6 +35,7 @@ profile.get("/products", (req, res) => {
 });
 
 profile.put("/", (req, res) => {
+	console.log(req.body)
 	if (req.body.password)
 		req.body.password = bcrypt.hashSync(req.body.password, 11);
 	req.body.lastUpdateDate = Date.now();

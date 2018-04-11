@@ -53,7 +53,6 @@
       </form>
     </div>
     <button class="btn btn-lg btn--white" @click="updateUser">Update your profile</button>
-    <button class="btn btn-lg btn--white" @click="test=!test">Go update your adress !</button>
   </div>
 </template>
 
@@ -65,13 +64,10 @@ export default {
   data() {
     return {
       title: "Edit your profile",
-      teston: "",
-      test: true,
       user: {
-        username: "",
-        email: "",
         password: "",
-        message: "",
+        firstName: "",
+        lastName: "",
         address: {
           country: "",
           region: "",

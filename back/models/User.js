@@ -19,22 +19,32 @@ let UserSchema = new mongoose.Schema({
   },
   address: {
     country: {
-      type: String
+      type: String,
+      default: null
     },
     region: {
-      type: String
+      type: String,
+      default: null
     },
     city: {
-      type: String
+      type: String,
+      default: null
     },
     street: {
-      type: String
+      type: String,
+      default: null
+    },
+    postal: {
+      type: String,
+      default: null
     },
     longitude: {
-      type: Number
+      type: Number,
+      default: null
     },
     latitude: {
-      type: Number
+      type: Number,
+      default: null
     }
   },
   creationDate: {
