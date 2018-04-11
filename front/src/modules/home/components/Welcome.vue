@@ -38,8 +38,8 @@ export default {
       }
       currentLocation();
       var mymap = L.map("mapid", {
-        center: ["", ""],
-        zoom: 14
+        center: ["45.99956", "-1.21353"],
+        zoom: 18
       });
       L.tileLayer(
         "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
