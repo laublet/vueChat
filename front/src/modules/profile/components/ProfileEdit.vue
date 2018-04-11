@@ -1,7 +1,7 @@
 <template>
   <div class="profileEdit" >
     <div class="row profileEdit__row">
-      <h2 class="heading-secondary">ICI {{ teston }}</h2>
+      <h2 class="heading-secondary">Edit your profile</h2>
       <hr>
       <form v-on:submit.prevent v-if="test">
         <div class="profileEdit__firstform">
@@ -80,6 +80,12 @@ export default {
       }
     };
   },
+  computed: {
+    bordel() {
+      console.log(this.$store.state.location)
+
+    }
+  },
   methods: {
     updateUser() {
       this.$http
@@ -114,16 +120,11 @@ export default {
         });
     }
   },
-  created() {
-    eventBus.$on("latitude", datalat => {
-      this.teston = datalat;
-      console.log("we create", this.teston);
-    });
-    // eventBus.$on("longitude", datalon => {
-    //   this.user.address.longitude = datalon;
-    //   console.log(datalon);
-    //   console.log("hayaya");
-    // });
+  beforeMount() {
+    if (this.$store.state.location.latitude) {
+      this.user.address.latitude = this.$store.state.location.latitude
+      this.user.address.longitude = this.$store.state.location.longitude
+    }
   }
 };
 </script>

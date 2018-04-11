@@ -12,47 +12,35 @@
 
 <script>
 import swal from "sweetalert2";
-import { eventBus } from '../../../main';
-// import {test} from '../../../main';
 
 export default {
   name: "welcome",
   data() {
     return {
       title: "Welcome",
-      location: {
-        latitude: "",
-        longitude: ""
-      }
     };
   },
   mounted() {
     this.mapinit();
-    // this.testi();
   },
   methods: {
     mapinit() {
       let currentLocation = () => {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position) => {
-            var marker = L.marker([position.coords.latitude,position.coords.longitude]).addTo(mymap);
+            let marker = L.marker([position.coords.latitude,position.coords.longitude]).addTo(mymap);
             marker.bindPopup("Ma position :<br> Latitude : " + position.coords.latitude + ",<br>Longitude " + position.coords.longitude).openPopup();
-            this.location.latitude = position.coords.latitude;
-            this.location.longitude = position.coords.longitude;
-            eventBus.$emit('latitude', this.location.latitude);
-            eventBus.$emit('longitude', this.location.longitude);
+            this.$store.state.location = position.coords
           });
         } else {
           alert("La géolocalisation n'est pas supportée par ce navigateur.");
         }
       }
-
       currentLocation();
       var mymap = L.map("mapid", {
-        center: ["45.99956", "-1.21353"],
-        zoom: 18
+        center: ["", ""],
+        zoom: 14
       });
-
       L.tileLayer(
         "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
         {
@@ -65,10 +53,6 @@ export default {
         }
       ).addTo(mymap);
     },
-    // testi() {
-    //   console.log("hii");
-    //   console.log(test);
-    // }
   }
 };
 </script>

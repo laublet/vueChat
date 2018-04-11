@@ -15,14 +15,8 @@ import Signup from "@/modules/auth/components/Signup";
 // import UserDetail from "@/modules/user/components/UserDetail";
 // import SendMessages from "@/sharedComponents/SendMessages";
 
-const Messages = resolve => {
-	require.ensure(
-		["../modules/messages/Messages"],
-		() => {
-			resolve(require("../modules/messages/Messages"));
-		},
-		"messages"
-	);
+const Messages = resolve => { require.ensure(["../modules/messages/Messages"],
+		() => {resolve(require("../modules/messages/Messages"));},"messages");
 };
 const MessagesList = resolve => {
 	require.ensure(

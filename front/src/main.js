@@ -8,6 +8,7 @@ import App from "./App";
 import router from "./router";
 import swal from "sweetalert2";
 import "./assets/sass/main.scss";
+import { store } from './store/store'
 
 Vue.use(VueAxios, axios);
 Vue.config.productionTip = false;
@@ -30,24 +31,11 @@ const resInterceptor = axios.interceptors.response.use(res => {
 // axios.interceptors.request.eject(reqInterceptor);
 // axios.interceptors.response.eject(resInterceptor);
 
-// export const eventBus = new Vue({
-// 	methods: {
-// 		setReceiverId(username) {
-// 			username = "test";
-// 			this.$emit("receiverIdIsSet", username);
-// 		}
-// 	}
-// });
-
-// const EventBus = new Vue();
-// export default EventBus;
-// let test = "testhelo";
-// export {test};
-export const eventBus = new Vue();
 
 new Vue({
 	el: "#app",
 	router,
+	store,
 	components: { App },
 	template: "<App/>"
 });
