@@ -90,6 +90,8 @@ Send donation ! it's free for us ! #giveMeMoney
 
 ## Built With
 
+Backend :
+
 * [Bcrypt] (https://www.bcrypt.fr/) - Used to crypt password ;)
 * [Body-Parser] (https://www.npmjs.com/package/body-parser-json) - Used to parse data
 * [Cors] (https://www.npmjs.com/package/cors) - Used to provide a Connect/Express middleware
@@ -98,6 +100,8 @@ Send donation ! it's free for us ! #giveMeMoney
 * [Jwt-simple] (https://www.npmjs.com/package/jwt-simple) Used to encode and decode Node's module
 * [Mongoose] (http://mongoosejs.com/) Used between our Node.js server and our MongoDB server
 * [Mongoose-type-email] (https://www.npmjs.com/package/mongoose-type-email) - Used to create email field-type for Mongoose schemas
+
+Frontend :
 
 * [Axios] (https://github.com/axios/axios) - Used to make promise based HTTP client for the browser and node.js 
 * [Bootstrap] (https://getbootstrap.com/) - Used to style and make a responsive design
