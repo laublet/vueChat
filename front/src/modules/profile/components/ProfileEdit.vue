@@ -3,7 +3,7 @@
     <div class="row profileEdit__row">
       <h2 class="heading-secondary">Edit your profile</h2>
       <hr>
-      <form v-on:submit.prevent v-if="test">
+      <form v-on:submit.prevent>
         <div class="profileEdit__firstform">
           <!-- <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required><br><br> -->
           <div class="form-group" >
@@ -19,8 +19,7 @@
             <input v-model="user.lastName" id="lastName" class="form-control" name="lastName" type="text" placeholder="...">
           </div>
         </div>
-      </form>
-      <form v-on:submit.prevent v-else>
+        <hr>
         <div class="profileEdit__adressform">
           <div class="form-group" >
             <label for="country">Country </label>
@@ -37,6 +36,10 @@
           <div class="form-group" >
             <label for="street">Street </label>
             <input v-model="user.address.street" id="street" class="form-control" name="street" type="text" placeholder="..." required>
+          </div>
+          <div class="form-group" >
+            <label for="postal">Postal Code </label>
+            <input v-model="user.address.postal" id="postal" class="form-control" name="postal" type="text" placeholder="..." required>
           </div>
           <div class="form-group" >
             <label for="longitude">Longitude </label>
@@ -74,6 +77,7 @@ export default {
           region: "",
           city: "",
           street: "",
+          postal: "",
           longitude: "",
           latitude: ""
         }
@@ -122,6 +126,11 @@ export default {
   },
   beforeMount() {
     if (this.$store.state.location.latitude) {
+      this.user.address.country = this.$store.state.location.CountryCode
+      this.user.address.region = this.$store.state.location.Region
+      this.user.address.city = this.$store.state.location.City
+      this.user.address.street = this.$store.state.location.longitude
+      this.user.address.postal = this.$store.state.location.Postal
       this.user.address.latitude = this.$store.state.location.latitude
       this.user.address.longitude = this.$store.state.location.longitude
     }
