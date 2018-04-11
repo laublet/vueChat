@@ -42,12 +42,12 @@
             <input v-model="user.address.postal" id="postal" class="form-control" name="postal" type="text" placeholder="..." required>
           </div>
           <div class="form-group" >
-            <label for="longitude">Longitude </label>
-            <input v-model="user.address.longitude" id="longitude" class="form-control" name="longitude" type="text" placeholder="..." required>
-          </div>
-          <div class="form-group" >
             <label for="latitude">Latitude </label>
             <input v-model="user.address.latitude" id="latitude" class="form-control" name="latitude" type="text" placeholder="..." required>
+          </div>
+          <div class="form-group" >
+            <label for="longitude">Longitude </label>
+            <input v-model="user.address.longitude" id="longitude" class="form-control" name="longitude" type="text" placeholder="..." required>
           </div>
         </div>
       </form>
@@ -58,9 +58,8 @@
 
 <script>
 import swal from "sweetalert2";
-import { eventBus } from "../../../main";
 export default {
-  name: "Edit your profile",
+  name: "profileEdit",
   data() {
     return {
       title: "Edit your profile",
@@ -79,12 +78,6 @@ export default {
         }
       }
     };
-  },
-  computed: {
-    bordel() {
-      console.log(this.$store.state.location)
-
-    }
   },
   methods: {
     updateUser() {
@@ -122,13 +115,13 @@ export default {
   },
   beforeMount() {
     if (this.$store.state.location.latitude) {
-      this.user.address.country = this.$store.state.location.CountryCode
-      this.user.address.region = this.$store.state.location.Region
-      this.user.address.city = this.$store.state.location.City
-      this.user.address.street = this.$store.state.location.longitude
-      this.user.address.postal = this.$store.state.location.Postal
-      this.user.address.latitude = this.$store.state.location.latitude
-      this.user.address.longitude = this.$store.state.location.longitude
+      this.user.address.country = this.$store.state.location.CountryCode;
+      this.user.address.region = this.$store.state.location.Region;
+      this.user.address.city = this.$store.state.location.City;
+      this.user.address.street = this.$store.state.location.Address;
+      this.user.address.postal = this.$store.state.location.Postal;
+      this.user.address.latitude = this.$store.state.location.latitude;
+      this.user.address.longitude = this.$store.state.location.longitude;
     }
   }
 };

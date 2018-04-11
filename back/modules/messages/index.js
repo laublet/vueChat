@@ -7,10 +7,8 @@ import Message from "./../../models/Message";
 let messages = express.Router();
 
 messages.post("/", (req, res) => {
-	console.log(req.body.userID);
 	User.findOne({ username: req.body.userID }, (err, user) => {
 		if (err) res.status(500).json({ success: false, message: err.message });
-		console.log(user);
 		if (user === null) {
 			res
 				.status(401)
