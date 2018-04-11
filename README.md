@@ -11,7 +11,8 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-Nothing ?
+MongoDB (https://www.mongodb.com/en)
+Nodemon (optional) (https://nodemon.io/) 
 ```
 
 ### Installing
@@ -57,12 +58,12 @@ http://localhost:8080/
 Enjoy : 
 
 ```
-Send donation ! it's free for us ! #giveMeMoney
+Send donation ! it's free for us ୧$◡$୨ ! #giveMeMoney
 ```
 
 <!-- End with an example of getting some data out of the system or using it for a little demo -->
 
-## Running the tests
+## Running the tests (╯■ᗝ■）╯︵ ┻━┻
 
 <!-- Explain how to run the automated tests for this system -->
 ... 
@@ -117,7 +118,7 @@ Frontend :
 
 <!-- Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us. -->
 
-You can contribute for 5$/month =)
+You can contribute for 5$/day (ง$Ѡ$)ง
 
 ## Versioning
 
@@ -139,7 +140,7 @@ No versioning for the moment ...
 
 <!-- This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details -->
 
-This project is licensed under the Moulinex License - see google for details
+This project is licensed under the Moulinex License (∩⏒ ³⏒)⊃━☆ﾟ.* - see google for details
 
 ## Acknowledgments
 
