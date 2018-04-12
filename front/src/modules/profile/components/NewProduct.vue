@@ -59,6 +59,7 @@
 <script>
 import swal from "sweetalert2";
 import PictureInput from "vue-picture-input";
+import FormDataPost from '../../../upload';
 export default {
   name: "Register your product",
   components: {
@@ -133,8 +134,7 @@ export default {
       });
     },
     sendImage() {
-      this.$http
-      .post("/products/images", this.image)
+      FormDataPost("/products/images",this.image)
       .then(res => {
         console.log(this.image)
         if (res) {
