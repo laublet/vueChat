@@ -34,7 +34,6 @@
 
 <script>
 import swal from "sweetalert2";
-
 export default {
   name: "sendMessages",
   data() {
@@ -50,22 +49,22 @@ export default {
   methods: {
     sendMessage() {
       this.$http
-        .post("/messages", this.messagesToSend)
-        .then(res => {
-          if (res) {
-            swal("Great !", "Your message is gone ... but where ?", "success");
-            (this.messagesToSend.title = ""),
-              (this.messagesToSend.content = "");
-          } else swal("You need to fill all the inputs");
-        })
-        .catch(error => {
-          if (error)
-            swal({
-              type: "error",
-              title: "Oh no ...",
-              text: error.response.data.message
-            });
-        });
+      .post("/messages", this.messagesToSend)
+      .then(res => {
+        if (res) {
+          swal("Great !", "Your message is gone ... but where ?", "success");
+          (this.messagesToSend.title = ""),
+          (this.messagesToSend.content = "");
+        } else swal("You need to fill all the inputs");
+      })
+      .catch(error => {
+        if (error)
+          swal({
+            type: "error",
+            title: "Oh no ...",
+            text: error.response.data.message
+          });
+      });
     }
   },
   beforeMount() {

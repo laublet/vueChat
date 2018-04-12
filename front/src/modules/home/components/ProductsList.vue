@@ -2,7 +2,7 @@
   <div class="productslist" >
     <h2 class="heading-tertiary">Here is your AwesomeProductsList</h2>
     <div class="row productslist__row">
-      <product class="productslist__products" v-for="product in products.slice(0, 10)" :key="product.price" :naming="product"></product>
+      <product class="productslist__products" v-for="product in products.slice(0, 10)" :key="product._id" :namingProps="product"></product>
     </div>
   </div>
 </template>
@@ -27,6 +27,7 @@ export default {
         .get("/products", {})
         .then(res => {
           this.products = res.data.content;
+          console.log(this.products)
         })
         .catch(error => {
           if (error)

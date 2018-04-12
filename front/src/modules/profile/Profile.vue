@@ -1,18 +1,18 @@
 <template>
-<div>
   <div>
-    <router-link :to="{name: 'newProduct'}">
-      <button class="btn btn-lg btn--menu">Register a new product </button>
-    </router-link>
-    <router-link :to="{name: 'productsListUser'}">
-      <button class="btn btn-lg btn--menu">Your products</button>
-    </router-link>
-    <router-link :to="{name: 'profileEdit'}">
-      <button class="btn btn-lg btn--menu">Edit your profile</button>
-    </router-link>
-    <router-view></router-view><br>
+    <div>
+      <router-link :to="{name: 'newProduct'}">
+        <button class="btn btn-lg btn--menu">Register a new product </button>
+      </router-link>
+      <router-link :to="{name: 'productsListUser'}">
+        <button class="btn btn-lg btn--menu">Your products</button>
+      </router-link>
+      <router-link :to="{name: 'profileEdit'}">
+        <button class="btn btn-lg btn--menu">Edit your profile</button>
+      </router-link>
+      <router-view></router-view><br>
+    </div>
   </div>
-</div>
 </template>
 
 <script>

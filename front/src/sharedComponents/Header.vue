@@ -48,33 +48,20 @@ export default {
         title: "Get out (╯°□°）╯︵ ┻━┻",
         width: 345,
         background:
-          '#fff url("https://media.giphy.com/media/RrVzUOXldFe8M/giphy.gif")',
+        '#fff url("https://media.giphy.com/media/RrVzUOXldFe8M/giphy.gif")',
         padding: 65,
         backdrop: `rgba(0,0,123,0.4) url("") center right no-repeat`
       });
     },
     routerLogout() {
-      // sessionStorage.clear();
       localStorage.removeItem("Clef");
       localStorage.removeItem("User");
-      // if (this.getToken === undefined) {
-      // console.log("Logout :", this.getToken);
       this.$router.push("/login");
-      // } else {
-      // getToken = true;
-      // console.log('NOT FALSE :', this.getToken);
-      // this.$router.push('/login');
-      // }
     },
     Token() {
       let getToken = localStorage.getItem("Clef");
       if (getToken === null) {
-        // getToken = false;
-        // console.log("FALSE : ", getToken);
         this.$router.push("/login");
-      } else {
-        // getToken = true;
-        // console.log("TRUE : ", getToken);
       }
     }
   },
@@ -104,9 +91,9 @@ export default {
     color: #ffbbbc;
     background-color: #c0392b;
   }
-} */
+  } */
 
-#vueChat {
-  text-decoration: none;
-}
-</style>
+  #vueChat {
+    text-decoration: none;
+  }
+  </style>
