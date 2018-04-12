@@ -53,4 +53,6 @@ app.use((err, req, res, next) => {
 
 let host = process.env.HOST;
 let port = process.env.PORT || 8080;
+
+// app.use('/static')
 app.listen(port, () => console.log("App listen on port: " + host + port));

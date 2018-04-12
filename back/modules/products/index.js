@@ -9,8 +9,7 @@ let products = express.Router();
 const storage = multer.diskStorage({
 	destination: './public/productImages/',
 	filename: function (req, file, cb) {
-		cb(null,file.fieldname + '-' + Date.now());
-		// cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+		cb(null, file.fieldname + '-' + Date.now())
 	}
 });
 
@@ -46,9 +45,12 @@ products.get("/:id", (req, res) => {
 	});
 });
 
-products.post("/", (req, res) => {
-	let newProduct = new Product(req.body);
-	newProduct.userId = req.decode.id;
+products.post("/", upload.single('picture') ,(req, res) => {
+	console.log("Req Body: " , req.body)
+	console.log("Req File: " , req.file)
+	let newProduct = new Product(req.body.picture);
+	// newProduct.pictures = req.file.path;
+	// newProduct.userId = req.decode.id;
 	newProduct.save(function(err, product) {
 		if (err) {
 			res.status(400).json({ success: false, message: err.message });
@@ -62,20 +64,20 @@ products.post("/", (req, res) => {
 	});
 });
 
-products.post('/images', upload.single('picture') ,(req, res) => {
-	console.log("Ici: " , req.file)
-	if (!req.file) {
-		console.log("No file received");
-		return res.send({
-			success: false
-		});
+// products.post('/images', upload.single('picture') ,(req, res) => {
+// 	console.log("Ici: " , req.file)
+// 	if (!req.file) {
+// 		console.log("No file received");
+// 		return res.send({
+// 			success: false
+// 		});
 
-	} else {
-		console.log('file received');
-		return res.send({
-			success: true
-		})
-	}
-});
+// 	} else {
+// 		console.log('file received');
+// 		return res.send({
+// 			success: true
+// 		})
+// 	}
+// });
 
 export default products;
