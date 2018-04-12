@@ -17,7 +17,36 @@
             <label for="price">Price   </label>
             <input v-model="product.price" id="price" class="form-control" name="price" type="number" placeholder="...">
           </div>
+          <div class="form-group">
+            <label for="picture">Picture   </label>
+            <!-- <picture-input 
+            @change="onChange()" 
+            width="300" height="300" margin="16" accept="image/jpeg,image/png"
+            zIndex="1"
+            >
+            </picture-input> -->
+            <picture-input
+            v-model="image.picture" id="picture" name="picture"
+            ref="pictureInput"
+            @change="onChanged"
+            @remove="onRemoved"
+            :width="300"
+            :removable="true"
+            removeButtonClass="ui red button"
+            :height="300"
+            accept="image/jpeg, image/png, image/gif"
+            buttonClass="ui button primary"
+            :customStrings="{
+            upload: '<h1>Upload it!</h1>',
+            drag: 'Drag and drop your image here'}"
+            zIndex="1"
+            >
+
+            </picture-input>
+          </div>
           <button class="btn btn-lg btn--white" @click="sendData">Validate !</button>
+          <button class="btn btn-lg btn--white" @click="sendImage">Send only the image !</button>
+          <!-- <button class="btn btn-lg btn--white" @click="attemptUpload" v-bind:class="{ disabled: !image }">Upload</button> -->
         </div>
       </form>
     </div>
@@ -26,19 +55,31 @@
 
 <script>
 import swal from "sweetalert2";
+import PictureInput from "vue-picture-input";
 export default {
   name: "Register your product",
+  components: {
+    PictureInput
+  },
   data() {
     return {
       title: "Your are on NewProduct",
       product: {
         title: "",
         description: "",
-        price: ""
+        price: "",
+        // picture: ""
+
+      },
+      image: {
+        picture: ""
       }
     };
   },
   methods: {
+    // onChange () {
+    //   console.log("Picture changed!")
+    // },
     sendData() {
       this.$http
         .post("/products", this.product)
@@ -50,6 +91,31 @@ export default {
               text: res.data.message
             });
             this.product = {};
+          } else {
+            alert("Server Error");
+          }
+        })
+        .catch(error => {
+          if (error) {
+            swal({
+              type: "error",
+              title: "Oh no ...",
+              text: error.response.data.message
+            });
+          }
+        });
+    },
+    sendImage() {
+      this.$http
+        .post("/products/images", this.image)
+        .then(res => {
+          if (res) {
+            swal({
+              type: "success",
+              title: "Image saved !",
+              text: res.data.message
+            });
+            this.image = {};
           } else {
             alert("Server Error");
           }
