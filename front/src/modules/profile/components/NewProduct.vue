@@ -25,7 +25,7 @@
             zIndex="1"
             >
             </picture-input> -->
-            <picture-input
+            <!-- <picture-input
             v-model="image.picture" id="picture" name="picture"
             ref="pictureInput"
             @change="onChanged"
@@ -42,11 +42,38 @@
             zIndex="1"
             >
 
-            </picture-input>
+            </picture-input> -->
           </div>
           <button class="btn btn-lg btn--white" @click="sendData">Validate !</button>
-          <button class="btn btn-lg btn--white" @click="sendImage">Send only the image !</button>
+          <!-- <button class="btn btn-lg btn--white" @click="sendImage">Send only the image !</button> -->
           <!-- <button class="btn btn-lg btn--white" @click="attemptUpload" v-bind:class="{ disabled: !image }">Upload</button> -->
+        </div>
+      </form>
+      <form v-on:submit.prevent>
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <h2 class="heading-secondary">{{ title }}</h2>
+          <hr>
+          <div class="form-group">
+            <label for="picture">Picture   </label>
+            <picture-input
+            v-model="image.picture" id="picture" name="picture"
+            ref="pictureInput"
+            @change="onChanged"
+            @remove="onRemoved"
+            :width="300"
+            :removable="true"
+            removeButtonClass="ui red button"
+            :height="300"
+            accept="image/jpeg, image/png, image/gif"
+            buttonClass="ui button primary"
+            :customStrings="{
+            upload: '<h1>Upload it!</h1>',
+            drag: 'Drag and drop your image here'}"
+            zIndex="1"
+            >
+            </picture-input>
+          </div>
+          <button class="btn btn-lg btn--white" @click="sendImage">Send only the image !</button>
         </div>
       </form>
     </div>
@@ -106,6 +133,12 @@ export default {
         });
     },
     sendImage() {
+      // if (this.$refs.pictureInput.file) {
+      this.image = this.$refs.pictureInput.file;
+      console.log(this.image);
+    // } else {
+    //   console.log("Old browser. No support for Filereader API");
+    // }
       this.$http
         .post("/products/images", this.image)
         .then(res => {
