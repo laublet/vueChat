@@ -93,26 +93,29 @@ Send donation ! it's free for us ୧$◡$୨ ! #giveMeMoney
 
 Backend :
 
-* [Bcrypt] (https://www.bcrypt.fr/) - Used to crypt password ;)
-* [Body-Parser] (https://www.npmjs.com/package/body-parser-json) - Used to parse data
-* [Cors] (https://www.npmjs.com/package/cors) - Used to provide a Connect/Express middleware
-* [Express] (http://expressjs.com/) - The Node's web framework used
-* [Jsonwebtoken] (https://jwt.io/) - Used to generate token
-* [Jwt-simple] (https://www.npmjs.com/package/jwt-simple) Used to encode and decode Node's module
-* [Mongoose] (http://mongoosejs.com/) Used between our Node.js server and our MongoDB server
-* [Mongoose-type-email] (https://www.npmjs.com/package/mongoose-type-email) - Used to create email field-type for Mongoose schemas
+* [Bcrypt](https://www.bcrypt.fr/) - Used to crypt password ;)
+* [Body-Parser](https://www.npmjs.com/package/body-parser-json) - Used to parse data
+* [Cors](https://www.npmjs.com/package/cors) - Used to provide a Connect/Express middleware
+* [Express](http://expressjs.com/) - The Node's web framework used
+* [Jsonwebtoken](https://jwt.io/) - Used to generate token
+* [Jwt-simple](https://www.npmjs.com/package/jwt-simple) Used to encode and decode Node's module
+* [Mongoose](http://mongoosejs.com/) Used between our Node.js server and our MongoDB server
+* [Mongoose-type-email](https://www.npmjs.com/package/mongoose-type-email) - Used to create email field-type for Mongoose schemas
 
 Frontend :
 
-* [Axios] (https://github.com/axios/axios) - Used to make promise based HTTP client for the browser and node.js 
-* [Bootstrap] (https://getbootstrap.com/) - Used to style and make a responsive design
-* [Style-loader] (https://github.com/webpack-contrib/style-loader) - Used to add CSS to the DOM by injecting a <style> tag
-* [Sweetalert2] (https://sweetalert2.github.io/) - Used to make sweet alert ~
-* [Vue] (https://fr.vuejs.org/index.html) - The web framework used
-* [Vue-axios] (https://www.npmjs.com/package/vue-axios) - A small wrapper for integrating axios to Vuejs
-* [Vue-ressource] (https://www.npmjs.com/package/vue-resource-2) - Resource plugin for Vue.js
-* [Vue-router] (https://github.com/vuejs/vue-router) - Used to create Vue.js routes
-* [Vuex] (https://github.com/vuejs/vuex) - Centralized State Management for Vue.js
+* [Axios](https://github.com/axios/axios) - Used to make promise based HTTP client for the browser and node.js 
+* [Bootstrap](https://getbootstrap.com/) - Used to style and make a responsive design
+* [Style-loader](https://github.com/webpack-contrib/style-loader) - Used to add CSS to the DOM by injecting a <style> tag
+* [Sweetalert2](https://sweetalert2.github.io/) - Used to make sweet alert ~
+* [Vue](https://fr.vuejs.org/index.html) - The web framework used
+* [Vue-axios](https://www.npmjs.com/package/vue-axios) - A small wrapper for integrating axios to Vuejs
+* [Vue-ressource](https://www.npmjs.com/package/vue-resource-2) - Resource plugin for Vue.js
+* [Vue-router](https://github.com/vuejs/vue-router) - Used to create Vue.js routes
+* [Vuex](https://github.com/vuejs/vuex) - Centralized State Management for Vue.js
+* [Esri-leaflet-geocoder](https://github.com/Esri/esri-leaflet-geocoder) - Used to geolocate's details
+* [VuePictureInput](https://www.npmjs.com/package/vue-picture-input) - Used to upload picture in Vue.js
+
 
 ## Contributing
 
