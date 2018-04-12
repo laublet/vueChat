@@ -20,7 +20,7 @@
           <div class="form-group">
             <label for="picture">Picture   </label>
             <picture-input
-            v-model="product.picture" id="picture" name="picture"
+            v-model="picture" id="picture" name="picture"
             ref="pictureInput"
             @change="onChanged"
             @remove="onRemoved"
@@ -47,7 +47,7 @@
 <script>
 import swal from "sweetalert2";
 import PictureInput from "vue-picture-input";
-import FormDataPost from '../../../upload';
+import FormDataPost from "../../../upload";
 export default {
   name: "Register your product",
   components: {
@@ -59,72 +59,86 @@ export default {
       product: {
         title: "",
         description: "",
-        price: "",
-        picture: ""
+        price: ""
       },
+      picture: ""
     };
   },
   methods: {
     onChanged() {
       console.log("New picture loaded");
       if (this.$refs.pictureInput.file) {
-        this.product.picture = this.$refs.pictureInput.file;
+        this.picture = this.$refs.pictureInput.file;
       } else {
         console.log("Old browser. No support for Filereader API");
       }
     },
     onRemoved() {
-      this.product = '';
+      this.product = "";
     },
     sendData() {
-      console.log('ICI', this.product)
-      FormDataPost("/products", this.product)
-      .then(res => {
-        if (res) {
-          swal({
-            type: "success",
-            title: "Congrat !",
-            text: res.data.message
-          });
-          this.product = {};
-        } else {
-          alert("Server Error");
+      console.log("ICI", this.product, this.picture);
+
+      const data = new FormData();
+
+      data.append("title", this.product.title);
+      data.append("description", this.product.description);
+      data.append("price", this.product.price);
+      data.append("picture", this.picture);
+
+      const config = {
+        headers: {
+          "content-type": "multipart/form-data"
         }
-      })
-      .catch(error => {
-        if (error) {
-          swal({
-            type: "error",
-            title: "Oh no ...",
-            text: error.response.data.message
-          });
-        }
-      });
+      };
+      this.$http
+        .post("/products", data, config)
+        .then(res => {
+          if (res) {
+            swal({
+              type: "success",
+              title: "Congrat !",
+              text: res.data.message
+            });
+            // this.product = {};
+          } else {
+            alert("Server Error");
+          }
+        })
+        .catch(error => {
+          if (error) {
+            swal({
+              type: "error",
+              title: "Oh no ...",
+              text: error.response.data.message
+            });
+          }
+        });
     },
     sendImage() {
-      FormDataPost("/products",this.image)
-      .then(res => {
-        console.log(this.image)
-        if (res) {
-          swal({
-            type: "success",
-            title: "Image saved !",
-            text: res.data.message
-          });
-          this.image = {};
-        } else {
-          alert("Server Error");
-        }
-      })
-      .catch(error => {
-        if (error) {
-          swal({
-            type: "error",
-            title: "Oh no ...",
-            text: error.response.data.message
-          });
-        }
-      });
+      FormDataPost("/products", this.image)
+        .then(res => {
+          console.log(this.image);
+          if (res) {
+            swal({
+              type: "success",
+              title: "Image saved !",
+              text: res.data.message
+            });
+            this.image = {};
+          } else {
+            alert("Server Error");
+          }
+        })
+        .catch(error => {
+          if (error) {
+            swal({
+              type: "error",
+              title: "Oh no ...",
+              text: error.response.data.message
+            });
+          }
+        });
     }
   }
 };
