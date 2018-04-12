@@ -27,10 +27,10 @@
 <script>
 import swal from "sweetalert2";
 export default {
-  name: "Register your product",
+  name: "newProduct",
   data() {
     return {
-      title: "Your are on NewProduct",
+      title: "Register a New Product",
       product: {
         title: "",
         description: "",

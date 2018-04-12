@@ -1,9 +1,18 @@
 import express from "express";
+import multer from "multer"
 import connection from "../connection/index";
 import User from "./../../models/User";
 import Product from "./../../models/Product";
 
 let products = express.Router();
+
+const storage = multer.diskStorage({
+	destination: './public/productImages/',
+	filename: function (req, file, cb) {
+		cb(null, file.fieldname + '-' + Date.now + path.extname(file.originalname))
+		});
+	}
+});
 
 products.get("/", (req, res) => {
 	Product.find({}, (err, productList) => {
@@ -44,4 +53,20 @@ products.post("/", (req, res) => {
 		}
 	});
 });
+
+products.post('/images', upload.single('image'), (req, res) => {
+	if (!req.file) {
+		console.log("No file received");
+		return res.send({
+			success: false
+		});
+
+	} else {
+		console.log('file received');
+		return res.send({
+			success: true
+		})
+	}
+});
+
 export default products;

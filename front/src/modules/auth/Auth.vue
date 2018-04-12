@@ -6,14 +6,9 @@
   </div>
 </template>
 
-<scriptslide-out
+<script>
 export default {
-  name: "Auth",
-  dataslide-out{
-    return {
-      content: "Login"
-    };
-  }
+  name: "auth"
 };
 </script>
 

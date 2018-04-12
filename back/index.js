@@ -1,18 +1,24 @@
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
-import bodyParser from "body-parser";
-import jwt from "jsonwebtoken";
-import morgan from "morgan";
-import dotEnv from "dotenv";
-dotEnv.config();
-import connection from "./modules/connection/index";
-import checkToken from "./modules/checkToken/index";
-import auth from "./modules/auth/index";
-import users from "./modules/users/index";
-import messages from "./modules/messages/index";
-import profile from "./modules/profile/index";
-import products from "./modules/products/index";
+import express from "express"
+import mongoose from "mongoose"
+import cors from "cors"
+import bodyParser from "body-parser"
+import jwt from "jsonwebtoken"
+import morgan from "morgan"
+import dotEnv from "dotenv"
+// import multer from "multer"
+import path from "path"
+dotEnv.config()
+import connection from "./modules/connection/index"
+import checkToken from "./modules/checkToken/index"
+import auth from "./modules/auth/index"
+import users from "./modules/users/index"
+import messages from "./modules/messages/index"
+import profile from "./modules/profile/index"
+import products from "./modules/products/index"
+
+app.use(express.static('public'))
+
+
 
 let app = express();
 

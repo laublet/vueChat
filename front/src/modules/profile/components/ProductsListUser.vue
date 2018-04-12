@@ -2,19 +2,19 @@
   <div class="productsListUser" >
     <h2 class="heading-secondary">{{ title }}</h2>
     <div class="row productsListUser__row">
-       <product class="productsListUser__products" v-for="product in products" :key="product.price" :naming="product"></product>
-    </div>
-  </div>
+      <product class="productsListUser__products" v-for="product in products" :key="product._id" :namingProps="product"></product>
+   </div>
+ </div>
 </template>
 
 <script>
 import Product from "@/sharedComponents/Product";
 import swal from "sweetalert2";
 export default {
-  name: "Here are your products",
+  name: "productListUser",
   data() {
     return {
-      title: "Your are on productsListUser",
+      title: "Here are your products registered",
       products: []
     };
   },
@@ -24,17 +24,17 @@ export default {
   methods: {
     getProducts() {
       this.$http
-        .get("/profile/products", {})
-        .then(res => {
-          this.products = res.data.content;
-        })
-        .catch(error => {
-          swal({
-            type: "error",
-            title: "Oh no ...",
-            text: error.response.data.message
-          });
+      .get("/profile/products", {})
+      .then(res => {
+        this.products = res.data.content;
+      })
+      .catch(error => {
+        swal({
+          type: "error",
+          title: "Oh no ...",
+          text: error.response.data.message
         });
+      });
     }
   },
   created() {
