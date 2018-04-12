@@ -16,11 +16,11 @@ import messages from "./modules/messages/index"
 import profile from "./modules/profile/index"
 import products from "./modules/products/index"
 
-app.use(express.static('public'))
 
 
 
 let app = express();
+app.use(express.static('public'))
 
 app.use(morgan("dev"));
 
