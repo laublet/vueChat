@@ -49,7 +49,7 @@ import swal from "sweetalert2";
 import PictureInput from "vue-picture-input";
 import FormDataPost from "../../../upload";
 export default {
-  name: "Register your product",
+  name: "newProduct",
   components: {
     PictureInput
   },
@@ -100,7 +100,7 @@ export default {
               title: "Congrat !",
               text: res.data.message
             });
-            // this.product = {};
+            this.product = {};
           } else {
             alert("Server Error");
           }
