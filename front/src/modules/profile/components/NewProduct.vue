@@ -49,15 +49,10 @@
           <!-- <button class="btn btn-lg btn--white" @click="attemptUpload" v-bind:class="{ disabled: !image }">Upload</button> -->
         </div>
       </form>
+
       <form v-on:submit.prevent>
-        <div class="form-group">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <label for="picture">Picture   </label>
-            <!-- <picture-input
-            @change="onChange()"
-            width="300" height="300" margin="16" accept="image/jpeg,image/png"
-            zIndex="1"
-            >
-          </picture-input> -->
           <picture-input
           v-model="image.picture" id="picture" name="picture"
           ref="pictureInput"
@@ -76,6 +71,7 @@
           >
         </picture-input>
         <button class="btn btn-lg btn--white" @click="sendImage">Send only the image !</button>
+        <button class="btn btn-lg btn--white" @click="attemptUpload">Upload image !</button>
       </div>
     </form>
   </div>
@@ -86,6 +82,22 @@
 import swal from "sweetalert2";
 import PictureInput from "vue-picture-input";
 export default {
+  function (url, file, name = 'avatar') {
+  if (typeof url !== 'string') {
+    throw new TypeError(`Expected a string, got ${typeof url}`);
+  }
+
+  // You can add checks to ensure the url is valid, if you wish
+
+  const formData = new FormData();
+  formData.append(name, file);
+  const config = {
+    headers: {
+      'content-type': 'multipart/form-data'
+    }
+  };
+  return axios.post(url, formData, config);
+},
   name: "Register your product",
   components: {
     PictureInput
@@ -106,21 +118,22 @@ export default {
     };
   },
   methods: {
-
     onChanged() {
       console.log("New picture loaded");
       if (this.$refs.pictureInput.file) {
         this.image = this.$refs.pictureInput.file;
+        console.log("onChanged()", this.image);
       } else {
         console.log("Old browser. No support for Filereader API");
       }
     },
     onRemoved() {
       this.image = '';
+      console.log("onRemoved()", this.image);
     },
     attemptUpload() {
       if (this.image){
-        FormDataPost('http://localhost:8001/user/picture', this.image)
+        FormDataPost('http://localhost:8080/user/picture', this.image)
         .then(response=>{
           if (response.data.success){
             this.image = '';
@@ -132,7 +145,6 @@ export default {
         });
       }
     },
-
     sendData() {
       this.$http
       .post("/products", this.product)
@@ -160,11 +172,12 @@ export default {
     },
     sendImage() {
       // if (this.$refs.pictureInput.file) {
-      this.image = this.$refs.pictureInput.file;
-      console.log(this.image);
+      // this.image = this.$refs.pictureInput.file;
+      // console.log(this.image);
     // } else {
     //   console.log("Old browser. No support for Filereader API");
     // }
+      console.log("sendImage()", this.image);
       this.$http
       .post("/products/images", this.image)
       .then(res => {
