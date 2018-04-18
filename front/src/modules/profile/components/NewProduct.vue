@@ -33,7 +33,7 @@
             :customStrings="{
             upload: '<h1>Upload it!</h1>',
             drag: 'Drag and drop your image here'}"
-            zIndex="1"
+            :zIndex="1"
             >
           </picture-input>
         </div>
