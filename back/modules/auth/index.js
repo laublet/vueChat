@@ -56,7 +56,7 @@ auth.post("/login", (req, res) => {
             },
             process.env.SECRETKEY,
             function(err, result) {
-              let newToken = new Token({ token: result });
+              // let newToken = new Token({ token: result });
               // newToken.save(function(err, ntoken) {
               if (err) {
                 res.status(500).json({ success: false, message: err.message });

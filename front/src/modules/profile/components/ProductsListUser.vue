@@ -24,17 +24,17 @@ export default {
   methods: {
     getProducts() {
       this.$http
-      .get("/profile/products", {})
-      .then(res => {
-        this.products = res.data.content;
-      })
-      .catch(error => {
-        swal({
-          type: "error",
-          title: "Oh no ...",
-          text: error.response.data.message
+        .get("/profile/products", {})
+        .then(res => {
+          this.products = res.data.content;
+        })
+        .catch(error => {
+          swal({
+            type: "error",
+            title: "Oh no ...",
+            text: error.response.data.message
+          });
         });
-      });
     }
   },
   created() {
