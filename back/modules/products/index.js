@@ -1,5 +1,5 @@
 import express from "express";
-import multer from "multer"
+import multer from "multer";
 import connection from "../connection/index";
 import User from "./../../models/User";
 import Product from "./../../models/Product";
@@ -7,20 +7,19 @@ import Product from "./../../models/Product";
 let products = express.Router();
 
 const storage = multer.diskStorage({
-	destination: './public/productImages/',
-	filename: function (req, file, cb) {
-		cb(null,file.fieldname + '-' + Date.now());
-		// cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+	destination: "./public/productImages/",
+	filename: function(req, file, cb) {
+		cb(null, file.fieldname + "-" + Date.now());
 	}
 });
 
 const upload = multer({
-	storage: storage,
-  // limits:{fileSize: 9000000}
-  // fileFilter: function(req, file, cb){
-  //   checkFileType(file, cb);
-  // }
-})
+	storage: storage
+	// limits:{fileSize: 9000000}
+	// fileFilter: function(req, file, cb){
+	//   checkFileType(file, cb);
+	// }
+});
 
 products.get("/", (req, res) => {
 	Product.find({}, (err, productList) => {
@@ -46,8 +45,11 @@ products.get("/:id", (req, res) => {
 	});
 });
 
-products.post("/", (req, res) => {
+products.post("/", upload.single("picture"), (req, res) => {
+	console.log("Req Body: ", req.body);
+	console.log("Req File: ", req.file);
 	let newProduct = new Product(req.body);
+	newProduct.pictures = req.file.path;
 	newProduct.userId = req.decode.id;
 	newProduct.save(function(err, product) {
 		if (err) {
@@ -60,22 +62,6 @@ products.post("/", (req, res) => {
 			});
 		}
 	});
-});
-
-products.post('/images', upload.single('picture') ,(req, res) => {
-	console.log("Ici: " , req.file)
-	if (!req.file) {
-		console.log("No file received");
-		return res.send({
-			success: false
-		});
-
-	} else {
-		console.log('file received');
-		return res.send({
-			success: true
-		})
-	}
 });
 
 export default products;
