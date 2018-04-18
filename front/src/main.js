@@ -31,7 +31,6 @@ const resInterceptor = axios.interceptors.response.use(res => {
 // axios.interceptors.request.eject(reqInterceptor);
 // axios.interceptors.response.eject(resInterceptor);
 
-
 new Vue({
 	el: "#app",
 	router,
