@@ -7,9 +7,9 @@
           <hr>
           <div class="form-group">
             <label for="userID"></label>
-            <input v-model="messagesToSend.userID" id="userID" class="form-control" name="userID" type="text" placeholder="To" required>
+            <!-- <input v-model="messagesToSend.userID" id="userID" class="form-control" name="userID" type="text" placeholder="To" required> -->
+          <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required><br><br>
           </div>
-          <!-- <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required><br><br> -->
           <div class="form-group" >
             <label for="title"></label>
             <input v-model="messagesToSend.title" id="title" class="form-control" name="title" type="text" placeholder="Title" required>

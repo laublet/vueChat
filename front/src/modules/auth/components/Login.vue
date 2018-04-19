@@ -43,7 +43,6 @@ export default {
           let token = res.data.content.token;
           localStorage.setItem("Clef", token);
           localStorage.setItem("User", this.user.username);
-          // localStorage.getItem("Clef");
           if (token) this.$router.push("/home");
           else
             swal({
@@ -61,8 +60,8 @@ export default {
     }
   },
   created() {
-    this.user.username = "test@test.com";
-    this.user.password = "test";
+    // this.user.username = "test@test.com";
+    // this.user.password = "test";
   }
 };
 </script>

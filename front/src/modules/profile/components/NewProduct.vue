@@ -66,11 +66,9 @@ export default {
   },
   methods: {
     onChanged() {
-      console.log("New picture loaded");
       if (this.$refs.pictureInput.file) {
         this.picture = this.$refs.pictureInput.file;
       } else {
-        console.log("Old browser. No support for Filereader API");
       }
     },
     onRemoved() {

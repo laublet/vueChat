@@ -36,7 +36,6 @@ export default {
             .latlng([position.coords.latitude, position.coords.longitude])
             .run((error, result, response) => {
               let address = result.address;
-              console.log(result.address);
               this.$store.state.location = address;
               this.$store.state.location.latitude = position.coords.latitude;
               this.$store.state.location.longitude =

@@ -1,6 +1,6 @@
 <template>
   <div class="productslist" >
-    <h2 class="heading-tertiary">Here is your AwesomeProductsList</h2>
+    <h2 class="heading-tertiary">{{ title }}</h2>
     <div class="row productslist__row">
       <product style="cursor: pointer" v-for="product in products.slice(0, 10)" :key="product._id" :namingProps="product"></product>
     </div>
@@ -14,7 +14,7 @@ export default {
   name: "productsList",
   data() {
     return {
-      title: "Your are on ProductsList",
+      title: "Here is your AwesomeProductsList",
       products: []
     };
   },
@@ -27,7 +27,6 @@ export default {
         .get("/products", {})
         .then(res => {
           this.products = res.data.content;
-          console.log(this.products)
         })
         .catch(error => {
           if (error)

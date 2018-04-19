@@ -41,10 +41,7 @@ export default {
   },
   beforeMount() {
     if(this.$route.params.id) {
-      console.log("ICI", this.$route.params.id)
-      console.log('Before', this.namingProps)
       this.namingProps = this.$route.params.product
-      console.log('after', this.namingProps)
     }
   }
 };
