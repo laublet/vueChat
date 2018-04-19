@@ -32,12 +32,8 @@
 		margin: 8vh auto;
 		padding: 2rem;
 		font-size: 3rem;
-		background-color: $color-tertiary-dark;
+		background-color: $color-secondary-dark;
 		box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
-
-		p  {
-			text-decoration: underline;
-		}
 
 		white-space: nowrap;
 		overflow: hidden;
@@ -47,9 +43,6 @@
 			max-height: 50vh;
 			min-height: 10vh;
 			border-radius: 2rem;
-		}
-		&:hover {
-			transform: translateY(-1.5rem) scale(1.03);
 		}
 	}
 }

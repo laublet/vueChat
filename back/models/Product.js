@@ -18,6 +18,10 @@ let ProductSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  username: {
+    type: String,
+    // required: true
+  },
   adress: {}
 });
 
