@@ -15,7 +15,7 @@
           </div>
           <div class="form-group">
             <label for="price">Price   </label>
-            <input v-model="product.price" id="price" class="form-control" name="price" type="number" placeholder="...">
+            <input v-model="product.price" id="price" class="form-control" name="price" type="number" placeholder="..." required>
           </div>
           <div class="form-group">
             <label for="picture">Picture   </label>
@@ -74,18 +74,14 @@ export default {
       }
     },
     onRemoved() {
-      this.product = "";
+      this.picture = "";
     },
     sendData() {
-      console.log("ICI", this.product, this.picture);
-
       const data = new FormData();
-
       data.append("title", this.product.title);
       data.append("description", this.product.description);
       data.append("price", this.product.price);
       data.append("picture", this.picture);
-
       const config = {
         headers: {
           "content-type": "multipart/form-data"
@@ -100,6 +96,7 @@ export default {
               title: "Congrat !",
               text: res.data.message
             });
+            this.picture = "";
             this.product = {};
           } else {
             alert("Server Error");
@@ -112,31 +109,8 @@ export default {
               title: "Oh no ...",
               text: error.response.data.message
             });
-          }
-        });
-    },
-    sendImage() {
-      FormDataPost("/products", this.image)
-        .then(res => {
-          console.log(this.image);
-          if (res) {
-            swal({
-              type: "success",
-              title: "Image saved !",
-              text: res.data.message
-            });
-            this.image = {};
-          } else {
-            alert("Server Error");
-          }
-        })
-        .catch(error => {
-          if (error) {
-            swal({
-              type: "error",
-              title: "Oh no ...",
-              text: error.response.data.message
-            });
+            this.product = {};
+            this.onRemoved()
           }
         });
     }

@@ -270,6 +270,14 @@ export default new Router({
 			]
 		},
 		{
+			path: "product/:id",
+			name: "productDetail",
+			components: {
+				default: Product,
+				header: Header
+			}
+		},
+		{
 			path: "*",
 			redirect: "/"
 		}

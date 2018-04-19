@@ -1,8 +1,8 @@
 <template>
   <div class="profileEdit" >
-    <div class="row profileEdit__row">
       <h2 class="heading-secondary">Edit your profile</h2>
       <hr>
+    <div class="row profileEdit__row">
       <form v-on:submit.prevent>
         <div class="profileEdit__firstform">
           <!-- <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required><br><br> -->
