@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-default ournav">
+  <nav class="navbar navbar-default ournav" id="background">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -8,7 +8,6 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <!-- <router-link tag="a" class="navbar-brand" :to="{name: 'welcome'}">vueChat</router-link> -->
         <div>
           <ul class="nav navbar-nav">
             <li><a href="#" class="navbar-brand" id="vueChat" v-on:click="routerVueChat">vueChat</a></li>
@@ -24,10 +23,9 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <router-link tag="li" :to="{name: 'profileEdit'}"><a>{{ User }}</a></router-link>
-          <!-- <router-link tag="li" :to="{name: 'login'}"></router-link> -->
           <li><a href="#" v-on:click="routerLogout">Logout</a></li>
         </ul>
-      </div><!--/.nav-collapse -->
+      </div>
     </div>
   </nav>
 </template>
@@ -72,29 +70,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.navbar {
-  border-radius: 0%;
-}
 
-/* .navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  color: #ffbbbc;
-  background-color: #c0392b;
-}
-
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #ffbbbc;
-    background-color: #c0392b;
-  }
-  } */
-
-  #vueChat {
-    text-decoration: none;
-  }
-  </style>
+</style>
