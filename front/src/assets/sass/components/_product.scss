@@ -37,9 +37,9 @@
 		background-color: $color-primary-dark;
 
 		box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
+		// white-space: nowrap;
+		// overflow: hidden;
+		// text-overflow: ellipsis;
 		transition: transform 0.3s;
 		img {
 			max-height: 50vh;

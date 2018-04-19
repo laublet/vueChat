@@ -7,9 +7,9 @@
           <hr>
           <div class="form-group">
             <label for="username">Username <span>*</span> </label>
-            <input v-model="user.username" id="username" class="form-control" name="username" type="email" placeholder="email@example.com" required>
+            <!--       <input v-model="user.username" id="username" class="form-control" name="username" type="email" placeholder="email@example.com" required> -->
+          <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required>
           </div>
-          <!-- <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required><br><br> -->
           <div class="form-group" >
             <label for="password">Password <span>*</span> </label>
             <input v-model="user.password" id="password" class="form-control" name="password" type="password" placeholder="Enter a valid password" required>
