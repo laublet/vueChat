@@ -3,6 +3,7 @@
     <h2>{{ namingProps.title }}</h2>
     <p>{{ namingProps.description }}</p>
     <p>{{ namingProps.price }} euros</p>
+    <img :src="'http://localhost:8000/productImages/' + namingProps.pictures" alt="">
   </div>
 </template>
 

@@ -7,22 +7,19 @@ import morgan from "morgan"
 import dotEnv from "dotenv"
 // import sgMail from '@sendgrid/mail'
 // import multer from "multer"
-import path from "path"
-dotEnv.config()
-import connection from "./modules/connection/index"
-import checkToken from "./modules/checkToken/index"
-import auth from "./modules/auth/index"
-import users from "./modules/users/index"
-import messages from "./modules/messages/index"
-import profile from "./modules/profile/index"
-import products from "./modules/products/index"
-
-
-
+import path from "path";
+dotEnv.config();
+import connection from "./modules/connection/index";
+import checkToken from "./modules/checkToken/index";
+import auth from "./modules/auth/index";
+import users from "./modules/users/index";
+import messages from "./modules/messages/index";
+import profile from "./modules/profile/index";
+import products from "./modules/products/index";
 
 
 let app = express();
-app.use(express.static('public'))
+app.use(express.static("public"));
 
 app.use(morgan("dev"));
 
