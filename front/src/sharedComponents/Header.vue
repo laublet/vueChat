@@ -52,6 +52,7 @@ export default {
         padding: 65,
         backdrop: `rgba(0,0,123,0.4) url("") center right no-repeat`
       });
+      this.$router.push("/home");
     },
     routerLogout() {
       localStorage.removeItem("Clef");
