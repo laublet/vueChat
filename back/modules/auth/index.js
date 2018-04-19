@@ -4,8 +4,15 @@ import jwt from "jsonwebtoken";
 import Token from "./../../models/Token";
 import bcrypt from "bcrypt";
 import User from "./../../models/User";
-
+import sendMail from "../mail/index"
 let auth = express.Router();
+
+const msg = {
+  to: '',
+  from: 'awesomeVueApp@awesome.com',
+  subject: 'Congrat ! ',
+  text: 'Welcome to our AwesomeAPP',
+};
 
 auth.post("/signup", (req, res) => {
   if (req.body.username && req.body.password) {

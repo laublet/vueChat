@@ -13,6 +13,7 @@ import Messages from "@/modules/messages/Messages";
 import Home from "@/modules/home/Home";
 import User from "@/modules/user/User";
 import Header from "@/sharedComponents/Header";
+import Product from "@/sharedComponents/Product";
 
 export default {
   name: "App",
@@ -21,7 +22,8 @@ export default {
     Home,
     Messages,
     User,
-    Header
+    Header,
+    Product
   }
 };
 </script>

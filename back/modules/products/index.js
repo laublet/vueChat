@@ -14,8 +14,8 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({
-	storage: storage
-	// limits:{fileSize: 9000000}
+	storage: storage,
+	limits:{fileSize: 9000000}
 	// fileFilter: function(req, file, cb){
 	//   checkFileType(file, cb);
 	// }
@@ -46,8 +46,10 @@ products.get("/:id", (req, res) => {
 });
 
 products.post("/", upload.single("picture"), (req, res) => {
+	console.log('Req.body', req.body)
+	console.log('Req.File', req.file)
 	let newProduct = new Product(req.body);
-	newProduct.pictures = req.file.filename;
+	if (req.file) newProduct.pictures = req.file.filename;
 	newProduct.userId = req.decode.id;
 	newProduct.save(function(err, product) {
 		if (err) {

@@ -1,10 +1,11 @@
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
-import bodyParser from "body-parser";
-import jwt from "jsonwebtoken";
-import morgan from "morgan";
-import dotEnv from "dotenv";
+import express from "express"
+import mongoose from "mongoose"
+import cors from "cors"
+import bodyParser from "body-parser"
+import jwt from "jsonwebtoken"
+import morgan from "morgan"
+import dotEnv from "dotenv"
+// import sgMail from '@sendgrid/mail'
 // import multer from "multer"
 import path from "path";
 dotEnv.config();
@@ -15,6 +16,7 @@ import users from "./modules/users/index";
 import messages from "./modules/messages/index";
 import profile from "./modules/profile/index";
 import products from "./modules/products/index";
+
 
 let app = express();
 app.use(express.static("public"));
