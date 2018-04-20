@@ -27,33 +27,52 @@ export default {
       let currentLocation = () => {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(position => {
-            let marker = L.marker([
+            let markerCurrentLocation = L.marker([
               position.coords.latitude,
               position.coords.longitude
               ]).addTo(mymap);
             this.$store.state.location = position.coords;
-            let geocoding = L.esri.Geocoding.reverseGeocode()
-            .latlng([position.coords.latitude, position.coords.longitude])
-            .run((error, result, response) => {
-              let address = result.address;
-              this.$store.state.location = address;
-              this.$store.state.location.latitude = position.coords.latitude;
-              this.$store.state.location.longitude =
-              position.coords.longitude;
-              marker
-              .bindPopup(
-                "You are here </br> " +
-                this.$store.state.location.Match_addr
-                )
-              .openPopup();
-            });
+
+            let locations = [
+            ["LOCATION_1",48, 2],
+            ["LOCATION_5",48.5,2]
+            ];
+
+            for (let i = 0; i < locations.length; i++) {
+              let markerLocation =  new L.marker([locations[i][1],locations[i][2]])
+              .addTo(mymap);
+              let geocodingProduct = L.esri.Geocoding.reverseGeocode()
+              .latlng([locations[i][1], locations[i][2]])
+              .run((error, result, response) => {
+                let address = result.address;
+                console.log(result.address);
+                console.log(address.Match_addr);
+                markerLocation.bindPopup('test' + address.Match_addr)
+                .openPopup()
+              });
+
+              let geocoding = L.esri.Geocoding.reverseGeocode()
+              .latlng([position.coords.latitude, position.coords.longitude])
+              .run((error, result, response) => {
+                let address = result.address;
+                this.$store.state.location = address;
+                this.$store.state.location.latitude = position.coords.latitude;
+                this.$store.state.location.longitude = position.coords.longitude;
+                markerCurrentLocation
+                .bindPopup(
+                  "You are here </br> " +
+                  this.$store.state.location.Match_addr
+                  )
+                .openPopup();
+              });
+            }
           });
         } else {
           alert("La géolocalisation n'est pas supportée par ce navigateur.");
         }
       };
       currentLocation();
-      var mymap = L.map("mapid", {
+      let mymap = L.map("mapid", {
         center: ["45.99956", "-1.21353"],
         zoom: 18
       });
@@ -68,6 +87,7 @@ export default {
           "pk.eyJ1Ijoia2FzMDQiLCJhIjoiY2pmY2Fkcm5uMjlqbTJybnZ4ZmxrbDJoaCJ9.V1aIrSzguAz3gUlY-Qi6Fw"
         }
         ).addTo(mymap);
+
     }
   }
 };

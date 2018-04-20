@@ -22,7 +22,36 @@ let ProductSchema = new mongoose.Schema({
     type: String,
     // required: true
   },
-  adress: {}
+  address: {
+    country: {
+      type: String,
+      default: null
+    },
+    region: {
+      type: String,
+      default: null
+    },
+    city: {
+      type: String,
+      default: null
+    },
+    street: {
+      type: String,
+      default: null
+    },
+    postal: {
+      type: String,
+      default: null
+    },
+    longitude: {
+      type: Number,
+      default: null
+    },
+    latitude: {
+      type: Number,
+      default: null
+    }
+  },
 });
 
 export default mongoose.model("Product", ProductSchema);

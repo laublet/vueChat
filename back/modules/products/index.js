@@ -46,14 +46,10 @@ products.get("/:id", (req, res) => {
 });
 
 products.post("/", upload.single("picture"), (req, res) => {
-	// console.log('Req.body', req.body)
-	// console.log('Req.File', req.file)
-	console.log(req.decode.username)
-	let newProduct = new Product(req.body);
+	let newProduct = new Product(JSON.parse(req.body.product));
 	if (req.file) newProduct.pictures = req.file.filename;
 	newProduct.userId = req.decode.id;
 	newProduct.username = req.decode.username;
-	console.log(newProduct)
 	newProduct.save(function(err, product) {
 		if (err) {
 			res.status(400).json({ success: false, message: err.message });

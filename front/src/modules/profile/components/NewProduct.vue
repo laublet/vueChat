@@ -59,7 +59,8 @@ export default {
       product: {
         title: "",
         description: "",
-        price: ""
+        price: "",
+        address: {}
       },
       picture: ""
     };
@@ -76,10 +77,7 @@ export default {
     },
     sendData() {
       const data = new FormData();
-      data.append("title", this.product.title);
-      data.append("description", this.product.description);
-      data.append("price", this.product.price);
-      data.append("picture", this.picture);
+      data.append("product", JSON.stringify(this.product));
       const config = {
         headers: {
           "content-type": "multipart/form-data"
@@ -111,6 +109,17 @@ export default {
             this.onRemoved()
           }
         });
+    }
+  },
+  beforeMount() {
+    if (this.$store.state.location.latitude) {
+      this.product.address.country = this.$store.state.location.CountryCode;
+      this.product.address.region = this.$store.state.location.Region;
+      this.product.address.city = this.$store.state.location.City;
+      this.product.address.street = this.$store.state.location.Address;
+      this.product.address.postal = this.$store.state.location.Postal;
+      this.product.address.latitude = this.$store.state.location.latitude;
+      this.product.address.longitude = this.$store.state.location.longitude;
     }
   }
 };
