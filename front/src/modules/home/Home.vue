@@ -44,7 +44,6 @@ export default {
 			.then(res => {
 				this.products = res.data.content;
 				res.data.content.forEach(element => {
-					let i = 1
 					let locations = [element.title ,element.address.latitude, element.address.longitude]
 					this.productsLocation.push(locations)
 				});
@@ -69,7 +68,7 @@ export default {
 						this.$store.state.location = position.coords;
 
 						let locations = this.productsLocation
-						console.log(locations);
+						// console.log(locations);
 						for (let i = 0; i < locations.length; i++) {
 							if (locations[i][1] == null || locations[i][2] == null) {
 							} else {

@@ -1,16 +1,20 @@
 <template>
   <div>
-    <div v-if="this.$route.params.id">
-      <h2 >Interested ? </h2>
-      <button @click="contact(namingProps.username)" class="btn btn-lg btn--white">Contact Me !</button>
-    </div>
+
     <div @click="productdetail">
       <div class="row productdetail__row">
         <div :class="[{product: !this.$route.params.id}, {productdetail__product: this.$route.params.id}]">
-          <h2>Title: {{ namingProps.title}}</h2>
-          <p>Description: {{ namingProps.description }}</p>
-          <p>Price: {{ namingProps.price }} euros</p>
-          <img :src="'http://localhost:8000/productImages/' + namingProps.pictures" alt="" v-if="namingProps.pictures">
+          <img class="col lg-6 product__img" :src="'http://localhost:8000/productImages/' + namingProps.pictures" alt="" v-if="namingProps.pictures">
+          <div class="col lg-6 product__content" >
+            <h2>{{ namingProps.title}}</h2>
+            <p>{{ namingProps.description }}</p>
+            <p>{{ namingProps.price }} euros</p>
+            <!-- <hr> -->
+            <div class="product__contact" v-if="this.$route.params.id">
+              <h2 >Interested by this product ? </h2>
+              <button @click="contact(namingProps.username)" class="btn btn-lg btn--white">Contact Me !</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
