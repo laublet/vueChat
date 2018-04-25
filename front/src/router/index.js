@@ -23,7 +23,7 @@ const Messages = resolve => {
 			resolve(require("../modules/messages/Messages"));
 		},
 		"messages"
-	);
+		);
 };
 const MessagesList = resolve => {
 	require.ensure(
@@ -32,7 +32,7 @@ const MessagesList = resolve => {
 			resolve(require("../modules/messages/components/MessagesList"));
 		},
 		"messages"
-	);
+		);
 };
 const MessagesDetail = resolve => {
 	require.ensure(
@@ -41,7 +41,7 @@ const MessagesDetail = resolve => {
 			resolve(require("../modules/messages/components/MessagesDetail"));
 		},
 		"messages"
-	);
+		);
 };
 const User = resolve => {
 	require.ensure(
@@ -50,7 +50,7 @@ const User = resolve => {
 			resolve(require("../modules/user/User"));
 		},
 		"user"
-	);
+		);
 };
 const UserList = resolve => {
 	require.ensure(
@@ -59,7 +59,7 @@ const UserList = resolve => {
 			resolve(require("../modules/user/components/UserList"));
 		},
 		"user"
-	);
+		);
 };
 const UserDetail = resolve => {
 	require.ensure(
@@ -68,7 +68,7 @@ const UserDetail = resolve => {
 			resolve(require("../modules/user/components/UserDetail"));
 		},
 		"user"
-	);
+		);
 };
 const SendMessages = resolve => {
 	require.ensure(
@@ -77,7 +77,7 @@ const SendMessages = resolve => {
 			resolve(require("../sharedComponents/SendMessages.vue"));
 		},
 		"user"
-	);
+		);
 };
 
 const Home = resolve => {
@@ -87,7 +87,7 @@ const Home = resolve => {
 			resolve(require("../modules/home/Home"));
 		},
 		"Home"
-	);
+		);
 };
 const Welcome = resolve => {
 	require.ensure(
@@ -96,7 +96,7 @@ const Welcome = resolve => {
 			resolve(require("../modules/home/components/Welcome"));
 		},
 		"Home"
-	);
+		);
 };
 const ProductsList = resolve => {
 	require.ensure(
@@ -105,7 +105,7 @@ const ProductsList = resolve => {
 			resolve(require("../modules/home/components/ProductsList"));
 		},
 		"Home"
-	);
+		);
 };
 
 const Profile = resolve => {
@@ -115,7 +115,7 @@ const Profile = resolve => {
 			resolve(require("../modules/profile/Profile"));
 		},
 		"Profile"
-	);
+		);
 };
 
 const ProfileEdit = resolve => {
@@ -125,7 +125,7 @@ const ProfileEdit = resolve => {
 			resolve(require("../modules/profile/components/ProfileEdit"));
 		},
 		"Profile"
-	);
+		);
 };
 
 const NewProduct = resolve => {
@@ -135,7 +135,7 @@ const NewProduct = resolve => {
 			resolve(require("../modules/profile/components/NewProduct"));
 		},
 		"Profile"
-	);
+		);
 };
 
 const ProductsListUser = resolve => {
@@ -145,141 +145,141 @@ const ProductsListUser = resolve => {
 			resolve(require("../modules/profile/components/ProductsListUser"));
 		},
 		"Profile"
-	);
+		);
 };
 
 Vue.use(Router);
 
 export default new Router({
 	routes: [
+	{
+		path: "/",
+		name: "auth",
+		components: {
+			default: Auth
+		},
+		children: [
 		{
-			path: "/",
-			name: "auth",
-			components: {
-				default: Auth
-			},
-			children: [
-				{
-					path: "",
-					name: "login",
-					component: Login
-				},
-				{
-					path: "signup",
-					name: "signup",
-					component: Signup
-				}
-			]
+			path: "",
+			name: "login",
+			component: Login
 		},
 		{
-			path: "/home",
-			name: "home",
-			components: {
-				default: Home,
-				header: Header
-			},
-			children: [
-				{
-					path: "",
-					name: "welcome",
-					component: Welcome
-				},
-				{
-					path: "productsList",
-					name: "productsList",
-					component: ProductsList
-				}
-			]
-		},
-		{
-			path: "/sendMessages",
-			name: "sendMessages",
-			components: {
-				default: SendMessages,
-				header: Header
-			}
-		},
-		{
-			path: "/messages",
-			name: "messages",
-			components: {
-				default: Messages,
-				header: Header
-			},
-			children: [
-				{
-					path: "",
-					name: "messagesList",
-					component: MessagesList
-				},
-				{
-					path: ":ID",
-					name: "messagesDetail",
-					component: MessagesDetail
-				}
-			]
-		},
-		{
-			path: "/user",
-			name: "user",
-			components: {
-				default: User,
-				header: Header
-			},
-			children: [
-				{
-					path: "",
-					name: "userList",
-					component: UserList
-				},
-				{
-					path: ":id",
-					name: "userDetail",
-					component: UserDetail
-				},
-				{
-					path: "/messagesToSend/:userID",
-					name: "sendMessages",
-					component: SendMessages
-				}
-			]
-		},
-		{
-			path: "/profile",
-			name: "profile",
-			components: {
-				default: Profile,
-				header: Header
-			},
-			children: [
-				{
-					path: "",
-					name: "profileEdit",
-					component: ProfileEdit
-				},
-				{
-					path: "/newProduct",
-					name: "newProduct",
-					component: NewProduct
-				},
-				{
-					path: "/productsListUser",
-					name: "productsListUser",
-					component: ProductsListUser
-				}
-			]
-		},
-		{
-			path: "product/:id",
-			name: "productDetail",
-			components: {
-				default: Product,
-				header: Header
-			}
-		},
-		{
-			path: "*",
-			redirect: "/"
+			path: "signup",
+			name: "signup",
+			component: Signup
 		}
+		]
+	},
+	{
+		path: "/home",
+		name: "home",
+		components: {
+			default: Home,
+			header: Header
+		},
+		children: [
+		{
+			path: "",
+			name: "welcome",
+			component: Welcome
+		},
+		{
+			path: "productsList",
+			name: "productsList",
+			component: ProductsList
+		}
+		]
+	},
+	{
+		path: "/sendMessages",
+		name: "sendMessages",
+		components: {
+			default: SendMessages,
+			header: Header
+		}
+	},
+	{
+		path: "/messages",
+		name: "messages",
+		components: {
+			default: Messages,
+			header: Header
+		},
+		children: [
+		{
+			path: "",
+			name: "messagesList",
+			component: MessagesList
+		},
+		{
+			path: ":ID",
+			name: "messagesDetail",
+			component: MessagesDetail
+		}
+		]
+	},
+	{
+		path: "/user",
+		name: "user",
+		components: {
+			default: User,
+			header: Header
+		},
+		children: [
+		{
+			path: "",
+			name: "userList",
+			component: UserList
+		},
+		{
+			path: ":id",
+			name: "userDetail",
+			component: UserDetail
+		},
+		{
+			path: "/messagesToSend/:userID",
+			name: "sendMessages",
+			component: SendMessages
+		}
+		]
+	},
+	{
+		path: "/profile",
+		name: "profile",
+		components: {
+			default: Profile,
+			header: Header
+		},
+		children: [
+		{
+			path: "",
+			name: "profileEdit",
+			component: ProfileEdit
+		},
+		{
+			path: "/newProduct",
+			name: "newProduct",
+			component: NewProduct
+		},
+		{
+			path: "/productsListUser",
+			name: "productsListUser",
+			component: ProductsListUser
+		}
+		]
+	},
+	{
+		path: "product/:id",
+		name: "productDetail",
+		components: {
+			default: Product,
+			header: Header
+		}
+	},
+	{
+		path: "*",
+		redirect: "/"
+	}
 	]
 });

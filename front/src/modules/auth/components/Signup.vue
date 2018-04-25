@@ -7,8 +7,8 @@
           <hr>
           <div class="form-group">
             <label for="username">Username <span>*</span> </label>
-                  <input v-model="user.username" id="username" class="form-control" name="username" type="email" placeholder="email@example.com" required>
-          <!-- <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required> -->
+            <input v-model="user.username" id="username" class="form-control" name="username" type="email" placeholder="email@example.com" required>
+            <!-- <input v-model="user.password" id="password" name="password" type="password" placeholder="password" pattern=".{5,10}" title="5 to 10 characters" required> -->
           </div>
           <div class="form-group" >
             <label for="password">Password <span>*</span> </label>
@@ -49,32 +49,32 @@ export default {
   methods: {
     signIn() {
       this.$http
-        .post("/auth/signup", this.user)
-        .then(res => {
-          if (res) {
-            swal({
-              type: "success",
-              title: "Congrat !",
-              text: res.data.message
-            });
-            this.$router.push("/login");
-          } else {
-            swal({
-              type: "error",
-              text: "Server Error"
-            });
-          }
-        })
-        .catch(error => {
-          if (error) {
-            swal({
-              type: "error",
-              title: "Oh no ...",
-              text: error.response.data.message
-            });
-          } else {
-          }
-        });
+      .post("/auth/signup", this.user)
+      .then(res => {
+        if (res) {
+          swal({
+            type: "success",
+            title: "Congrat !",
+            text: res.data.message
+          });
+          this.$router.push("/login");
+        } else {
+          swal({
+            type: "error",
+            text: "Server Error"
+          });
+        }
+      })
+      .catch(error => {
+        if (error) {
+          swal({
+            type: "error",
+            title: "Oh no ...",
+            text: error.response.data.message
+          });
+        } else {
+        }
+      });
     }
   }
 };

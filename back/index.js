@@ -44,8 +44,8 @@ app.use((err, req, res, next) => {
 		console.log("\u0007");
 		console.error(err, "Unhandled Exception thrown");
 		res
-			.status(500)
-			.json({ success: false, message: "An unexpected error occured.." });
+		.status(500)
+		.json({ success: false, message: "An unexpected error occured.." });
 	}
 });
 
