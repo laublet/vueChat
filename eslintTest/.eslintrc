@@ -1,23 +1,5 @@
-// {
-// 	"extends": ["airbnb", "prettier"],
-// 	"parserOptions": {
-// 		"ecmaVersion": 6
-// 	},
-// 	"env": {
-// 		"node": true,
-// 		"browser": true,
-// 		"es6": true
-// 	},
-// 	"plugins": ["prettier"],
-// 	"rules": {
-// 		"prettier/prettier": "error",
-// 		"comma-dangle": warn,
-// 		"semi": [2, "never"]
-// 	}
-// }
-
 {
-	"extends": ["airbnb"],
+	"extends": ["airbnb", "prettier"],
 	"parserOptions": {
 		"ecmaVersion": 6
 	},
@@ -26,8 +8,30 @@
 		"browser": true,
 		"es6": true
 	},
+	"plugins": ["prettier"],
 	"rules": {
-		// "comma-dangle": warn,
-		"semi": [2, "never"]
+		"prettier/prettier": [
+			"error",
+			{
+				"singleQuote": true,
+				"trailingComma": "all",
+			},
+		],
 	}
 }
+
+// {
+// 	"extends": ["airbnb"],
+// 	"parserOptions": {
+// 		"ecmaVersion": 6
+// 	},
+// 	"env": {
+// 		"node": true,
+// 		"browser": true,
+// 		"es6": true
+// 	},
+// 	"rules": {
+// 		// "comma-dangle": warn,
+// 		"semi": [2, "never"]
+// 	}
+// }

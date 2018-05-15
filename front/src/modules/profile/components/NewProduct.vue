@@ -78,6 +78,7 @@ export default {
     sendData() {
       const data = new FormData();
       data.append("product", JSON.stringify(this.product));
+      data.append("picture", this.picture);
       const config = {
         headers: {
           "content-type": "multipart/form-data"
@@ -106,7 +107,7 @@ export default {
               text: error.response.data.message
             });
             this.product = {};
-            this.onRemoved()
+            this.onRemoved();
           }
         });
     }
@@ -126,4 +127,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>
