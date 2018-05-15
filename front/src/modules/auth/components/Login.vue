@@ -60,8 +60,8 @@ export default {
     }
   },
   created() {
-    // this.user.username = "test@test.com";
-    // this.user.password = "test";
+    this.user.username = "test@test.com";
+    this.user.password = "test";
   }
 };
 </script>
